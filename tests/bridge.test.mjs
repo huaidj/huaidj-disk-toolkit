@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, writeFile, rm, mkdir } from 'node:fs/promises';
+import { mkdtemp, writeFile, rm, mkdir, realpath } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { inspectImage, sha256File, isWithin } from '../src/images.mjs';
@@ -22,7 +22,9 @@ test('no authorization and forged job paths are rejected before backend launch',
 });
 
 test('image inspection distinguishes a pure ISO from a partitioned hybrid and rejects mismatch/root escape', async () => {
-  const directory = await mkdtemp(path.join(os.tmpdir(), 'huaidj-rufus-test-'));
+  // Windows TEMP may use an 8.3 alias; build and guard paths from one canonical base.
+  const temporaryRoot = await realpath(os.tmpdir());
+  const directory = await mkdtemp(path.join(temporaryRoot, 'huaidj-rufus-test-'));
   try {
     const allowed = path.join(directory, 'allowed');
     await mkdir(allowed);
@@ -47,7 +49,6 @@ test('image inspection distinguishes a pure ISO from a partitioned hybrid and re
     await assert.rejects(inspectImage(wrongType, undefined, settings, directory), error => error.code === 'IMAGE_TYPE_NOT_SUPPORTED');
     assert.equal(isWithin(path.join(directory, 'allowed-sibling'), allowed), false);
   } finally {
-    const temporaryRoot = await import('node:fs/promises').then(fs => fs.realpath(os.tmpdir()));
     if (!isWithin(directory, temporaryRoot)) throw new Error('Refusing cleanup outside the temporary workspace');
     await rm(directory, { recursive: true, force: true });
   }

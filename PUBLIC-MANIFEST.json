@@ -21,6 +21,11 @@
       "sha256": "f05da64ce8c4ddf306a7ee58a8e602cc4a539fc75e4f00c6073bfde6e1c202d5"
     },
     {
+      "path": ".github/workflows/reference-platforms.yml",
+      "size": 3036,
+      "sha256": "54b003283b9d3d4ad88929b01ff41e4f26c953dfec11d2a163b00144c8304891"
+    },
+    {
       "path": ".gitignore",
       "size": 93,
       "sha256": "5cffa98a74037fb76f858defb20d6078c4d7ebbc74253a5cd5198194d8bcbee6"
@@ -107,8 +112,8 @@
     },
     {
       "path": "docs/CONNECT.md",
-      "size": 4703,
-      "sha256": "b6e8d4f5482a6ae8586f9ffd5dd3428f4d8c7c977217f9f5022634f2a7f29f47"
+      "size": 5434,
+      "sha256": "9b0ab2702baa4809b2398ca9060c6621f68146127969d4d8057ca8895e71e09b"
     },
     {
       "path": "docs/DISTRIBUTION.md",
@@ -4591,6 +4596,11 @@
       "sha256": "8bd931abe43dbc08aa8afe64033f4524a79d60ac7051084d875285cfe78e90a5"
     },
     {
+      "path": "tests/acceptance/network-install-windows.json",
+      "size": 2766,
+      "sha256": "51b8d2819260f39246f942e84e4aa29b82f0e175b6750eaae4898fa3996deb22"
+    },
+    {
       "path": "tests/acceptance/offline-and-vhd.json",
       "size": 2632,
       "sha256": "a0e32ccf667ec8b3adefb180961a5ea848261cb3dcf7c0cda3102e4cfd657739"
@@ -4607,8 +4617,8 @@
     },
     {
       "path": "tests/bridge.test.mjs",
-      "size": 3542,
-      "sha256": "d78b63a98984a5dc99979491584d3ae8940a368963287d1b7f2027414c4c5cf9"
+      "size": 3597,
+      "sha256": "6cba3ac7d961f69950b508c80b4308c7cb9124e64da49033e1609abae9a81605"
     },
     {
       "path": "tests/compatibility.test.mjs",
@@ -4637,8 +4647,8 @@
     },
     {
       "path": "tests/installers.test.mjs",
-      "size": 25551,
-      "sha256": "56fb77eb55fd76f8f7fd8196b89e1762fe86c8ea9124ae6b3f8ffee25c7aea57"
+      "size": 25658,
+      "sha256": "3519222f801fa63a68ec5a5621f54530e750cf135f58b667c216ae417322a60b"
     },
     {
       "path": "tests/locks.test.mjs",
@@ -4669,6 +4679,11 @@
       "path": "tests/native-options.test.mjs",
       "size": 2869,
       "sha256": "765b78c2404e30c5f50793f87e3bee67f77d51a4196827a62cd24070c677d72e"
+    },
+    {
+      "path": "tests/platform-reference-smoke.mjs",
+      "size": 5595,
+      "sha256": "61649d761726c70e5ab135637206b108c4df6c8788f20878343de90979ebae05"
     },
     {
       "path": "tests/reference-data.test.mjs",

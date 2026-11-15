@@ -1,0 +1,62 @@
+name: macOS and Linux reference runtime
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reference-runtime:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install pinned SDK dependencies for the CI test client
+        run: npm ci --ignore-scripts
+      - name: Check bootstrap syntax and prepare neutral checkout config
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash -n scripts/bootstrap.sh
+          test ! -e config.json
+          cp config.example.json config.json
+          mkdir -p "$RUNNER_TEMP/huaidj-reference-evidence"
+      - name: Check source CLI and actual local stdio reference calls
+        run: node tests/platform-reference-smoke.mjs --output "${{ runner.temp }}/huaidj-reference-evidence/checkout-smoke.json"
+      - name: Preview and install the actual fixed release RuntimeOnly
+        shell: bash
+        run: |
+          set -euo pipefail
+          evidence="$RUNNER_TEMP/huaidj-reference-evidence"
+          install_root="$RUNNER_TEMP/huaidj-reference-runtime-$RUNNER_OS-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          test ! -e "$install_root"
+          printf '%s\n' "HUAIDJ_CI_INSTALL_ROOT=$install_root" >> "$GITHUB_ENV"
+          base='https://github.com/yutianyu111602-glitch/huaidj-disk-toolkit/releases/download/v0.1.0'
+          curl --disable --fail --show-error --silent --location "$base/release-manifest.json" --output "$evidence/release-manifest.json"
+          curl --disable --fail --show-error --silent --location "$base/SHA256SUMS" --output "$evidence/SHA256SUMS"
+          bash scripts/bootstrap.sh --install-root "$install_root" --runtime-only > "$evidence/runtime-preview.json" 2> "$evidence/runtime-preview.stderr.log"
+          bash scripts/bootstrap.sh --install-root "$install_root" --runtime-only --apply > "$evidence/runtime-ready.json" 2> "$evidence/runtime-install.stderr.log"
+      - name: Verify installed release paths and stdio reference tools
+        run: node tests/platform-reference-smoke.mjs --ready "${{ runner.temp }}/huaidj-reference-evidence/runtime-ready.json" --manifest "${{ runner.temp }}/huaidj-reference-evidence/release-manifest.json" --install-root "${{ env.HUAIDJ_CI_INSTALL_ROOT }}" --output "${{ runner.temp }}/huaidj-reference-evidence/installed-runtime-smoke.json"
+      - name: Retain bounded test and bootstrap evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: reference-runtime-${{ matrix.os }}
+          path: ${{ runner.temp }}/huaidj-reference-evidence/
+          if-no-files-found: warn
+          retention-days: 7
+
+  # RuntimeOnly never registers a client/Skill, changes trust/UAC/settings,
+  # invokes Windows storage adapters, launches a GUI or writes physical media.

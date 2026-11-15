@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "release": "v0.1.0",
+  "platform": "Windows x64",
+  "entryHost": "Windows PowerShell 5.1, ordinary user",
+  "completedUTC": "2026-11-15T11:26:22.6792253Z",
+  "result": "PASS; reconstructed from preserved successful command logs and verified downloads",
+  "artifacts": {
+    "installerSHA256": "b264fa07d2d73715b47c5bddcb91a5c8c4e69764e7cd0fec41a3ada6f4444b46",
+    "windowsPackageSHA256": "ec0e9807556ddd48724e36f2c7f1a023d22ca8cfd5f71ba8ca39b18b3ef9a9d0",
+    "releaseManifestSHA256": "45aecf454a742bf9e6b66f0c60e63bf05ee8ac8e700f1efab8ef8e7759cb6993",
+    "integrity": "Saved installer and package matched both release-manifest.json and SHA256SUMS. The installer also matched the independently sealed source hash."
+  },
+  "observed": {
+    "preinstalledNodeAndPwshHiddenFromChildPath": true,
+    "previewWithoutInstallation": "PASS; requested both missing portable dependencies",
+    "productionInstallerNetworkDownloadAndApply": "PASS; RuntimeOnly, ready, exit 0",
+    "portableNode": "24.22.3",
+    "portablePowerShell": "7.6.6",
+    "officialDependencyArchivePins": "PASS",
+    "installedCliModelQuery": "PASS",
+    "installedStdioInitialize": "PASS",
+    "installedStdioToolCount": 28,
+    "installedStdioReadOnlyModelCall": "PASS",
+    "allTenAcceptanceCommandExitCodes": 0
+  },
+  "boundaries": {
+    "realClientConfigurationApplied": false,
+    "skillInstalledByThisTest": false,
+    "systemPATHModified": false,
+    "elevationRequested": false,
+    "guiLaunched": false,
+    "nativeDiskEngineLaunched": false,
+    "physicalDiskCalls": 0,
+    "osImagesDownloaded": false
+  },
+  "executionPolicy": {
+    "initialPlainFileLaunch": "Refused under the existing Restricted policy; preserved as evidence",
+    "verifiedSavedScriptLaunch": "RemoteSigned for the test process and its children only",
+    "persistentScopesBeforeAndAfter": "MachinePolicy/UserPolicy/CurrentUser/LocalMachine all Undefined; effective ordinary-session policy Restricted",
+    "persistentPolicyChanged": false,
+    "groupPolicyOverridden": false
+  },
+  "validatorLimitation": "After all ten acceptance commands exited zero, the validator's final GenericList serialization failed and its outer process exited 1. The installed product did not fail. Successful command records, ready result, stdio result, version outputs, unchanged policy scopes and newly rehashed downloaded archives were independently reconciled. Only the validator was corrected; installation was not repeated.",
+  "scope": "Published Windows runtime installation and reference/stdio calls only. This is not desktop interaction, host-agent reload, physical write/readback, rekordbox restore or DJ playback acceptance. No personal paths, hardware identifiers or client settings are included."
+}

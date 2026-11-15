@@ -38,8 +38,8 @@ does not contain Node.js or PowerShell 7. On a clean Windows machine, use
 the verified local installer before opening the desktop:
 
 ```powershell
-powershell -NoProfile -File .\install.ps1 -RuntimeOnly
-$installed = powershell -NoProfile -File .\install.ps1 -RuntimeOnly -Apply | ConvertFrom-Json
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\install.ps1 -RuntimeOnly
+$installed = powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\install.ps1 -RuntimeOnly -Apply | ConvertFrom-Json
 if ($LASTEXITCODE -ne 0 -or $installed.status -ne 'ready') { throw 'Setup did not complete; inspect its result before continuing.' }
 $desktop = Join-Path $installed.toolkitRoot 'app\HuaiDJ.DiskToolkit.exe'
 & $desktop --toolkit-root $installed.toolkitRoot --node-path $installed.nodePath
@@ -52,14 +52,22 @@ application is a separate action; the installer does not launch it.
 If compatible Node.js 22.15+ and PowerShell 7 are already available, the
 complete extracted Windows ZIP can also be used directly.
 
+After checking the saved script's hashes, these commands use `RemoteSigned`
+only for that PowerShell process and its children. They do not call
+`Set-ExecutionPolicy` or change the user/machine policy. Enforced Group
+Policy still takes precedence. If a browser-marked, unsigned file is
+rejected, stop and inspect the policy/origin; these instructions do not
+automatically unblock files. See [Microsoft's execution-policy scope
+documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.6#execution-policy-scope-and-precedence).
+
 ## Preview, then apply the requested client setup
 
 The Windows entry point runs in Windows PowerShell 5.1 and needs no admin
 installer. For a Codex example:
 
 ```powershell
-powershell -NoProfile -File .\install.ps1 -Flavor Mcp -Client codex
-powershell -NoProfile -File .\install.ps1 -Flavor Mcp -Client codex -Apply
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\install.ps1 -Flavor Mcp -Client codex
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\install.ps1 -Flavor Mcp -Client codex -Apply
 ```
 
 Use the actual client ID: `codex`, `claude-code`, `claude-desktop`, `gemini`,

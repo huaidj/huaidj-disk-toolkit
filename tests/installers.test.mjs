@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { randomUUID } from 'node:crypto';
-import { mkdir, writeFile, readFile, copyFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile, copyFile, realpath } from 'node:fs/promises';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
@@ -12,7 +12,8 @@ import vm from 'node:vm';
 const run = promisify(execFile);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const powershell51 = process.env.WINDIR ? path.join(process.env.WINDIR, 'System32', 'WindowsPowerShell', 'v1.0', 'powershell.exe') : '';
-const baseFixture = path.join(tmpdir(), `huaidj-installer-test-${randomUUID().slice(0, 8)}`);
+// Keep fixture strings consistent with the installer's canonical Windows paths.
+const baseFixture = path.join(await realpath(tmpdir()), `huaidj-installer-test-${randomUUID().slice(0, 8)}`);
 
 const harness = String.raw`
 $ErrorActionPreference='Stop'
