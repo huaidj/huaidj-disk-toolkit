@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "release": "0.1.0",
+  "offlineSuite": {
+    "command": "npm test",
+    "completedUTC": "2026-11-15T11:12:35.556Z",
+    "platform": "Windows x64",
+    "passed": 92,
+    "failed": 0,
+    "skipped": 0,
+    "scope": "Client boundaries, source/image identity, plan and cross-process locking, native option validation, reference data, intelligent recommendations, export metadata snapshot/restore fixtures, setup merges and offline bootstrap fixtures. No real disk operations are performed by this suite."
+  },
+  "stdio": {
+    "initialize": "PASS",
+    "discoveredToolCount": 28,
+    "readOnlyCall": "dj_model_compatibility({model:'CDJ-3000'})",
+    "result": "PASS",
+    "stderrBytes": 0,
+    "hostClientAcceptance": "Separate; an SDK session does not establish an existing agent chat has reloaded."
+  },
+  "windowsStorageVhdAcceptance": {
+    "fixtureSizeBytes": 536870912,
+    "tests": [
+      "GPT FAT32 format and file SHA-256 roundtrip",
+      "NTFS existing-volume format and file SHA-256 roundtrip",
+      "exFAT existing-volume format and file SHA-256 roundtrip",
+      "GPT UDF format and file SHA-256 roundtrip",
+      "MBR FAT format and file SHA-256 roundtrip",
+      "VHD physical-prefix SHA-256 verification",
+      "Completed disk job replay refusal"
+    ],
+    "result": "PASS across two owned isolated VHD fixtures",
+    "completedUTC": "2026-11-15T09:09:29.932367Z",
+    "priorFailure": "The first fixture stopped at a UDF format failure after three passing filesystem cases. After correcting the formatter invocation, the second fixture passed UDF, FAT, readback and replay checks; the earlier failure evidence was retained.",
+    "attachedAfterTests": false,
+    "userPhysicalDisksWritten": false,
+    "scope": "Windows storage backend only; not the expanded native Rufus format-only implementation."
+  },
+  "expandedNative": {
+    "sha256": "3bc06b813b88f032b30885551bc7e456d96eb3cb77a73d4478c446cab0db5828",
+    "build": "PASS",
+    "pureNonStoragePolicyAndOptionChecks": 53,
+    "policyAndOptionResult": "PASS",
+    "productionExecution": "NOT_RUN",
+    "windowsIsoDryRun": "NOT_RUN",
+    "formatOnlyAndLargeFat32HardwareAcceptance": "NOT_RUN"
+  },
+  "otherAcceptance": {
+    "realZorinBaselineWriteAndReadback": "See zorin-usb-windows.json; different preserved native build",
+    "desktop": "See desktop-windows-partial.json; partial UI observation only",
+    "publishedDownloadAndInstall": "Separate post-publication validation",
+    "nativeMacosLinuxDiskWriter": "NOT_IMPLEMENTED",
+    "liveRekordboxRestoreAndDjPlayback": "NOT_RUN",
+    "linuxBootOrInternalInstall": "NOT_RUN"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "platform": "Windows x64",
+  "applicationVersion": "0.1.0",
+  "executableSHA256": "4b27963483c1ba92712e86734da347f81fdfc083113358985a3daf66afc2c2d0",
+  "applicationDLLSHA256": "d53fcddb73f4fd1f1aef5906030de0b6ebd57d363c3ee1b2faf83ada605a9260",
+  "recordedUTC": "2026-11-15T11:10:59Z",
+  "overall": "PARTIAL; interactive testing stopped by the user",
+  "observed": {
+    "ordinaryUserLaunch": "PASS; no UAC request during observed startup, recommendations or preview",
+    "traditionalChineseInitialLayout": "PASS at the observed 775x561 window; main controls visible, model table scrolls",
+    "usbSelection": "PASS; the attached USB was shown with model and capacity; internal disks were absent from the selector",
+    "unknownFirmwareAndLargeFiles": "PASS; no confirmed FAT32 recommendation or enabled format preview for the incompatible/unknown combination",
+    "conditionalExfatRecommendation": "PASS; simulated CDJ-3000 firmware 1.20, CDJ-3000X and rekordbox 7.2.13 inputs produced exFAT, general-guidance MBR and both export library types",
+    "inputRevisionInvalidatesPreview": "PASS; changing file-size constraints disabled the previous preview",
+    "formatReview": "PASS; model/capacity/identity prefix, whole-USB erasure warning, filesystem, partition scheme and playback caveat were displayed",
+    "unconfirmedStartDisabled": "PASS; the explicit scope checkbox was unchecked and Start was disabled"
+  },
+  "notEstablished": {
+    "previewCancellation": "NOT_CONFIRMED; automation stopped before cancellation could be observed",
+    "remainingTabsAndLanguageSwitch": "NOT_RUN",
+    "multiDpiAndKeyboardAcceptance": "NOT_RUN",
+    "desktopWriteReadback": "NOT_RUN",
+    "desktopSnapshotRestore": "NOT_RUN",
+    "actualPlayerFirmwareOrExporterVersion": "NOT_INSPECTED; all entered version values were synthetic test inputs",
+    "physicalDjPlayerPlayback": "NOT_RUN"
+  },
+  "scope": "Read-only UI acceptance and plan preparation only. No confirmation checkbox was checked, no write/restore was submitted, and no elevation was requested. Independent local readback found only a prepared native-format plan with no execution request or status. The verified Linux USB was preserved. This receipt omits hardware serials, account names and local paths."
+}

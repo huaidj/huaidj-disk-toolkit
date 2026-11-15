@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "project": "huaidj-disk-toolkit",
+  "license": "GPL-3.0-or-later",
+  "upstream": {
+    "repository": "https://github.com/pbatard/rufus.git",
+    "commit": "cef215734b35f50b514125a273ef6b71c7fc9c38"
+  },
+  "patch": {
+    "path": "patches/native-adapter.patch",
+    "sha256": "7522057c808c70384f303a57f3ed6cbdd5d28db58da507fe88daa83e278dacd9",
+    "reverseApplyCheck": "PASS"
+  },
+  "binary": {
+    "path": "bin/rufus-huaidj.exe",
+    "sha256": "3bc06b813b88f032b30885551bc7e456d96eb3cb77a73d4478c446cab0db5828",
+    "bytes": 5445632
+  },
+  "activation": "INSTALLED_BUILD_AND_OFFLINE_CONTRACT_VALIDATED; production execution and physical acceptance remain separately NOT_RUN",
+  "acceptedBaseline": {
+    "binarySha256": "ffec76edbae7b09ed6e24f72ab6c7d51a69a669e4612db3e646e69b5abaa891d",
+    "patchSha256": "d1b5146b3fae03d07b5753efcc08479b679b472e9f7ccb7a5f79509770b36e84"
+  },
+  "build": {
+    "toolchain": "MSBuild / MSVC v143",
+    "script": "scripts/build-native.ps1",
+    "arguments": [
+      "-SourceRoot",
+      "vendor/rufus",
+      "-OutputDirectory",
+      "<output-directory>",
+      "-PlatformToolset",
+      "v143"
+    ],
+    "compilerOptions": [
+      "/utf-8",
+      "/experimental:deterministic",
+      "/pathmap:<source-root>=."
+    ],
+    "linkerOptions": [
+      "/PDBALTPATH:%_PDB%"
+    ],
+    "exitCode": 0,
+    "mingw": "NOT_RUN"
+  },
+  "validation": {
+    "nativeOptionContractChecks": 53,
+    "nativeOptionContractResult": "PASS; independent AsInvoker console without storage APIs",
+    "productionCandidateExecution": "NOT_RUN; no new elevation authorized",
+    "windowsIsoDryRun": "NOT_RUN",
+    "formatOnlyDryRun": "NOT_RUN",
+    "largeFat32MediaWrite": "NOT_RUN",
+    "candidateHardwareWriteReadback": "NOT_RUN",
+    "installerBcdPolicyChecks": "PASS; active-boot positive proof required, seven offline policy cases"
+  },
+  "files": [
+    {
+      "path": "vendor/rufus/.vs/huaidj-options-test.vcxproj",
+      "sha256": "9f73518968333e26576ce75255372a02c84aecd2e867247bd7dca797df585f53"
+    },
+    {
+      "path": "vendor/rufus/.vs/rufus.vcxproj",
+      "sha256": "4ad850b1e89eb1cc849d561b06959dd810563e887ebbcfa1e818858893c61c69"
+    },
+    {
+      "path": "vendor/rufus/src/Makefile.am",
+      "sha256": "1d21ddce14e6a5e60d478d12d5de6a447293301ca98ad09652eb0870b99903bf"
+    },
+    {
+      "path": "vendor/rufus/src/Makefile.in",
+      "sha256": "d93b00c953204ce774fffe27ccf81273fef6d42a7c9b24988fd4257afcd41009"
+    },
+    {
+      "path": "vendor/rufus/src/format.c",
+      "sha256": "3e1033a2fa086a2854c7a006f905476f3904d7495646a2fe1c1a72848706cb31"
+    },
+    {
+      "path": "vendor/rufus/src/huaidj_autopilot.c",
+      "sha256": "6a20d6f81d9b3d4d8d65e7fb5ca443b806b46097d7d9eaf5d9a221f2c47eafd2"
+    },
+    {
+      "path": "vendor/rufus/src/huaidj_autopilot.h",
+      "sha256": "011753b51cb3fd61ce0d431320d68b78746c8517bfd73f4b4ef548e82c192b04"
+    },
+    {
+      "path": "vendor/rufus/src/huaidj_options.c",
+      "sha256": "dc2d226730704dde0fcda714dcb2c26ee5882674df4788b19b90365dae6c687b"
+    },
+    {
+      "path": "vendor/rufus/src/huaidj_options.h",
+      "sha256": "bf730f3125f9526c73078ca4a721bda0e07daa829df75f9efd69f68b5d6325ad"
+    },
+    {
+      "path": "vendor/rufus/src/msapi_utf8.h",
+      "sha256": "8f8e7f283e536b4a8b34861110155a22e55b4c2cc3aa6368a4aae1d52fa15021"
+    },
+    {
+      "path": "vendor/rufus/src/rufus.c",
+      "sha256": "b87dea14cd85fa652cf92e90256b2f9263a99043bcb908a2bbfcbe641f470345"
+    },
+    {
+      "path": "vendor/rufus/src/rufus.h",
+      "sha256": "2198937a22c9a5f8f537f8bf28620c9eee8bbcc54f7f5a6887addb95bbe17f47"
+    },
+    {
+      "path": "vendor/rufus/src/stdlg.c",
+      "sha256": "beb2c6e10eeb1f1f11ced1704014d913d8998a0eb0894c5e7112a221ba271ec0"
+    },
+    {
+      "path": "vendor/rufus/tests/huaidj-options-test.c",
+      "sha256": "d7197342a77efe0db9b66450c8351fdb2d0785e25ea81110fa420a8a7c7fdf5b"
+    }
+  ],
+  "sealedUTC": "2026-11-15T09:55:49.276615Z",
+  "installedUTC": "2026-11-15T10:28:14.7650176Z"
+}

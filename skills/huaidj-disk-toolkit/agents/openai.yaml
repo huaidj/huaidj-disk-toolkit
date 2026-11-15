@@ -1,0 +1,4 @@
+interface:
+  display_name: "HuaiDJ Disk Toolkit"
+  short_description: "Prepare USB media and verify DJ library compatibility"
+  default_prompt: "Use $huaidj-disk-toolkit to prepare and verify the selected USB media."

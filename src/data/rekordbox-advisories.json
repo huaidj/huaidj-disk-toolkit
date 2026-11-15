@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "asOfUTC": "2026-11-15T09:04:39.6683233Z",
+  "notices": [
+    {
+      "id": "rb6-rb7-main-library",
+      "type": "compatibility",
+      "scope": "desktop-main-library",
+      "appliesTo": {
+        "fromMajor": 6,
+        "toMajor": 7
+      },
+      "finding": "The official FAQ says a library conversion is not required for upgrading from version 6 to version 7. Both versions may be installed on one computer, but must not run simultaneously.",
+      "inference": "A corrupt-library report after switching versions needs diagnosis; the major-version change alone does not prove a destructive schema conversion.",
+      "sourceURLs": [
+        "https://rekordbox.com/en/support/faq/library-7/",
+        "https://rekordbox.com/en/support/faq/rekordbox7/"
+      ]
+    },
+    {
+      "id": "rb-7-2-12-usb-export",
+      "type": "known-defect",
+      "scope": "usb-export",
+      "affectedVersion": "7.2.12",
+      "fixedVersion": "7.2.13",
+      "noticeDate": "2026-03-19",
+      "fixedNoticeDate": "2026-03-31",
+      "finding": "The publisher withdrew version 7.2.12 after a USB-export issue could leave exported tracks unloadable on DJ hardware. The publisher states that version 7.2.13 resolves this specific issue.",
+      "action": "Flag exports known to have been produced by 7.2.12 for review/re-export through an unaffected supported version. Do not treat every later version as experimentally validated by this toolkit.",
+      "sourceURLs": [
+        "https://rekordbox.com/en/2026/03/important-notice-regarding-rekordbox-v7212/",
+        "https://rekordbox.com/en/2026/03/rekordbox-v7213-release-information/"
+      ]
+    },
+    {
+      "id": "dual-export-library-divergence",
+      "type": "workflow-risk",
+      "scope": "usb-export",
+      "finding": "Device Library and OneLibrary (formerly Device Library Plus) can coexist on a USB. Changes made directly in one exported library do not necessarily change the other.",
+      "action": "Inspect both library types and preserve both before converting. The official Convert from Device Library action can overwrite an existing OneLibrary and lose playlists/history stored only in that library. Prefer editing the Collection and re-exporting to both libraries.",
+      "sourceURLs": [
+        "https://rekordbox.com/en/support/faq/devicelibraryplus-6/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/"
+      ]
+    },
+    {
+      "id": "official-device-backup-limits",
+      "type": "backup-limits",
+      "scope": "usb-export",
+      "finding": "The documented Device Library Backup feature stores only the latest exported backup for each USB and does not itself back up the music files. Restoration requires matching filesystems and available source music.",
+      "action": "Distinguish this feature from independent versioned snapshots. Verify subscription/version requirements before describing the official cloud backup as available.",
+      "sourceURLs": [
+        "https://rekordbox.com/en/support/faq/device-library-backup-6/"
+      ]
+    }
+  ]
+}

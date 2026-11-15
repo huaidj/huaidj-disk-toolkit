@@ -1,0 +1,2849 @@
+{
+  "schemaVersion": "1.0.0",
+  "asOfUTC": "2026-11-15T09:10:42.675Z",
+  "scopeNotes": [
+    "Bounded reference covering 13 named common DJ products, not every DJ device or every historical firmware.",
+    "This file describes device storage/audio/library support; operating-system filesystem read/write support is maintained separately.",
+    "Model compatibility announcements, USB library format support and software major versions are separate facts.",
+    "Evidence values use JSON true, false or the string unknown. Conditional support requires reading firmwareConditions before recommending a format.",
+    "Only manufacturer documentation, official support/release notes and manufacturer-hosted user guides are used. No real user database or disk was read or changed.",
+    "A source listing a filesystem does not prove read/write compatibility on every USB controller. No physical DJ-player acceptance was performed.",
+    "An unqualified legacy vendor FAT label is preserved as a source note; its exact subtype is not automatically treated as verified FAT16.",
+    "Optical-disc, LINK Export, Performance mode and streaming restrictions can differ from USB standalone playback. General-format FAQ facts are labelled when a USB-specific codec table was not independently reviewed.",
+    "For audio rows marked sampleRateListExhaustive=false, an unlisted rate is unknown rather than unsupported. verifiedSampleRatesHz identifies the positively confirmed subset."
+  ],
+  "libraryDefinitions": {
+    "deviceLibrary": {
+      "label": "Device Library",
+      "description": "Traditional rekordbox USB/SD exported performance-data library.",
+      "internalFormat": "unknown",
+      "sourceIds": [
+        "at-usb-notice"
+      ]
+    },
+    "deviceLibraryPlus": {
+      "label": "Device Library Plus",
+      "description": "Previous name for the newer USB library; supported by rekordbox 6 releases before the OneLibrary rename.",
+      "internalFormat": "unknown",
+      "sourceIds": [
+        "rb-opus-6611",
+        "rb-dual-681",
+        "rb-rename-725"
+      ]
+    },
+    "oneLibrary": {
+      "label": "OneLibrary",
+      "description": "Device Library Plus was renamed in rekordbox 7.2.5; AlphaTheta states rekordbox exports under the two names are fully compatible.",
+      "internalFormat": "unknown",
+      "renameVersion": "7.2.5",
+      "sourceIds": [
+        "at-onelibrary",
+        "rb-rename-725"
+      ]
+    },
+    "engineDj": {
+      "label": "Engine DJ library",
+      "description": "Engine DJ / Engine OS preparation and performance library; do not equate it with rekordbox library formats.",
+      "internalFormat": "unknown",
+      "sourceIds": [
+        "denon-sc6000-guide43",
+        "denon-prime-guide50"
+      ]
+    },
+    "internalFormatEvidenceNote": "The reviewed official sources do not establish a PDB or SQLite on-disk schema. Those internal representations are deliberately not asserted."
+  },
+  "versionAdvisories": [
+    {
+      "software": "rekordbox",
+      "version": "7.2.12",
+      "status": "withdrawn",
+      "publishedDate": "2026-03-19",
+      "sourceURL": "https://rekordbox.com/en/2026/03/important-notice-regarding-rekordbox-v7212/",
+      "evidenceOwner": "Root agent separately verified the official notice",
+      "notes": "A specific USB export bug is a separate diagnosis from Device Library/OneLibrary mismatch or a software-major-version transition. Check the root-maintained interop advisory for later fixes."
+    }
+  ],
+  "sources": [
+    {
+      "id": "at-usb-notice",
+      "url": "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+      "title": "AlphaTheta USB library compatibility notice",
+      "publishedDate": "2026-03-18",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "at-usb-guide",
+      "url": "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf",
+      "title": "OneLibrary compatible USB export guide",
+      "publishedDate": "2026-03-18",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "at-onelibrary",
+      "url": "https://alphatheta.com/en/onelibrary/",
+      "title": "OneLibrary compatibility and FAQ",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-audio-faq",
+      "url": "https://rekordbox.com/en/support/faq/rekordbox7/#faq-q700035",
+      "title": "Which music file formats are supported by the DJ equipment?",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    },
+    {
+      "id": "rb-exfat-662",
+      "url": "https://rekordbox.com/en/2022/03/rekordbox-v662-release-information/",
+      "title": "rekordbox 6.6.2 release: exFAT device and firmware conditions",
+      "publishedDate": "2022-03-29",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-opus-6611",
+      "url": "https://rekordbox.com/en/2023/03/rekordbox-v6611-release-information/",
+      "title": "rekordbox 6.6.11 release: OPUS-QUAD / Device Library Plus",
+      "publishedDate": "2023-03-07",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-dual-681",
+      "url": "https://rekordbox.com/en/2023/12/rekordbox-v681-release-information/",
+      "title": "rekordbox 6.8.1 release: dual Device Library export",
+      "publishedDate": "2023-12-19",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-rename-725",
+      "url": "https://rekordbox.com/en/2025/10/rekordbox-v725-release-information/",
+      "title": "rekordbox 7.2.5 release: Device Library Plus renamed OneLibrary",
+      "publishedDate": "2025-10-21",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-omnis-682",
+      "url": "https://rekordbox.com/en/2024/01/rekordbox-v682-release-information/",
+      "title": "rekordbox 6.8.2 release: OMNIS-DUO compatibility",
+      "publishedDate": "2024-01-25",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-az-704",
+      "url": "https://rekordbox.com/en/2024/10/rekordbox-v704-release-information/",
+      "title": "rekordbox 7.0.4 release: XDJ-AZ compatibility",
+      "publishedDate": "2024-10-10",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rb-cdjx-722",
+      "url": "https://rekordbox.com/en/support/releasenote/page/2/",
+      "title": "rekordbox release history: CDJ-3000X compatibility in 7.2.2",
+      "publishedDate": "2025-09-09",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    },
+    {
+      "id": "rb-rx3-660",
+      "url": "https://rekordbox.com/en/2021/11/rekordbox-v660-release-information/",
+      "title": "rekordbox 6.6.0 release: XDJ-RX3 compatibility",
+      "publishedDate": "2021-11-16",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "at-cdj3000-rollback",
+      "url": "https://www.pioneerdj.com/en/news/2026/cdj-3000-firmware-ver330-important-notice/",
+      "title": "CDJ-3000 firmware 3.30 withdrawal and Device Library notice",
+      "publishedDate": "2026-01-07",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "cdj3000-storage-faq",
+      "url": "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135001625-The-unit-doesn-t-recognize-some-USB-storage-devices-such-as-USB-flash-drives-and-HDDs-Why-not",
+      "title": "CDJ-3000 storage formats / GUID Partition Map restriction",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    },
+    {
+      "id": "cdj3000-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-3000/CDJ-3000_DRI1586A_manual.pdf",
+      "title": "CDJ-3000 instruction manual DRI1586-A, pages 11-13",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "cdj3000x-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-3000X/html/en/000_CDJ-3000X_IM_01_EN_DRI1956-A_en/Product_overview/Product_overview.htm?rhtocid=_2",
+      "title": "CDJ-3000X official HTML instruction manual, Product overview",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "nxs2-release",
+      "url": "https://www.pioneerdj.com/en/news/2016/meet-the-new-cdj-2000nxs2-and-djm-900nxs2/",
+      "title": "CDJ-2000NXS2 launch specifications",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "xdj1000mk2-release",
+      "url": "https://www.pioneerdj.com/en/news/2016/xdj1000mk2-digital-dj-player-for-rekordbox/",
+      "title": "XDJ-1000MK2 launch specifications",
+      "publishedDate": "2016-08-25",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "xdj700-release",
+      "url": "https://www.pioneerdj.com/en/news/2015/xdj-700/",
+      "title": "XDJ-700 launch specifications",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "xz-flac-110",
+      "url": "https://www.pioneerdj.com/en/news/2020/xdj-xz-serato-dj-pro-flac-compatibility/",
+      "title": "XDJ-XZ firmware 1.10: FLAC playback limits",
+      "publishedDate": "2020-03-10",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "xz-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-XZ/XDJ-XZ_DRI1625B_manual.pdf",
+      "title": "XDJ-XZ manual DRI1625-B; older filesystem statements require later release-note override",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "rx2-product",
+      "url": "https://www.pioneerdj.com/en/product/all-in-one-dj-systems/xdj-rx2/",
+      "title": "XDJ-RX2 manufacturer product page",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "rx3-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-RX3/XDJ-RX3_DRI1702C_manual.pdf",
+      "title": "XDJ-RX3 instruction manual DRI1702-C, pages 9-10",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "az-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-AZ/html/en/000COV_en/Product_overview/Product_overview.htm?rhtocid=_2",
+      "title": "XDJ-AZ official HTML instruction manual, Product overview",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "opus-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/OPUS-QUAD/OPUS-QUAD_DRI1795D_manual.pdf",
+      "title": "OPUS-QUAD instruction manual DRI1795-D, pages 9-10",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "opus-fw-122",
+      "url": "https://www.pioneerdj.com/-/media/pioneerdj/downloads/firmwares/systems/opus-quad/opus-quad-firmware-change-history-ver122-en.pdf",
+      "title": "OPUS-QUAD firmware history through 1.22, including 1.12 exFAT fix",
+      "publishedDate": "2024-12-05",
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-news-or-reference"
+    },
+    {
+      "id": "omnis-manual",
+      "url": "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/OMNIS-DUO/OMNIS-DUO_DRI1882A_manual.pdf",
+      "title": "OMNIS-DUO instruction manual DRI1882-A, pages 13-14",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "denon-sc6000-guide43",
+      "url": "https://cdn.inmusicbrands.com/engine/43/SC6000%20PRIME%2C%20SC6000M%20PRIME%2C%20SC5000%20PRIME%2C%20SC5000M%20PRIME%20-%20User%20Guide%20-%20v4.3.0.pdf",
+      "title": "Denon media-player user guide 4.3.0: Devices & File Analysis",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "denon-prime-guide50",
+      "url": "https://cdn.inmusicbrands.com/Software/ENDJ5/PRIME%204%2C%20PRIME%204%2B%2C%20PRIME%202%2C%20PRIME%20GO%2C%20PRIME%20GO%2B%2C%20SC%20LIVE%204%2C%20SC%20LIVE%202%20-%20User%20Guide%20-%20v5.0.0.pdf",
+      "title": "Denon Engine OS user guide 5.0.0: PRIME 4/4+ technical specifications",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-user-manual"
+    },
+    {
+      "id": "denon-hfs-240",
+      "url": "https://support.denondj.com/en/support/solutions/articles/69000828750-engine-dj-2-4-0-update-release-notes",
+      "title": "Engine DJ 2.4.0 release: HFS+ for SC6000 / SC6000M only",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    },
+    {
+      "id": "denon-hfs-faq",
+      "url": "https://support.denondj.com/en/support/solutions/articles/69000828903-is-hfs-supported-on-my-hardware-",
+      "title": "Denon HFS+ model support FAQ",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    },
+    {
+      "id": "denon-format-guide",
+      "url": "https://support.denondj.com/en/support/solutions/articles/69000809749-formatting-a-hard-drive-for-dj-performance",
+      "title": "Denon generic drive formatting guidance; not model-specific partition proof",
+      "publishedDate": null,
+      "asOfUTC": "2026-11-15T09:06:39.188Z",
+      "kind": "manufacturer-support-or-release-note"
+    }
+  ],
+  "models": [
+    {
+      "id": "cdj-2000nxs2",
+      "model": "CDJ-2000NXS2",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": false,
+        "ntfs": "unknown",
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            32000,
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            16000,
+            22050,
+            32000,
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": false,
+          "notes": "The launch specification has a malformed additional sampling-rate entry. The verified listed rates are retained; no 24 kHz assertion or exhaustive exclusion is made."
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "nxs2-release"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "nxs2-release",
+        "at-usb-notice",
+        "at-usb-guide"
+      ],
+      "sourceURLs": [
+        "https://www.pioneerdj.com/en/news/2016/meet-the-new-cdj-2000nxs2-and-djm-900nxs2/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "The March 2026 official USB export guide explicitly limits exFAT to its listed newer models; this model is outside that list. Recheck if new firmware changes support.",
+        "The reviewed launch source calls one filesystem FAT without identifying its exact FAT subtype; FAT16 remains unknown in this strict matrix. FAT32 and HFS+ are explicitly listed."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "cdj-3000",
+      "model": "CDJ-3000",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": false,
+        "maxUsablePartitions": "unknown",
+        "policy": "Vendor explicitly excludes the Mac GUID Partition Map; case-sensitive HFS+ may also be unrecognized."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [
+        {
+          "feature": "exFAT",
+          "minimumFirmware": "1.20",
+          "exportSoftware": {
+            "name": "rekordbox",
+            "minimum": "6.6.2"
+          },
+          "sourceIds": [
+            "rb-exfat-662"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "cdj3000-manual",
+        "cdj3000-storage-faq",
+        "rb-exfat-662",
+        "at-usb-notice",
+        "at-cdj3000-rollback"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-3000/CDJ-3000_DRI1586A_manual.pdf",
+        "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135001625-The-unit-doesn-t-recognize-some-USB-storage-devices-such-as-USB-flash-drives-and-HDDs-Why-not",
+        "https://rekordbox.com/en/2022/03/rekordbox-v662-release-information/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://www.pioneerdj.com/en/news/2026/cdj-3000-firmware-ver330-important-notice/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "Manual DRI1586-A predates exFAT support; later explicit support FAQ and release note take precedence. Firmware 3.30 was withdrawn; the January/March 2026 official notices use traditional Device Library, not OneLibrary. No latest safe firmware version is inferred."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "cdj-3000x",
+      "model": "CDJ-3000X",
+      "maker": "AlphaTheta",
+      "brand": "AlphaTheta",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "The first partition is used, or the partition containing the rekordbox library instead; this is not proof of MBR/GPT support."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "cdj3000x-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": false,
+        "deviceLibraryPlus": true,
+        "oneLibrary": true,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "The vendor release added model compatibility; this is not a claim that every USB playlist exported by an older version is unplayable.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format.",
+        "compatibilityAddedIn": "7.2.2",
+        "sourceIds": [
+          "rb-cdjx-722"
+        ]
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "cdj3000x-manual",
+        "at-usb-notice",
+        "at-onelibrary",
+        "rb-cdjx-722"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/dj-players/CDJ-3000X/html/en/000_CDJ-3000X_IM_01_EN_DRI1956-A_en/Product_overview/Product_overview.htm?rhtocid=_2",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://alphatheta.com/en/onelibrary/",
+        "https://rekordbox.com/en/support/releasenote/page/2/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-1000mk2",
+      "model": "XDJ-1000MK2",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": false,
+        "ntfs": "unknown",
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            32000,
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            16000,
+            22050,
+            24000,
+            32000,
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj1000mk2-release"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "xdj1000mk2-release",
+        "at-usb-notice",
+        "at-usb-guide"
+      ],
+      "sourceURLs": [
+        "https://www.pioneerdj.com/en/news/2016/xdj1000mk2-digital-dj-player-for-rekordbox/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "The March 2026 official USB export guide explicitly limits exFAT to its listed newer models; this model is outside that list. Recheck if new firmware changes support.",
+        "The reviewed launch source calls one filesystem FAT without identifying its exact FAT subtype; FAT16 remains unknown in this strict matrix. FAT32 and HFS+ are explicitly listed."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-700",
+      "model": "XDJ-700",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": false,
+        "ntfs": "unknown",
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "xdj700-release",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "xdj700-release",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj700-release",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xdj700-release",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "xdj700-release",
+        "at-usb-notice",
+        "at-usb-guide",
+        "rb-audio-faq"
+      ],
+      "sourceURLs": [
+        "https://www.pioneerdj.com/en/news/2015/xdj-700/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf",
+        "https://rekordbox.com/en/support/faq/rekordbox7/#faq-q700035"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "The March 2026 official USB export guide explicitly limits exFAT to its listed newer models; this model is outside that list. Recheck if new firmware changes support.",
+        "44.1/48 kHz WAV/AIFF and codec exclusions come from the general official hardware-format FAQ; this source does not explicitly label USB versus LINK Export. A numeric model-specific PCM bit-depth limit was not verified and remains unknown.",
+        "The reviewed launch source calls one filesystem FAT without identifying its exact FAT subtype; FAT16 remains unknown in this strict matrix. FAT32 and HFS+ are explicitly listed."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": false,
+        "flac": false,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-xz",
+      "model": "XDJ-XZ",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "First partition is used; a partition containing rekordbox library data takes priority (manual pages 6-7)."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "rb-audio-faq"
+          ],
+          "notes": "Codec/rates are cross-checked against the hardware FAQ; this pass did not independently review the per-codec bit-depth pages of the model manual. The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ]
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "rb-audio-faq"
+          ],
+          "notes": "Codec/rates are cross-checked against the hardware FAQ; this pass did not independently review the per-codec bit-depth pages of the model manual. The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ]
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rb-audio-faq"
+          ],
+          "notes": "Codec/rates are cross-checked against the hardware FAQ; this pass did not independently review the per-codec bit-depth pages of the model manual. The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ]
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rb-audio-faq"
+          ],
+          "notes": "Codec/rates are cross-checked against the hardware FAQ; this pass did not independently review the per-codec bit-depth pages of the model manual. The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ]
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "xz-flac-110"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [
+        {
+          "feature": "exFAT",
+          "minimumFirmware": "1.23",
+          "exportSoftware": {
+            "name": "rekordbox",
+            "minimum": "6.6.2"
+          },
+          "sourceIds": [
+            "rb-exfat-662"
+          ]
+        },
+        {
+          "feature": "FLAC playback",
+          "minimumFirmware": "1.10",
+          "sourceIds": [
+            "xz-flac-110"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "xz-flac-110",
+        "rb-exfat-662",
+        "at-usb-notice",
+        "at-usb-guide",
+        "rb-audio-faq",
+        "xz-manual"
+      ],
+      "sourceURLs": [
+        "https://www.pioneerdj.com/en/news/2020/xdj-xz-serato-dj-pro-flac-compatibility/",
+        "https://rekordbox.com/en/2022/03/rekordbox-v662-release-information/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf",
+        "https://rekordbox.com/en/support/faq/rekordbox7/#faq-q700035",
+        "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-XZ/XDJ-XZ_DRI1625B_manual.pdf"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "An older manual states no exFAT; the later official rekordbox 6.6.2 release and March 2026 export guide explicitly include exFAT. Keep firmware >=1.23 as a condition rather than treating the manual statement as permanent."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": false,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-rx2",
+      "model": "XDJ-RX2",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": false,
+        "ntfs": "unknown",
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "rx2-product",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "rx2-product",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rx2-product",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rx2-product",
+            "rb-audio-faq"
+          ],
+          "rateEvidenceScope": "General hardware playback FAQ, not an explicitly USB-labelled codec table; no conflict with the reviewed model launch specification was found.",
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": "unknown",
+        "deviceLibraryPlus": "unknown",
+        "oneLibrary": "unknown",
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "rx2-product",
+        "at-usb-guide",
+        "rb-audio-faq"
+      ],
+      "sourceURLs": [
+        "https://www.pioneerdj.com/en/product/all-in-one-dj-systems/xdj-rx2/",
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf",
+        "https://rekordbox.com/en/support/faq/rekordbox7/#faq-q700035"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications.",
+        "The March 2026 official USB export guide explicitly limits exFAT to its listed newer models; this model is outside that list. Recheck if new firmware changes support.",
+        "44.1/48 kHz WAV/AIFF and codec exclusions come from the general official hardware-format FAQ; this source does not explicitly label USB versus LINK Export. A numeric model-specific PCM bit-depth limit was not verified and remains unknown.",
+        "Traditional library usage is expected historically, but the reviewed current official model-specific compatibility table did not name RX2; library type stays unknown rather than inferring it from product age.",
+        "FAT32/HFS+ follow the official USB export guide; a model-specific FAT16 or NTFS statement was not independently verified in this pass."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": false,
+        "flac": false,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-rx3",
+      "model": "XDJ-RX3",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "The first partition is used, or the partition containing the rekordbox library instead; this is not proof of MBR/GPT support."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            32000,
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "rx3-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "rx3-manual"
+          ],
+          "sampleRateListExhaustive": false,
+          "verifiedSampleRatesHz": [
+            44100,
+            48000
+          ],
+          "notes": "The reviewed rate evidence is not exhaustive below 44.1 kHz. An unlisted rate is unknown, not automatically unsupported."
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rx3-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rx3-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "rx3-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": true,
+        "deviceLibraryPlus": false,
+        "oneLibrary": false,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "The vendor release added model compatibility; this is not a claim that every USB playlist exported by an older version is unplayable.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format.",
+        "compatibilityAddedIn": "6.6.0",
+        "sourceIds": [
+          "rb-rx3-660"
+        ]
+      },
+      "firmwareConditions": [
+        {
+          "feature": "exFAT",
+          "minimumFirmware": "1.11",
+          "exportSoftware": {
+            "name": "rekordbox",
+            "minimum": "6.6.2"
+          },
+          "sourceIds": [
+            "rb-exfat-662"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "rx3-manual",
+        "rb-exfat-662",
+        "rb-rx3-660",
+        "at-usb-notice"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-RX3/XDJ-RX3_DRI1702C_manual.pdf",
+        "https://rekordbox.com/en/2022/03/rekordbox-v662-release-information/",
+        "https://rekordbox.com/en/2021/11/rekordbox-v660-release-information/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": false,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "xdj-az",
+      "model": "XDJ-AZ",
+      "maker": "AlphaTheta",
+      "brand": "AlphaTheta",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "The first partition is used, or the partition containing the rekordbox library instead; this is not proof of MBR/GPT support."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "az-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": false,
+        "deviceLibraryPlus": true,
+        "oneLibrary": true,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "The vendor release added model compatibility; this is not a claim that every USB playlist exported by an older version is unplayable.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format.",
+        "compatibilityAddedIn": "7.0.4",
+        "sourceIds": [
+          "rb-az-704"
+        ]
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "az-manual",
+        "rb-az-704",
+        "at-usb-notice",
+        "at-onelibrary"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/XDJ-AZ/html/en/000COV_en/Product_overview/Product_overview.htm?rhtocid=_2",
+        "https://rekordbox.com/en/2024/10/rekordbox-v704-release-information/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://alphatheta.com/en/onelibrary/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "opus-quad",
+      "model": "OPUS-QUAD",
+      "maker": "AlphaTheta",
+      "brand": "Pioneer DJ",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "The first partition is used, or the partition containing the rekordbox library instead; this is not proof of MBR/GPT support."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000,
+            88200,
+            96000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "opus-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": false,
+        "deviceLibraryPlus": true,
+        "oneLibrary": true,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "The vendor release added model compatibility; this is not a claim that every USB playlist exported by an older version is unplayable.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format.",
+        "compatibilityAddedIn": "6.6.11",
+        "sourceIds": [
+          "rb-opus-6611"
+        ]
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "opus-manual",
+        "rb-opus-6611",
+        "opus-fw-122",
+        "at-usb-notice",
+        "at-onelibrary"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/OPUS-QUAD/OPUS-QUAD_DRI1795D_manual.pdf",
+        "https://rekordbox.com/en/2023/03/rekordbox-v6611-release-information/",
+        "https://www.pioneerdj.com/-/media/pioneerdj/downloads/firmwares/systems/opus-quad/opus-quad-firmware-change-history-ver122-en.pdf",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://alphatheta.com/en/onelibrary/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "omnis-duo",
+      "model": "OMNIS-DUO",
+      "maker": "AlphaTheta",
+      "brand": "AlphaTheta",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": true,
+        "fat32": true,
+        "exfat": true,
+        "ntfs": false,
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": 1,
+        "policy": "The first partition is used, or the partition containing the rekordbox library instead; this is not proof of MBR/GPT support."
+      },
+      "audioFormats": [
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aac",
+          "extensions": [
+            "m4a",
+            "aac",
+            "mp4"
+          ],
+          "bits": [
+            16
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": {
+            "min": 16,
+            "max": 320
+          },
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac",
+            "fla"
+          ],
+          "bits": [
+            16,
+            24
+          ],
+          "sampleRatesHz": [
+            44100,
+            48000
+          ],
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "omnis-manual"
+          ],
+          "sampleRateListExhaustive": true
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": false,
+        "deviceLibraryPlus": true,
+        "oneLibrary": true,
+        "engineDj": "unknown"
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "The vendor release added model compatibility; this is not a claim that every USB playlist exported by an older version is unplayable.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format.",
+        "compatibilityAddedIn": "6.8.2",
+        "sourceIds": [
+          "rb-omnis-682"
+        ]
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "omnis-manual",
+        "rb-omnis-682",
+        "at-usb-notice",
+        "at-onelibrary"
+      ],
+      "sourceURLs": [
+        "https://downloads.support.alphatheta.com/manuals/all-in-one-dj-systems/OMNIS-DUO/OMNIS-DUO_DRI1882A_manual.pdf",
+        "https://rekordbox.com/en/2024/01/rekordbox-v682-release-information/",
+        "https://alphatheta.com/en/information/important-notice-for-customers-using-usb-devices-with-our-dj-equipment/",
+        "https://alphatheta.com/en/onelibrary/"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Compressed-format bit depth is the width shown in manufacturer tables, not an intrinsic MP3/AAC bit-depth property. Audio-file playback limits must not be replaced by DAC/ADC specifications."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": "unknown",
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "sc6000-prime",
+      "model": "SC6000 PRIME",
+      "maker": "Denon DJ",
+      "brand": "Denon DJ",
+      "category": "dj-player",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": true,
+        "ntfs": "unknown",
+        "hfsPlus": true,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "aac",
+          "extensions": [
+            "aac",
+            "m4a"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ],
+          "bitDepthRange": [
+            16,
+            32
+          ],
+          "sampleRateRangeHz": [
+            44100,
+            192000
+          ],
+          "encoding": "unknown",
+          "notes": "The manual states a range; intermediate rates and 32-bit float versus integer are not enumerated."
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "mp4",
+          "extensions": [
+            "mp4"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "ogg",
+          "extensions": [
+            "ogg"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ]
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-sc6000-guide43"
+          ],
+          "bitDepthRange": [
+            16,
+            32
+          ],
+          "sampleRateRangeHz": [
+            44100,
+            192000
+          ],
+          "encoding": "unknown",
+          "notes": "The manual states a range; intermediate rates and 32-bit float versus integer are not enumerated."
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": "unknown",
+        "deviceLibraryPlus": "unknown",
+        "oneLibrary": "unknown",
+        "engineDj": true
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [
+        {
+          "feature": "HFS+ storage",
+          "minimumFirmware": "Engine DJ OS 2.4.0",
+          "sourceIds": [
+            "denon-hfs-240"
+          ]
+        }
+      ],
+      "sourceIds": [
+        "denon-sc6000-guide43",
+        "denon-hfs-240",
+        "denon-hfs-faq"
+      ],
+      "sourceURLs": [
+        "https://cdn.inmusicbrands.com/engine/43/SC6000%20PRIME%2C%20SC6000M%20PRIME%2C%20SC5000%20PRIME%2C%20SC5000M%20PRIME%20-%20User%20Guide%20-%20v4.3.0.pdf",
+        "https://support.denondj.com/en/support/solutions/articles/69000828750-engine-dj-2-4-0-update-release-notes",
+        "https://support.denondj.com/en/support/solutions/articles/69000828903-is-hfs-supported-on-my-hardware-"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Engine DJ libraries are distinct from rekordbox USB library formats. Specific import support for traditional Device Library, Device Library Plus and OneLibrary was not verified in this bounded pass; these values remain unknown.",
+        "WAV/AIFF file ranges are 44.1-192 kHz and 16-32 bit in the user guide. The device digital-output rate/bit depth is a different specification."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": true,
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    },
+    {
+      "id": "prime-4",
+      "model": "PRIME 4",
+      "maker": "Denon DJ",
+      "brand": "Denon DJ",
+      "category": "all-in-one",
+      "scope": "Standalone playback from USB storage; SD is included only where the source manual explicitly groups it with USB.",
+      "filesystemSupport": {
+        "fat16": "unknown",
+        "fat32": true,
+        "exfat": true,
+        "ntfs": "unknown",
+        "hfsPlus": false,
+        "apfs": "unknown",
+        "ext2": "unknown",
+        "ext3": "unknown",
+        "ext4": "unknown"
+      },
+      "partitionScheme": {
+        "mbr": "unknown",
+        "gpt": "unknown",
+        "maxUsablePartitions": "unknown",
+        "policy": "unknown"
+      },
+      "audioFormats": [
+        {
+          "format": "aac",
+          "extensions": [
+            "aac",
+            "m4a"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "aiff",
+          "extensions": [
+            "aif",
+            "aiff"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ],
+          "bitDepthRange": [
+            16,
+            32
+          ],
+          "sampleRateRangeHz": [
+            44100,
+            192000
+          ],
+          "encoding": "unknown",
+          "notes": "The manual states a range; intermediate rates and 32-bit float versus integer are not enumerated."
+        },
+        {
+          "format": "alac",
+          "extensions": [
+            "m4a"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "flac",
+          "extensions": [
+            "flac"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "mp3",
+          "extensions": [
+            "mp3"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": {
+            "min": 32,
+            "max": 320
+          },
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "mp4",
+          "extensions": [
+            "mp4"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "ogg",
+          "extensions": [
+            "ogg"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ]
+        },
+        {
+          "format": "wav",
+          "extensions": [
+            "wav"
+          ],
+          "bits": "unknown",
+          "sampleRatesHz": "unknown",
+          "bitRatesKbps": "unknown",
+          "sourceIds": [
+            "denon-prime-guide50"
+          ],
+          "bitDepthRange": [
+            16,
+            32
+          ],
+          "sampleRateRangeHz": [
+            44100,
+            192000
+          ],
+          "encoding": "unknown",
+          "notes": "The manual states a range; intermediate rates and 32-bit float versus integer are not enumerated."
+        }
+      ],
+      "libraryTypes": {
+        "deviceLibrary": "unknown",
+        "deviceLibraryPlus": "unknown",
+        "oneLibrary": "unknown",
+        "engineDj": true
+      },
+      "requiredRekordbox": {
+        "minimum": "unknown",
+        "minimumScope": "Minimum export software version is not inferred from a hardware compatibility announcement.",
+        "recommended": "Use a current non-withdrawn supported release and check versionAdvisories; do not equate software major version with USB library format."
+      },
+      "firmwareConditions": [],
+      "sourceIds": [
+        "denon-prime-guide50",
+        "denon-hfs-faq"
+      ],
+      "sourceURLs": [
+        "https://cdn.inmusicbrands.com/Software/ENDJ5/PRIME%204%2C%20PRIME%204%2B%2C%20PRIME%202%2C%20PRIME%20GO%2C%20PRIME%20GO%2B%2C%20SC%20LIVE%204%2C%20SC%20LIVE%202%20-%20User%20Guide%20-%20v5.0.0.pdf",
+        "https://support.denondj.com/en/support/solutions/articles/69000828903-is-hfs-supported-on-my-hardware-"
+      ],
+      "asOfUTC": "2026-11-15T09:10:42.675Z",
+      "evidenceNotes": [
+        "true/false/unknown is evidence-scoped; unknown is never an automatic recommendation or a permanent unsupported claim. Hardware support was researched, not tested on physical DJ equipment.",
+        "Engine DJ libraries are distinct from rekordbox USB library formats. Specific import support for traditional Device Library, Device Library Plus and OneLibrary was not verified in this bounded pass; these values remain unknown.",
+        "WAV/AIFF file ranges are 44.1-192 kHz and 16-32 bit in the user guide. The device digital-output rate/bit depth is a different specification."
+      ],
+      "audioFormatSupport": {
+        "mp3": true,
+        "aac": true,
+        "wav": true,
+        "aiff": true,
+        "alac": true,
+        "flac": true,
+        "ogg": true,
+        "opus": "unknown",
+        "dsd": "unknown"
+      }
+    }
+  ]
+}

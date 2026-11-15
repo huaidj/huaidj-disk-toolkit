@@ -1,0 +1,10 @@
+node_modules/
+runtime/
+state/
+work/
+vendor/
+config.json
+CONTROL.md
+dist/
+bin/*.exe
+bin/*.pdb

@@ -1,0 +1,28 @@
+name: Native source build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compile:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: microsoft/setup-msbuild@v3
+        with:
+          msbuild-architecture: x64
+      - name: Build matching packaged GPL source with MSVC v143
+        shell: pwsh
+        run: ./scripts/build-native.ps1 -SourceRoot ./sources/rufus -OutputDirectory ./dist/native -PlatformToolset v143
+      - name: Record build identity
+        shell: pwsh
+        run: Get-FileHash -LiteralPath ./dist/native/rufus.exe -Algorithm SHA256
+      - name: Run standalone non-storage native option tests
+        shell: pwsh
+        run: ./scripts/run-native-options-tests.ps1 -SourceRoot ./sources/rufus -OutputDirectory ./dist/native-option-tests
+
+  # The disk engine is compiled only. The standalone test executable contains
+  # no Rufus UI or storage implementation and runs as an ordinary user.

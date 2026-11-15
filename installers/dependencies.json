@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "asOfUTC": "2026-11-15T09:46:37.4629252Z",
+  "node": {
+    "version": "24.22.3",
+    "minimumExistingVersion": "22.15.0",
+    "sourceURLs": [
+      "https://nodejs.org/dist/index.json",
+      "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt"
+    ],
+    "platforms": {
+      "windows-x64": {
+        "file": "node-v24.22.3-win-x64.zip",
+        "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-win-x64.zip",
+        "sha256": "e612af99f626ab415ea225af6bce5c971feb448cb5cae250bb1c3fa50c5f7d9f",
+        "checksumsUrl": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+        "archiveRoot": "node-v24.22.3-win-x64",
+        "entry": "node.exe",
+        "npmEntry": "node_modules/npm/bin/npm-cli.js"
+      },
+      "darwin-arm64": {
+        "file": "node-v24.22.3-darwin-arm64.tar.gz",
+        "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-darwin-arm64.tar.gz",
+        "sha256": "ff6e17d4874b76d272212b908cc020d6e815fba5a6c7eaaa06add725840307fd",
+        "checksumsUrl": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+        "archiveRoot": "node-v24.22.3-darwin-arm64",
+        "entry": "bin/node",
+        "npmEntry": "lib/node_modules/npm/bin/npm-cli.js"
+      },
+      "darwin-x64": {
+        "file": "node-v24.22.3-darwin-x64.tar.gz",
+        "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-darwin-x64.tar.gz",
+        "sha256": "977614af0504c81045e7fd85596dbca0e5f951b96681516dadafedcca8c447f7",
+        "checksumsUrl": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+        "archiveRoot": "node-v24.22.3-darwin-x64",
+        "entry": "bin/node",
+        "npmEntry": "lib/node_modules/npm/bin/npm-cli.js"
+      },
+      "linux-arm64": {
+        "file": "node-v24.22.3-linux-arm64.tar.gz",
+        "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-linux-arm64.tar.gz",
+        "sha256": "261af2af250dfd7e9f25cf151d1b2713a0adf8f10a9ad116c4947f68627affe8",
+        "checksumsUrl": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+        "archiveRoot": "node-v24.22.3-linux-arm64",
+        "entry": "bin/node",
+        "npmEntry": "lib/node_modules/npm/bin/npm-cli.js"
+      },
+      "linux-x64": {
+        "file": "node-v24.22.3-linux-x64.tar.gz",
+        "url": "https://nodejs.org/dist/v24.22.3/node-v24.22.3-linux-x64.tar.gz",
+        "sha256": "061ec3e3062115705b56b51fa9cc330ab50d34b6969387d4e4b1a50c6809acc2",
+        "checksumsUrl": "https://nodejs.org/dist/v24.22.3/SHASUMS256.txt",
+        "archiveRoot": "node-v24.22.3-linux-x64",
+        "entry": "bin/node",
+        "npmEntry": "lib/node_modules/npm/bin/npm-cli.js"
+      }
+    }
+  },
+  "powershell": {
+    "version": "7.6.6",
+    "minimumExistingVersion": "7.0.0",
+    "sourceURLs": [
+      "https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows?view=powershell-7.6",
+      "https://github.com/PowerShell/PowerShell/releases/tag/v7.6.6"
+    ],
+    "platforms": {
+      "windows-x64": {
+        "file": "PowerShell-7.6.6-win-x64.zip",
+        "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.6/PowerShell-7.6.6-win-x64.zip",
+        "sha256": "02fe458be20493fbdf43f61ea20610b811ee6c738ab1676c61b9cfcd1a33c860",
+        "checksumsUrl": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.6/hashes.sha256",
+        "archiveRoot": ".",
+        "entry": "pwsh.exe"
+      }
+    }
+  }
+}

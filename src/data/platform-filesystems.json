@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "asOfUTC": "2026-11-15T09:04:39.6472275Z",
+  "scope": "Native operating-system filesystem access and formatting capabilities. This is separate from DJ-player support and from this toolkit's tested adapters.",
+  "sources": {
+    "apple-formats": "https://support.apple.com/guide/disk-utility/file-system-formats-dsku19ed921c/mac",
+    "apple-ntfs": "https://support.apple.com/101830",
+    "microsoft-comparison": "https://learn.microsoft.com/en-us/windows/win32/fileio/filesystem-functionality-comparison",
+    "microsoft-refs": "https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview",
+    "microsoft-wsl-ext4": "https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk"
+  },
+  "filesystems": [
+    {
+      "id": "fat16",
+      "name": "FAT16",
+      "windows": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "macos": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "sources": [
+        "apple-formats",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "Capacity and cluster-size limits apply; use device-specific documentation before selecting a DJ preset."
+      ]
+    },
+    {
+      "id": "fat32",
+      "name": "FAT32",
+      "maxFileBytes": 4294967295,
+      "windows": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "macos": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "sources": [
+        "apple-formats",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "The filesystem's per-file limit differs from the formatting application's volume-size limit. Windows formatting limits vary by tool and release."
+      ]
+    },
+    {
+      "id": "exfat",
+      "name": "exFAT",
+      "windows": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "macos": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "sources": [
+        "apple-formats",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "Computer interoperability does not establish support on a particular DJ player."
+      ]
+    },
+    {
+      "id": "ntfs",
+      "name": "NTFS",
+      "windows": {
+        "read": true,
+        "write": true,
+        "format": true
+      },
+      "macos": {
+        "read": "limited",
+        "write": false,
+        "format": false
+      },
+      "sources": [
+        "apple-ntfs",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "Apple states that a Mac might read an NTFS drive but cannot write to it using native Disk Utility support; third-party drivers are outside this native matrix."
+      ]
+    },
+    {
+      "id": "hfsPlus",
+      "name": "HFS+ / Mac OS Extended",
+      "windows": {
+        "read": false,
+        "write": false,
+        "format": false
+      },
+      "macos": {
+        "read": true,
+        "write": true,
+        "format": "version-dependent"
+      },
+      "sources": [
+        "apple-formats",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "Legacy HFS+ formatting availability depends on the installed macOS/Disk Utility version. Windows native Storage APIs do not offer this filesystem. Journaled/case-sensitive variants require separate player confirmation."
+      ]
+    },
+    {
+      "id": "apfs",
+      "name": "APFS",
+      "windows": {
+        "read": false,
+        "write": false,
+        "format": false
+      },
+      "macos": {
+        "read": true,
+        "write": true,
+        "format": true,
+        "minimumVersion": "10.13"
+      },
+      "sources": [
+        "apple-formats",
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "APFS support on macOS does not imply DJ-player support; encrypted volumes need additional device-specific confirmation."
+      ]
+    },
+    {
+      "id": "refs",
+      "name": "ReFS",
+      "windows": {
+        "read": "edition-dependent",
+        "write": "edition-dependent",
+        "format": "edition-and-media-dependent"
+      },
+      "macos": {
+        "read": false,
+        "write": false,
+        "format": false
+      },
+      "sources": [
+        "microsoft-refs"
+      ],
+      "notes": [
+        "ReFS is not a portable DJ USB preset. Edition, storage topology, media type and current Windows restrictions must be checked at runtime."
+      ]
+    },
+    {
+      "id": "udf",
+      "name": "UDF",
+      "windows": {
+        "read": true,
+        "write": "media-and-version-dependent",
+        "format": "tool-dependent"
+      },
+      "macos": {
+        "read": "version-dependent",
+        "write": "unknown",
+        "format": "unknown"
+      },
+      "sources": [
+        "microsoft-comparison"
+      ],
+      "notes": [
+        "Optical-image UDF handling is different from formatting a removable DJ drive; Mac write/format support is not certified by this dataset."
+      ]
+    },
+    {
+      "id": "ext4",
+      "name": "ext4",
+      "windows": {
+        "read": false,
+        "write": false,
+        "format": false,
+        "optionalAdapter": "WSL 2 can attach supported non-system Linux disks; this is not native Windows volume support."
+      },
+      "macos": {
+        "read": false,
+        "write": false,
+        "format": false
+      },
+      "sources": [
+        "microsoft-wsl-ext4",
+        "apple-formats"
+      ],
+      "notes": [
+        "Linux-native formatting is a separate platform adapter. Do not infer cross-platform or DJ-player compatibility from a Linux installer using ext4."
+      ]
+    }
+  ]
+}

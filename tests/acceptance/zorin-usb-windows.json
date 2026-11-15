@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "platform": "Windows x64",
+  "deviceClass": "32 GB SanDisk USB 3.2 Gen 1 flash drive",
+  "image": "Zorin OS 18.1 Core 64-bit",
+  "imageBytes": 3909091328,
+  "sourceSHA256": "44649b97bd307fc4c8529205d098ebbf98575a1e1ba2ee7d7005b697af1721d5",
+  "readbackSHA256": "44649b97bd307fc4c8529205d098ebbf98575a1e1ba2ee7d7005b697af1721d5",
+  "nativeBinarySHA256": "ffec76edbae7b09ed6e24f72ab6c7d51a69a669e4612db3e646e69b5abaa891d",
+  "verifiedUTC": "2026-11-15T09:07:35.8303353Z",
+  "results": {
+    "cliPrepare": "PASS",
+    "nativeDryRun": "PASS",
+    "nativeWrite": "PASS",
+    "physicalPrefixReadback": "PASS",
+    "hashEquality": "PASS",
+    "bootIntoLiveSystem": "NOT_RUN",
+    "internalOsInstallation": "NOT_RUN",
+    "macosDiskOperations": "NOT_RUN",
+    "djPlayerPlayback": "NOT_RUN"
+  },
+  "scope": "The entire image-length prefix was read from the physical USB after a real Rufus-native DD write. No internal OS partition or firmware setting was changed. This receipt contains no hardware serial, account name or local filesystem path."
+}

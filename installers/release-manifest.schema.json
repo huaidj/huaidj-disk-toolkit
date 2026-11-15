@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HuaiDJ Disk Toolkit fixed release manifest",
+  "type": "object",
+  "required": ["schemaVersion", "version", "tag", "repository", "assets", "dependencies"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "version": { "const": "0.1.0" },
+    "tag": { "const": "v0.1.0" },
+    "repository": { "const": "yutianyu111602-glitch/huaidj-disk-toolkit" },
+    "createdUTC": { "type": "string", "format": "date-time" },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "file", "url", "sha256", "archiveRoot"],
+        "properties": {
+          "name": { "enum": ["windows-x64", "source", "skill", "install-ps1", "bootstrap-sh"] },
+          "file": { "type": "string", "pattern": "^[a-zA-Z0-9._-]+$" },
+          "url": { "type": "string", "pattern": "^https://github.com/yutianyu111602-glitch/huaidj-disk-toolkit/releases/download/v0\\.1\\.0/" },
+          "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+          "archiveRoot": { "enum": [".", "huaidj-disk-toolkit"] }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "required": ["node", "powershell"],
+      "properties": {
+        "node": { "$ref": "#/$defs/dependency" },
+        "powershell": { "$ref": "#/$defs/dependency" }
+      }
+    }
+  },
+  "$defs": {
+    "dependency": {
+      "type": "object",
+      "required": ["version", "platforms"],
+      "properties": {
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+        "minimumExistingVersion": { "type": "string" },
+        "sourceURLs": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "platforms": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["file", "url", "sha256", "checksumsUrl", "archiveRoot", "entry"],
+            "properties": {
+              "file": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "sha256": { "type": "string", "pattern": "^[a-fA-F0-9]{64}$" },
+              "checksumsUrl": { "type": "string", "format": "uri" },
+              "archiveRoot": { "type": "string" },
+              "entry": { "type": "string" },
+              "npmEntry": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

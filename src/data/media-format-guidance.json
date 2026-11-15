@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "asOfUTC": "2026-11-15T10:12:24.595Z",
+  "scope": "Official USB-media formatting guidance only; audio compatibility is maintained separately.",
+  "semantics": {
+    "evidencePriority": [
+      "model-specific",
+      "manufacturer-general",
+      "os-general"
+    ],
+    "evidenceLevels": {
+      "model-specific-confirmed": "An explicit manufacturer model statement, not local hardware acceptance.",
+      "manufacturer-general-recommendation": "General manufacturer guidance; conditional advice, not per-model confirmation."
+    },
+    "unknownIsUnsupported": false,
+    "unsupportedGptDoesNotConfirmMbr": true,
+    "recommendationDoesNotMutateModelFacts": true,
+    "osGeneralDoesNotResolveHardwareUnknowns": true,
+    "hardwareAcceptance": "NOT_RUN"
+  },
+  "sources": [
+    {
+      "id": "at-mbr-support",
+      "title": "Official support response on an export drive not appearing in rekordbox",
+      "kind": "manufacturer-official-support-comment",
+      "publisher": "AlphaTheta / Pioneer DJ",
+      "locator": "Official comment by Pulse; drive-format recommendation",
+      "authorityNote": "Historical general support guidance; not a model-by-model specification.",
+      "url": "https://forums.pioneerdj.com/hc/en-us/community/posts/360068547812-SAN-DISK-PORTABLE-SSD-NOT-SHOWING-AS-DEVICE-ON-REKORBOX",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "at-first-partition",
+      "title": "Official support response on a multi-partition USB used with CDJ-3000",
+      "kind": "manufacturer-official-support-comment",
+      "publisher": "AlphaTheta / Pioneer DJ",
+      "locator": "Official comment by Pulse; first-partition statement",
+      "url": "https://forums.pioneerdj.com/hc/en-us/community/posts/14957472315801-CDJ-3000-does-not-read-USB-Lexar-F35-Fingerprint",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "at-cdj3000-storage",
+      "title": "CDJ-3000 USB recognition and GUID Partition Map restriction",
+      "kind": "manufacturer-model-faq",
+      "publisher": "AlphaTheta",
+      "locator": "Mac notes and supported-format list",
+      "url": "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135001625-The-unit-doesn-t-recognize-some-USB-storage-devices-such-as-USB-flash-drives-and-HDDs-Why-not",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "at-onelibrary-export-guide",
+      "title": "OneLibrary Compatible USB Device Export Guide",
+      "kind": "manufacturer-export-guide",
+      "publisher": "AlphaTheta / rekordbox",
+      "locator": "Page 6, new USB preparation and supported-format list",
+      "url": "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "denon-prime4-storage",
+      "title": "Denon DJ PRIME 4 Frequently Asked Questions",
+      "kind": "manufacturer-model-faq",
+      "publisher": "Denon DJ / inMusic",
+      "locator": "Storage and Media: compatible drive formats",
+      "url": "https://support.denondj.com/en/support/solutions/articles/69000809366-denon-dj-prime-4-frequently-asked-questions",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "denon-generic-format",
+      "title": "Formatting a Hard Drive for DJ Performance",
+      "kind": "manufacturer-general-os-format-guide",
+      "publisher": "Denon DJ / inMusic",
+      "locator": "Mac formatting note and Windows formatting steps",
+      "url": "https://support.denondj.com/en/support/solutions/articles/69000809749-formatting-a-hard-drive-for-dj-performance",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    },
+    {
+      "id": "at-cdj3000-capacity",
+      "title": "CDJ-3000 maximum USB storage-capacity FAQ",
+      "kind": "manufacturer-model-faq",
+      "publisher": "AlphaTheta",
+      "locator": "Capacity answer; linked from the CDJ-3000 USB-recognition FAQ",
+      "url": "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135007641-What-s-the-maximum-storage-capacity-of-USB-Storage-Devices-I-can-use-with-the-unit-such-as-USB-flash-drives-and-hard-disks",
+      "asOfUTC": "2026-11-15T10:12:24.595Z"
+    }
+  ],
+  "rules": [
+    {
+      "id": "at-export-general-mbr",
+      "scope": "manufacturer-general",
+      "evidenceLevel": "manufacturer-general-recommendation",
+      "maker": "AlphaTheta",
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {
+        "partitionScheme": "mbr",
+        "filesystem": "fat32"
+      },
+      "recommendationDerivation": "manufacturer-official-support-response",
+      "notes": [
+        "An official support reply recommends MBR with FAT32 or HFS+ for an export drive.",
+        "This supports a conditional interoperability recommendation, not confirmed MBR support for every current model.",
+        "Later model-specific filesystem, partition and firmware evidence takes precedence."
+      ],
+      "sourceURLs": [
+        "https://forums.pioneerdj.com/hc/en-us/community/posts/360068547812-SAN-DISK-PORTABLE-SSD-NOT-SHOWING-AS-DEVICE-ON-REKORBOX"
+      ]
+    },
+    {
+      "id": "at-cdj-xdj-first-partition",
+      "scope": "manufacturer-general",
+      "evidenceLevel": "manufacturer-general-recommendation",
+      "maker": "AlphaTheta",
+      "families": [
+        "CDJ",
+        "XDJ"
+      ],
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {
+        "partitionCount": 1
+      },
+      "manufacturerStatement": {
+        "readablePartition": "first"
+      },
+      "recommendationDerivation": "tool-inference-from-official-first-partition-statement",
+      "notes": [
+        "Official support states that CDJ/XDJ players read the first partition.",
+        "One usable data partition is a conservative preparation recommendation; this is not proof that every multi-partition drive is rejected.",
+        "Do not apply this statement to Denon/Engine hardware."
+      ],
+      "sourceURLs": [
+        "https://forums.pioneerdj.com/hc/en-us/community/posts/14957472315801-CDJ-3000-does-not-read-USB-Lexar-F35-Fingerprint"
+      ]
+    },
+    {
+      "id": "cdj3000-guid-unsupported",
+      "scope": "model-specific",
+      "evidenceLevel": "model-specific-confirmed",
+      "maker": "AlphaTheta",
+      "modelIds": [
+        "cdj-3000"
+      ],
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {},
+      "constraints": {
+        "unsupportedPartitionSchemes": [
+          "gpt"
+        ]
+      },
+      "confirmedPartitionSupport": {
+        "mbr": "unknown",
+        "gpt": "unsupported"
+      },
+      "notes": [
+        "The model FAQ explicitly rejects GUID Partition Map.",
+        "A negative GPT statement does not positively confirm MBR; any MBR suggestion must retain its separate general-guidance label.",
+        "Firmware-update media require FAT/FAT32 even though playback also supports exFAT."
+      ],
+      "sourceURLs": [
+        "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135001625-The-unit-doesn-t-recognize-some-USB-storage-devices-such-as-USB-flash-drives-and-HDDs-Why-not"
+      ]
+    },
+    {
+      "id": "at-export-filesystem-coverage",
+      "scope": "manufacturer-general",
+      "evidenceLevel": "manufacturer-general-recommendation",
+      "maker": "AlphaTheta",
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {
+        "filesystem": "fat32"
+      },
+      "recommendationDerivation": "conservative-tool-selection-from-manufacturer-supported-formats",
+      "conditionalAlternatives": [
+        {
+          "filesystem": "exfat",
+          "modelIds": [
+            "cdj-3000x",
+            "cdj-3000",
+            "xdj-az",
+            "opus-quad",
+            "omnis-duo",
+            "xdj-xz",
+            "xdj-rx3"
+          ],
+          "requiresExistingModelAndFirmwareChecks": true
+        }
+      ],
+      "notes": [
+        "The official export guide lists FAT32 and exFAT for Windows, plus HFS+ for Mac.",
+        "Its exFAT list names only the specified newer models; do not extend it to all CDJ/XDJ units.",
+        "The guide lists supported formats rather than a universal preference: the FAT32 fallback here is a tool recommendation.",
+        "Existing model/firmware and rekordbox version advisories remain authoritative."
+      ],
+      "sourceURLs": [
+        "https://cdn.rekordbox.com/files/20260318114024/OneLibrary-Compatible-USB-Device-Export_en.pdf"
+      ]
+    },
+    {
+      "id": "prime4-media-mbr-filesystems",
+      "scope": "model-specific",
+      "evidenceLevel": "model-specific-confirmed",
+      "maker": "Denon DJ",
+      "modelIds": [
+        "prime-4"
+      ],
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {
+        "partitionScheme": "mbr"
+      },
+      "constraints": {
+        "supportedFilesystems": [
+          "fat32",
+          "exfat"
+        ]
+      },
+      "confirmedPartitionSupport": {
+        "mbr": "supported",
+        "gpt": "unknown"
+      },
+      "notes": [
+        "The PRIME 4 FAQ explicitly specifies FAT32 or exFAT with an MBR partition structure for connected media.",
+        "This confirms the manufacturer statement for PRIME 4; it is not a physical test and is not inherited by SC6000 or every Engine DJ model.",
+        "The separate internal-drive capacity answer is not a universal USB-capacity guarantee."
+      ],
+      "sourceURLs": [
+        "https://support.denondj.com/en/support/solutions/articles/69000809366-denon-dj-prime-4-frequently-asked-questions"
+      ]
+    },
+    {
+      "id": "prime4-large-media-prefer-exfat",
+      "scope": "model-specific",
+      "evidenceLevel": "model-specific-confirmed",
+      "maker": "Denon DJ",
+      "modelIds": [
+        "prime-4"
+      ],
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {
+        "filesystem": "exfat",
+        "partitionScheme": "mbr",
+        "minCapacityBytes": 1000000000000
+      },
+      "thresholdInterpretation": {
+        "sourceText": "1 TB and greater",
+        "byteValueIsUiInterpretation": true,
+        "unitConvention": "decimal storage-capacity convention"
+      },
+      "notes": [
+        "The model FAQ recommends exFAT for file systems of 1 TB or greater.",
+        "The byte threshold is a UI interpretation of the published TB wording, not a separately measured device boundary.",
+        "Do not silently switch a drive above the toolkit MBR limit to GPT or truncate capacity."
+      ],
+      "sourceURLs": [
+        "https://support.denondj.com/en/support/solutions/articles/69000809366-denon-dj-prime-4-frequently-asked-questions"
+      ]
+    },
+    {
+      "id": "denon-generic-os-gpt-context",
+      "scope": "os-general",
+      "evidenceLevel": "manufacturer-general-recommendation",
+      "maker": "Denon DJ",
+      "appliesToPurpose": "computer-file-exchange",
+      "excludeFromHardwareAutoSelect": true,
+      "recommendation": {
+        "partitionScheme": "gpt"
+      },
+      "notes": [
+        "The generic formatting guide recommends GPT in the context of modern computer operating systems.",
+        "That generic advice conflicts with the PRIME 4 model FAQ if applied indiscriminately to player media.",
+        "It must not override model-specific MBR guidance or fill an unknown player partition capability."
+      ],
+      "sourceURLs": [
+        "https://support.denondj.com/en/support/solutions/articles/69000809749-formatting-a-hard-drive-for-dj-performance"
+      ]
+    },
+    {
+      "id": "cdj3000-capacity-no-numeric-cap",
+      "scope": "model-specific",
+      "evidenceLevel": "model-specific-confirmed",
+      "maker": "AlphaTheta",
+      "modelIds": [
+        "cdj-3000"
+      ],
+      "appliesToPurpose": "dj-usb-export",
+      "recommendation": {},
+      "constraints": {
+        "fixedCapacityLimitBytes": null,
+        "capacityStatementStatus": "no-numeric-limit-stated"
+      },
+      "notes": [
+        "The capacity FAQ states no fixed capacity limit for devices supporting its listed FAT/FAT32/HFS+ formats.",
+        "It supplies no tested byte ceiling, no cluster-size value and no proof that every controller or capacity works.",
+        "Do not interpret this as GPT support, an exFAT-specific capacity guarantee or permission to exceed the toolkit MBR limit."
+      ],
+      "sourceURLs": [
+        "https://pioneer-support.zendesk.com/hc/en-us/articles/4406135007641-What-s-the-maximum-storage-capacity-of-USB-Storage-Devices-I-can-use-with-the-unit-such-as-USB-flash-drives-and-hard-disks"
+      ]
+    }
+  ],
+  "unknowns": {
+    "clusterSizeBytes": {
+      "status": "unknown",
+      "value": null,
+      "reviewedScope": "The listed official guides and FAQs; no numeric allocation-unit recommendation was located.",
+      "doNotInferManufacturerStandardBytes": 32768,
+      "consumerDefault": "auto",
+      "consumerDefaultBasis": "tool/native default, not manufacturer certification"
+    },
+    "singlePartitionRequirement": {
+      "status": "not-universal",
+      "notes": [
+        "The AlphaTheta first-partition guidance does not establish a universal one-partition hardware requirement.",
+        "No universal Engine DJ single-partition requirement was established by this bounded review."
+      ]
+    },
+    "sc6000PrimePartitionScheme": {
+      "status": "unknown",
+      "mbr": "unknown",
+      "gpt": "unknown",
+      "notes": [
+        "The PRIME 4 FAQ cannot establish SC6000 partition compatibility.",
+        "The generic OS-formatting guide cannot establish a player-specific partition scheme."
+      ]
+    },
+    "numericCapacityLimits": {
+      "status": "model-and-filesystem-dependent",
+      "notes": [
+        "Absence of a stated capacity ceiling is not an unlimited-capacity test result.",
+        "The toolkit MBR boundary is a separate implementation/safety limit."
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "imageRoots": ["./images"],
+  "imageAliases": {},
+  "powershell": "pwsh",
+  "planLifetimeSeconds": 600
+}

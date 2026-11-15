@@ -1,0 +1,1440 @@
+diff --git a/.vs/rufus.vcxproj b/.vs/rufus.vcxproj
+index a4c1347..efa4b1a 100644
+--- a/.vs/rufus.vcxproj
++++ b/.vs/rufus.vcxproj
+@@ -311,6 +311,8 @@
+     <ClCompile Include="..\src\pki.c" />
+     <ClCompile Include="..\src\process.c" />
+     <ClCompile Include="..\src\rufus.c" />
++    <ClCompile Include="..\src\huaidj_autopilot.c" />
++    <ClCompile Include="..\src\huaidj_options.c" />
+     <ClCompile Include="..\src\hash.c" />
+     <ClCompile Include="..\src\smart.c" />
+     <ClCompile Include="..\src\stdfn.c" />
+@@ -411,4 +413,4 @@
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+   <ImportGroup Label="ExtensionTargets">
+   </ImportGroup>
+-</Project>
+\ No newline at end of file
++</Project>
+diff --git a/src/Makefile.am b/src/Makefile.am
+index e88ea32..e57042f 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -15,7 +15,7 @@ AM_V_WINDRES   = $(AM_V_WINDRES_$(V))
+ %_rc.o: %.rc ../res/loc/embedded.loc
+ 	$(AM_V_WINDRES) $(AM_RCFLAGS) -i $< -o $@
+ 
+-rufus_SOURCES = badblocks.c darkmode.c dev.c dos.c dos_locale.c drive.c format.c format_ext.c format_fat32.c hash.c icon.c iso.c localization.c \
++rufus_SOURCES = huaidj_autopilot.c huaidj_options.c badblocks.c darkmode.c dev.c dos.c dos_locale.c drive.c format.c format_ext.c format_fat32.c hash.c icon.c iso.c localization.c \
+ 	 net.c parser.c pki.c process.c cregex_compile.c cregex_parse.c cregex_vm.c rufus.c smart.c stdfn.c stdio.c stdlg.c syslinux.c ui.c vhd.c wue.c xml.c
+ rufus_CFLAGS = -I$(srcdir)/ms-sys/inc -I$(srcdir)/syslinux/libfat -I$(srcdir)/syslinux/libinstaller -I$(srcdir)/syslinux/win -I$(srcdir)/libcdio -I$(srcdir)/wimlib -I$(srcdir)/../res $(AM_CFLAGS) \
+ 	-DEXT2_FLAT_INCLUDES=0 -D_RUFUS -DSOLUTION=rufus
+diff --git a/src/Makefile.in b/src/Makefile.in
+index aada27c..2d13b04 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -99,7 +99,7 @@ mkinstalldirs = $(install_sh) -d
+ CONFIG_CLEAN_FILES =
+ CONFIG_CLEAN_VPATH_FILES =
+ PROGRAMS = $(noinst_PROGRAMS)
+-am_rufus_OBJECTS = rufus-badblocks.$(OBJEXT) rufus-darkmode.$(OBJEXT) \
++am_rufus_OBJECTS = rufus-huaidj_autopilot.$(OBJEXT) rufus-huaidj_options.$(OBJEXT) rufus-badblocks.$(OBJEXT) rufus-darkmode.$(OBJEXT) \
+ 	rufus-dev.$(OBJEXT) rufus-dos.$(OBJEXT) \
+ 	rufus-dos_locale.$(OBJEXT) rufus-drive.$(OBJEXT) \
+ 	rufus-format.$(OBJEXT) rufus-format_ext.$(OBJEXT) \
+@@ -300,7 +300,7 @@ AM_V_WINDRES_0 = @echo "  RC     $@";$(WINDRES)
+ AM_V_WINDRES_1 = $(WINDRES)
+ AM_V_WINDRES_ = $(AM_V_WINDRES_$(AM_DEFAULT_VERBOSITY))
+ AM_V_WINDRES = $(AM_V_WINDRES_$(V))
+-rufus_SOURCES = badblocks.c darkmode.c dev.c dos.c dos_locale.c drive.c format.c format_ext.c format_fat32.c hash.c icon.c iso.c localization.c \
++rufus_SOURCES = huaidj_autopilot.c huaidj_options.c badblocks.c darkmode.c dev.c dos.c dos_locale.c drive.c format.c format_ext.c format_fat32.c hash.c icon.c iso.c localization.c \
+ 	 net.c parser.c pki.c process.c cregex_compile.c cregex_parse.c cregex_vm.c rufus.c smart.c stdfn.c stdio.c stdlg.c syslinux.c ui.c vhd.c wue.c xml.c
+ 
+ rufus_CFLAGS = -I$(srcdir)/ms-sys/inc -I$(srcdir)/syslinux/libfat -I$(srcdir)/syslinux/libinstaller -I$(srcdir)/syslinux/win -I$(srcdir)/libcdio -I$(srcdir)/wimlib -I$(srcdir)/../res $(AM_CFLAGS) \
+@@ -369,6 +369,18 @@ rufus-badblocks.o: badblocks.c
+ rufus-badblocks.obj: badblocks.c
+ 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-badblocks.obj `if test -f 'badblocks.c'; then $(CYGPATH_W) 'badblocks.c'; else $(CYGPATH_W) '$(srcdir)/badblocks.c'; fi`
+ 
++rufus-huaidj_options.o: huaidj_options.c
++	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-huaidj_options.o `test -f 'huaidj_options.c' || echo '$(srcdir)/'`huaidj_options.c
++
++rufus-huaidj_options.obj: huaidj_options.c
++	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-huaidj_options.obj `if test -f 'huaidj_options.c'; then $(CYGPATH_W) 'huaidj_options.c'; else $(CYGPATH_W) '$(srcdir)/huaidj_options.c'; fi`
++
++rufus-huaidj_autopilot.o: huaidj_autopilot.c
++	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-huaidj_autopilot.o `test -f 'huaidj_autopilot.c' || echo '$(srcdir)/'`huaidj_autopilot.c
++
++rufus-huaidj_autopilot.obj: huaidj_autopilot.c
++	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-huaidj_autopilot.obj `if test -f 'huaidj_autopilot.c'; then $(CYGPATH_W) 'huaidj_autopilot.c'; else $(CYGPATH_W) '$(srcdir)/huaidj_autopilot.c'; fi`
++
+ rufus-darkmode.o: darkmode.c
+ 	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(rufus_CFLAGS) $(CFLAGS) -c -o rufus-darkmode.o `test -f 'darkmode.c' || echo '$(srcdir)/'`darkmode.c
+ 
+diff --git a/src/format.c b/src/format.c
+index 9f66416..164adef 100644
+--- a/src/format.c
++++ b/src/format.c
+@@ -330,6 +330,12 @@ static void ToValidLabel(char* Label, BOOL bFAT)
+ 	free(wLabel);
+ }
+ 
++void HuaidjNormalizeAutoLabel(char* label, int filesystem)
++{
++    ToValidLabel(label, filesystem == FS_FAT16 || filesystem == FS_FAT32 || filesystem == FS_EXFAT);
++}
++
++
+ /*
+  * Call on VDS to format a partition
+  */
+@@ -1508,6 +1514,10 @@ DWORD WINAPI FormatThread(void* param)
+ 		ErrorStatus = RUFUS_ERROR(ERROR_OPEN_FAILED);
+ 		goto out;
+ 	}
++	if (!HuaidjVerifyOpenTarget(hPhysicalDrive)) {
++		ErrorStatus = RUFUS_ERROR(ERROR_ACCESS_DENIED);
++		goto out;
++	}
+ 
+ 	// At this stage we have both a handle and a lock to the physical drive
+ 	if (!GetDriveLetters(DriveIndex, drive_letters)) {
+@@ -1551,6 +1561,10 @@ DWORD WINAPI FormatThread(void* param)
+ 		ErrorStatus = RUFUS_ERROR(ERROR_OPEN_FAILED);
+ 		goto out;
+ 	}
++	if (!HuaidjVerifyOpenTarget(hPhysicalDrive)) {
++		ErrorStatus = RUFUS_ERROR(ERROR_ACCESS_DENIED);
++		goto out;
++	}
+ 	RefreshDriveLayout(hPhysicalDrive);
+ 
+ 	// If we write an image that contains an ESP, Windows forcibly reassigns/removes the target
+@@ -1793,7 +1807,7 @@ try_clear:
+ 	// Append a " (SILENT)" suffix to the label for fully unattended silent installation media.
+ 	if (append_silent && strstr(label, " (SILENT)") == NULL)
+ 		static_strcat(label, " (SILENT)");
+-	if (fs_type < FS_EXT2)
++	if (fs_type < FS_EXT2 && !HuaidjPreserveExplicitLabel())
+ 		ToValidLabel(label, (fs_type == FS_FAT16) || (fs_type == FS_FAT32) || (fs_type == FS_EXFAT));
+ 	ClusterSize = (DWORD)ComboBox_GetCurItemData(hClusterSize);
+ 	if ((ClusterSize < 0x200) || (write_as_esp))
+diff --git a/src/msapi_utf8.h b/src/msapi_utf8.h
+index 2013d2b..5859292 100644
+--- a/src/msapi_utf8.h
++++ b/src/msapi_utf8.h
+@@ -23,6 +23,9 @@
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
+  */
+ #include <windows.h>
++#if defined(_RUFUS)
++#include "huaidj_autopilot.h"
++#endif
+ #include <stdio.h>
+ #include <shlobj.h>
+ #include <ctype.h>
+@@ -278,6 +281,9 @@ static __inline HWND CreateWindowExU(DWORD dwExStyle, char* lpClassName, char* l
+ 
+ static __inline int MessageBoxU(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)
+ {
++#if defined(_RUFUS)
++	if (huaidj_automation) return HuaidjRejectDialog(uType, lpText);
++#endif
+ 	int ret;
+ 	DWORD err = ERROR_INVALID_DATA;
+ 	wconvert(lpText);
+@@ -292,6 +298,9 @@ static __inline int MessageBoxU(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT
+ 
+ static __inline int MessageBoxExU(HWND hWnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType, WORD wLanguageId)
+ {
++#if defined(_RUFUS)
++	if (huaidj_automation) return HuaidjRejectDialog(uType, lpText);
++#endif
+ 	int ret;
+ 	DWORD err = ERROR_INVALID_DATA;
+ 	wconvert(lpText);
+diff --git a/src/rufus.c b/src/rufus.c
+index 5315528..5ee4dd4 100755
+--- a/src/rufus.c
++++ b/src/rufus.c
+@@ -1494,6 +1494,7 @@ out:
+ 	dont_display_image_name = FALSE;
+ 	dont_process_dbt_devnodes = FALSE;
+ 	PrintInfo(0, MSG_210);
++	if (huaidj_automation) PostMessage(hMainDialog, UM_HUAIDJ_SCAN_COMPLETE, 0, 0);
+ 	ExitThread(0);
+ }
+ 
+@@ -1575,7 +1576,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
+ 					StrArrayAdd(&selection.choices, lmprintf(MSG_276, iso_image), TRUE);
+ 					StrArrayAdd(&selection.choices, lmprintf(MSG_277, "ISO → ESP"), TRUE);
+ 					StrArrayAdd(&selection.choices, lmprintf(MSG_277, dd_image), TRUE);
+-					i = SelectionDialog(lmprintf(MSG_274, "ISOHybrid"), lmprintf(MSG_275, iso_image, dd_image, iso_image, dd_image), &selection);
++					i = huaidj_automation ? (huaidj_dd_mode ? 4 : 1) : SelectionDialog(lmprintf(MSG_274, "ISOHybrid"), lmprintf(MSG_275, iso_image, dd_image, iso_image, dd_image), &selection);
+ 					StrArrayDestroy(&selection.choices);
+ 					if (i < 0)	// Cancel
+ 						goto out;
+@@ -1585,7 +1586,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
+ 				} else {
+ 					StrArrayAdd(&selection.choices, lmprintf(MSG_276, iso_image), TRUE);
+ 					StrArrayAdd(&selection.choices, lmprintf(MSG_277, dd_image), TRUE);
+-					i = SelectionDialog(lmprintf(MSG_274, "ISOHybrid"), lmprintf(MSG_275, iso_image, dd_image, iso_image, dd_image), &selection);
++					i = huaidj_automation ? (huaidj_dd_mode ? 2 : 1) : SelectionDialog(lmprintf(MSG_274, "ISOHybrid"), lmprintf(MSG_275, iso_image, dd_image, iso_image, dd_image), &selection);
+ 					StrArrayDestroy(&selection.choices);
+ 					if (i < 0)	// Cancel
+ 						goto out;
+@@ -1701,7 +1702,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
+ 			Notification(MB_OK | MB_ICONERROR, lmprintf(MSG_099), lmprintf(MSG_100));
+ 			goto out;
+ 		}
+-		if ((WindowsVersion.Version >= WINDOWS_8) && IS_WINDOWS_1X(img_report) && (!is_windows_to_go)) {
++		if (!huaidj_automation && (WindowsVersion.Version >= WINDOWS_8) && IS_WINDOWS_1X(img_report) && (!is_windows_to_go)) {
+ 			if (img_report.has_panther_unattend) {
+ 				uprintf("NOTICE: A '/sources/$OEM$/$$/Panther/unattend.xml' was detected on the ISO.");
+ 				uprintf("As a result, the 'Windows User Experience dialog' will not be displayed.");
+@@ -1782,7 +1783,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
+ 			StrArrayCreate(&selection.choices, 2);
+ 			StrArrayAdd(&selection.choices, lmprintf(MSG_276, iso_image), TRUE);
+ 			StrArrayAdd(&selection.choices, lmprintf(MSG_277, "ISO → ESP"), TRUE);
+-			i = SelectionDialog(lmprintf(MSG_274, "ESP"), lmprintf(MSG_310), &selection);
++			i = huaidj_automation ? 1 : SelectionDialog(lmprintf(MSG_274, "ESP"), lmprintf(MSG_310), &selection);
+ 			StrArrayDestroy(&selection.choices);
+ 			if (i < 0)	// Cancel
+ 				goto out;
+@@ -2283,6 +2284,91 @@ static void PrintStatusTimeout(const char* str, BOOL val)
+ /*
+  * Main dialog callback
+  */
++static BOOL HuaidjSelectExact(HWND combo, LPARAM value, const char* error)
++{
++    for (int i = 0; i < ComboBox_GetCount(combo); ++i) {
++        if (ComboBox_GetItemData(combo, i) == value) {
++            ComboBox_SetCurSel(combo, i);
++            return TRUE;
++        }
++    }
++    return HuaidjRejectOption(error);
++}
++
++static BOOL HuaidjApplyRequestedOptions(HWND dialog)
++{
++    char label[256];
++    int requested_fs = FS_UNKNOWN;
++    int requested_partition = huaidj_options.partition_scheme == HJ_PT_AUTO ? -1 :
++        (huaidj_options.partition_scheme == HJ_PT_GPT ? PARTITION_STYLE_GPT : PARTITION_STYLE_MBR);
++    BOOL format_only = huaidj_options.format_only;
++    if (!format_only && huaidj_dd_mode) {
++        /* Raw images own their layout; GUI format controls may be disabled. */
++        HuaidjCaptureOptions(FS_UNKNOWN, PARTITION_STYLE_RAW, TT_BIOS, 0, "", FALSE, FALSE);
++        return TRUE;
++    }
++    if (format_only) {
++        if (!HuaidjSelectExact(hBootType, BT_NON_BOOTABLE, "Non-bootable mode is unavailable")) return FALSE;
++        boot_type = BT_NON_BOOTABLE;
++        selection_default = BT_NON_BOOTABLE;
++        CheckDlgButton(dialog, IDC_EXTENDED_LABEL, BST_UNCHECKED);
++    } else if (HAS_WINDOWS(img_report)) {
++        if (!HuaidjSelectExact(hImageOption, IMOP_WIN_STANDARD, "Standard Windows installation mode is unavailable")) return FALSE;
++        imop_win_sel = IMOP_WIN_STANDARD;
++    }
++    if (huaidj_options.filesystem == HJ_FS_FAT32) requested_fs = FS_FAT32;
++    else if (huaidj_options.filesystem == HJ_FS_NTFS) requested_fs = FS_NTFS;
++    else if (huaidj_options.filesystem == HJ_FS_EXFAT) requested_fs = FS_EXFAT;
++    preselected_fs = requested_fs;
++    selected_fs = FS_UNKNOWN;
++    if (requested_partition == PARTITION_STYLE_MBR && SelectedDrive.DiskSize > 2 * TB)
++        return HuaidjRejectOption("MBR above 2 TiB requires an unsupported interactive capacity decision");
++    if (requested_partition >= 0) selected_pt = requested_partition;
++    SetPartitionSchemeAndTargetSystem(FALSE);
++    if (huaidj_options.partition_scheme != HJ_PT_AUTO &&
++        !HuaidjSelectExact(hPartitionScheme, requested_partition, "Requested partition scheme is incompatible with this image/device")) return FALSE;
++    partition_type = (int)ComboBox_GetCurItemData(hPartitionScheme);
++    SetPartitionSchemeAndTargetSystem(TRUE);
++    if (huaidj_options.target_system != HJ_TARGET_AUTO &&
++        !HuaidjSelectExact(hTargetSystem, huaidj_options.target_system == HJ_TARGET_UEFI ? TT_UEFI : TT_BIOS,
++            "Requested target system is incompatible with this image/partition scheme")) return FALSE;
++    target_type = (int)ComboBox_GetCurItemData(hTargetSystem);
++    SetFileSystemAndClusterSize(NULL);
++    if (requested_fs != FS_UNKNOWN && !HuaidjSelectExact(hFileSystem, requested_fs, "Requested filesystem is unavailable for this image/device")) return FALSE;
++    fs_type = (int)ComboBox_GetCurItemData(hFileSystem);
++    selected_fs = fs_type;
++    if (fs_type < 0 || !SetClusterSizes(fs_type)) return HuaidjRejectOption("No valid filesystem/cluster configuration is available");
++    if (huaidj_options.cluster_size && !HuaidjSelectExact(hClusterSize, (LPARAM)huaidj_options.cluster_size,
++        "Requested cluster size is not supported by this filesystem/device")) return FALSE;
++    BOOL large_fat32 = fs_type == FS_FAT32 && SelectedDrive.DiskSize > LARGE_FAT32_SIZE;
++    if (large_fat32 && !huaidj_options.quick_format) return HuaidjRejectOption("The original large FAT32 engine supports quick format only");
++    CheckDlgButton(dialog, IDC_QUICK_FORMAT, huaidj_options.quick_format ? BST_CHECKED : BST_UNCHECKED);
++    CheckDlgButton(dialog, IDC_BAD_BLOCKS, BST_UNCHECKED);
++    CheckDlgButton(dialog, IDC_OLD_BIOS_FIXES, BST_UNCHECKED);
++    if (huaidj_options.has_label) {
++        int label_fs = (fs_type == FS_FAT16 || fs_type == FS_FAT32) ? HJ_FS_FAT32 : (fs_type == FS_EXFAT ? HJ_FS_EXFAT : HJ_FS_NTFS);
++        const char* label_error = HuaidjValidateLabel(huaidj_options.volume_label, label_fs);
++        if (label_error) return HuaidjRejectOption(label_error);
++        int bytes = WideCharToMultiByte(CP_UTF8, WC_ERR_INVALID_CHARS, huaidj_options.volume_label, -1, NULL, 0, NULL, NULL);
++        if (bytes <= 0 || bytes > 64) return HuaidjRejectOption("Volume label must be valid Unicode and at most 63 UTF-8 bytes for this engine");
++        wchar_t canonical[33];
++        wcscpy_s(canonical, ARRAYSIZE(canonical), huaidj_options.volume_label);
++        if (label_fs == HJ_FS_FAT32) for (wchar_t* c = canonical; *c; ++c) if (*c >= L'a' && *c <= L'z') *c -= L'a' - L'A';
++        SetWindowTextW(hLabel, canonical);
++    } else {
++        if (format_only) SetWindowTextU(hLabel, "USB");
++        GetWindowTextU(hLabel, label, sizeof(label));
++        HuaidjNormalizeAutoLabel(label, fs_type);
++        SetWindowTextU(hLabel, label);
++    }
++    GetWindowTextU(hLabel, label, sizeof(label));
++    if (strlen(label) >= 64) return HuaidjRejectOption("Effective volume label exceeds the native format buffer");
++    strcpy_s(img_report.usb_label, sizeof(img_report.usb_label), label);
++    HuaidjCaptureOptions(fs_type, partition_type, target_type, (DWORD)ComboBox_GetCurItemData(hClusterSize), label,
++        IsChecked(IDC_QUICK_FORMAT), large_fat32);
++    return !HuaidjHasFailed();
++}
++
+ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+ {
+ 	static DWORD DeviceNum = 0;
+@@ -2312,6 +2398,30 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 	loc_cmd* lcmd = NULL;
+ 
+ 	switch (message) {
++	case UM_HUAIDJ_SCAN_COMPLETE:
++		if (!huaidj_automation) break;
++		if (HuaidjHasFailed() || IS_ERROR(ErrorStatus) ||
++			(!huaidj_options.format_only && (image_path == NULL ||
++				(!img_report.is_iso && !IS_DD_BOOTABLE(img_report)) ||
++				(huaidj_dd_mode && !IS_DD_BOOTABLE(img_report)) ||
++				(!huaidj_dd_mode && !img_report.is_iso) ||
++				(img_report.has_secureboot_bootloader & 0xfe) || img_report.is_windows_img)) ||
++			(DWORD)ComboBox_GetCurItemData(hDeviceList) != huaidj_device_number + DRIVE_INDEX_MIN ||
++			!HuaidjValidateTarget() || !HuaidjApplyRequestedOptions(hDlg)) {
++			HuaidjFinish(FALSE, "Native image/target/options validation failed or the workflow is unsupported");
++			PostQuitMessage(1);
++			return TRUE;
++		}
++		HuaidjStatus("checking", 0, "Running original Rufus pre-write checks with validated options");
++		if (!HuaidjHasFailed()) PostMessage(hDlg, WM_COMMAND, IDC_START, 0);
++		else { HuaidjFinish(FALSE, "Native status output failed"); PostQuitMessage(1); }
++		return TRUE;
++	case WM_TIMER:
++		if (huaidj_automation && wParam == TID_HUAIDJ_PROGRESS) {
++			if (format_thread != NULL) HuaidjStatus("writing", 100.0 * (double)SendMessage(hProgress, PBM_GETPOS, 0, 0) / MAX_PROGRESS, "Original Rufus engine is writing the selected USB");
++			return TRUE;
++		}
++		break;
+ 
+ 	case WM_COMMAND:
+ #ifdef RUFUS_TEST
+@@ -2850,7 +2960,9 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		safe_release_dc(hDlg, hDC);
+ 		apply_localization(IDD_DIALOG, hDlg);
+ 		// The AppStore version always enables Fido
+-		if (appstore_version)
++		if (huaidj_automation) {
++			/* No update-policy prompts, update downloads or app-store integration during automation. */
++		} else if (appstore_version)
+ 			SetFidoCheck();
+ 		else
+ 			SetUpdateCheck();
+@@ -2858,11 +2970,11 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		log_displayed = FALSE;
+ 		hLogDialog = MyCreateDialog(hMainInstance, IDD_LOG, hDlg, (DLGPROC)LogCallback);
+ 		InitDialog(hDlg);
+-		GetDevices(0);
++		GetDevices(huaidj_automation ? huaidj_device_number + DRIVE_INDEX_MIN : 0);
+ 		EnableControls(TRUE, FALSE);
+ 		UpdateImage(FALSE);
+ 		// The AppStore version does not need the internal check for updates
+-		if (!appstore_version)
++		if (!appstore_version && !huaidj_automation)
+ 			CheckForUpdates(FALSE);
+ 		// Register MEDIA_INSERTED/MEDIA_REMOVED notifications for card readers
+ 		if (SUCCEEDED(SHGetSpecialFolderLocation(0, CSIDL_DESKTOP, &pidlDesktop))) {
+@@ -2883,11 +2995,11 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 
+ #if defined(ALPHA)
+ 		// Add a VERY ANNOYING popup for Alpha releases, so that people don't start redistributing them
+-		MessageBoxA(NULL, "This is an Alpha version of " APPLICATION_NAME " - It is meant to be used for "
++		MessageBoxU(NULL, "This is an Alpha version of " APPLICATION_NAME " - It is meant to be used for "
+ 			"testing ONLY and should NOT be distributed as a release.", "ALPHA VERSION", MB_ICONINFORMATION);
+ #elif defined(TEST)
+ 		// Same thing for Test releases
+-		MessageBoxA(NULL, "This is a Test version of " APPLICATION_NAME " - It is meant to be used for "
++		MessageBoxU(NULL, "This is a Test version of " APPLICATION_NAME " - It is meant to be used for "
+ 			"testing ONLY and should NOT be distributed as a release.", "TEST VERSION", MB_ICONINFORMATION);
+ #endif
+ 		SetDarkModeForChild(hDlg);
+@@ -2896,6 +3008,12 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		// Let's not take any risk: Ask Windows to redraw the whole dialog before we exit init
+ 		RedrawWindow(hMainDialog, NULL, NULL, RDW_ALLCHILDREN | RDW_UPDATENOW);
+ 		InvalidateRect(hMainDialog, NULL, TRUE);
++		if (huaidj_automation) {
++			CheckDlgButton(hDlg, IDC_BAD_BLOCKS, BST_UNCHECKED);
++			CheckDlgButton(hDlg, IDC_OLD_BIOS_FIXES, BST_UNCHECKED);
++			SetTimer(hDlg, TID_HUAIDJ_PROGRESS, 500, NULL);
++			if (huaidj_options.format_only) PostMessage(hDlg, UM_HUAIDJ_SCAN_COMPLETE, 0, 0);
++		}
+ 
+ 		return (INT_PTR)FALSE;
+ 
+@@ -3091,6 +3209,19 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		break;
+ 
+ 	case UM_FORMAT_START:
++		if (huaidj_automation) {
++			GetWindowTextU(hLabel, tmp, sizeof(tmp));
++			if (!HuaidjEffectiveOptionsMatch(fs_type, partition_type, target_type, (DWORD)ComboBox_GetCurItemData(hClusterSize), tmp, IsChecked(IDC_QUICK_FORMAT))) {
++				HuaidjFinish(FALSE, "Native options changed before erase");
++				PostQuitMessage(1);
++				return TRUE;
++			}
++		}
++		if (huaidj_automation && (HuaidjHasFailed() || !HuaidjValidateTarget())) {
++			HuaidjFinish(FALSE, "Native target identity failed immediately before erase");
++			PostQuitMessage(1);
++			return TRUE;
++		}
+ 		if (wParam != BOOTCHECK_PROCEED)
+ 			goto aborted_start;
+ 		// All subsequent aborts below translate to a user cancellation
+@@ -3129,14 +3260,20 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		PrintStatus(0, MSG_142);
+ 
+ 		GetWindowTextU(hDeviceList, tmp, ARRAYSIZE(tmp));
+-		if (Notification(MB_OKCANCEL | MB_ICONWARNING, APPLICATION_NAME, lmprintf(MSG_003, tmp)) != IDOK)
++		if (!huaidj_automation && Notification(MB_OKCANCEL | MB_ICONWARNING, APPLICATION_NAME, lmprintf(MSG_003, tmp)) != IDOK)
+ 			goto aborted_start;
+-		if ((SelectedDrive.nPartitions > 1) && (Notification(MB_OKCANCEL | MB_ICONWARNING, lmprintf(MSG_094), lmprintf(MSG_093)) != IDOK))
++		if (!huaidj_automation && (SelectedDrive.nPartitions > 1) && (Notification(MB_OKCANCEL | MB_ICONWARNING, lmprintf(MSG_094), lmprintf(MSG_093)) != IDOK))
+ 			goto aborted_start;
+ 		if ((!zero_drive) && (boot_type != BT_NON_BOOTABLE) && (SelectedDrive.SectorSize != 512) &&
+ 			(Notification(MB_OKCANCEL | MB_ICONWARNING, lmprintf(MSG_197), lmprintf(MSG_196, SelectedDrive.SectorSize)) != IDOK))
+ 			goto aborted_start;
+ 
++        if (huaidj_automation && huaidj_dry_run) {
++            HuaidjFinish(TRUE, "Original Rufus pre-write checks and effective options passed; no USB write was started");
++            PostQuitMessage(0);
++            return TRUE;
++        }
++
+ 		nDeviceIndex = ComboBox_GetCurSel(hDeviceList);
+ 		DeviceNum = (DWORD)ComboBox_GetItemData(hDeviceList, nDeviceIndex);
+ 		InitProgress(zero_drive || write_as_image);
+@@ -3155,6 +3292,11 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		if (format_thread != NULL)
+ 			break;
+ 	aborted_start:
++		if (huaidj_automation) {
++			HuaidjFinish(FALSE, "Rufus pre-write checks declined or cancelled the operation");
++			PostQuitMessage(1);
++			return TRUE;
++		}
+ 		zero_drive = FALSE;
+ 		if (queued_hotplug_event)
+ 			SendMessage(hDlg, UM_MEDIA_CHANGE, 0, 0);
+@@ -3173,6 +3315,13 @@ static INT_PTR CALLBACK MainCallback(HWND hDlg, UINT message, WPARAM wParam, LPA
+ 		// Fall through
+ 
+ 	case UM_FORMAT_COMPLETED:
++		if (huaidj_automation) {
++			format_thread = NULL;
++			op_in_progress = FALSE;
++			HuaidjFinish(wParam && !IS_ERROR(ErrorStatus) && !HuaidjHasFailed(), "Original Rufus write operation finished");
++			PostQuitMessage(HuaidjExitCode());
++			return TRUE;
++		}
+ 		zero_drive = FALSE;
+ 		format_thread = NULL;
+ 		if (unattend_xml_path != NULL) {
+@@ -3380,8 +3529,37 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
+ 		{"locale",     required_argument, NULL, 'l'},
+ 		{"filesystem", required_argument, NULL, 'f'},
+ 		{"wait",       required_argument, NULL, 'w'},
++		{"huaidj-image", required_argument, NULL, 0x510},
++		{"huaidj-device", required_argument, NULL, 0x510},
++		{"huaidj-size", required_argument, NULL, 0x510},
++		{"huaidj-serial", required_argument, NULL, 0x510},
++		{"huaidj-sha256", required_argument, NULL, 0x510},
++		{"huaidj-mode", required_argument, NULL, 0x510},
++		{"huaidj-status", required_argument, NULL, 0x510},
++		{"huaidj-confirm", required_argument, NULL, 0x510},
++		{"huaidj-dry-run", no_argument, NULL, 0x510},
++		{"huaidj-operation", required_argument, NULL, 0x510},
++		{"huaidj-filesystem", required_argument, NULL, 0x510},
++		{"huaidj-partition-scheme", required_argument, NULL, 0x510},
++		{"huaidj-target-system", required_argument, NULL, 0x510},
++		{"huaidj-cluster-size", required_argument, NULL, 0x510},
++		{"huaidj-volume-label", required_argument, NULL, 0x510},
++		{"huaidj-quick-format", required_argument, NULL, 0x510},
+ 		{0, 0, NULL, 0}
+ 	};
++	int huaidj_configuration = HuaidjConfigure();
++	if (huaidj_configuration < 0) { HuaidjShutdown(); return HuaidjExitCode(); }
++	if (huaidj_configuration > 0) {
++		img_provided = !huaidj_options.format_only;
++		disable_hogger = TRUE;
++		lcid = MAKELANGID(LANG_ENGLISH, SUBLANG_ENGLISH_US);
++		SetThreadUILanguage((LANGID)lcid);
++		SetThreadLocale(MAKELCID((LANGID)lcid, SORT_DEFAULT));
++		ULONG automation_language_count = 0;
++		SetProcessPreferredUILanguages(MUI_LANGUAGE_NAME, L"en-US\0", &automation_language_count);
++		/* This explicitly named local derivative has no upstream Authenticode identity. */
++		vc = TRUE;
++	}
+ 
+ 	// Disable loading system DLLs from the current directory (side-loading mitigation)
+ 	// PS: You know that official MSDN documentation for SetDllDirectory() that explicitly
+@@ -3570,6 +3748,9 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
+ 
+ 			while ((opt = getopt_long(argc, argv, "ghxf:i:l:w:z:", long_options, &option_index)) != EOF) {
+ 				switch (opt) {
++				case 0x510:
++					/* Already strictly parsed and validated by HuaidjConfigure. */
++					break;
+ 				case 'x':
+ 					enable_HDDs = TRUE;
+ 					break;
+@@ -3671,7 +3852,7 @@ skip_args_processing:
+ 
+ 	// Use the locale specified by the settings, if any
+ 	tmp = ReadSettingStr(SETTING_LOCALE);
+-	if (tmp[0] != 0) {
++	if (!huaidj_automation && tmp[0] != 0) {
+ 		locale_name = safe_strdup(tmp);
+ 		uprintf("found locale '%s'", locale_name);
+ 	}
+@@ -3729,7 +3910,7 @@ skip_args_processing:
+ 		if ( (GetTempFileNameU(temp_dir, APPLICATION_NAME, 0, loc_file) == 0) || (loc_file[0] == 0) ) {
+ 			// If we don't have a working temp API, forget it
+ 			uprintf("FATAL: Unable to create temp loc file: %s", WindowsErrorString());
+-			MessageBoxA(NULL, "Unable to create temporary localization file. This application will now exit.",
++			MessageBoxU(NULL, "Unable to create temporary localization file. This application will now exit.",
+ 				"Fatal error", MB_ICONERROR | MB_SYSTEMMODAL);
+ 			goto out;
+ 		}
+@@ -3739,7 +3920,7 @@ skip_args_processing:
+ 		if ((hFile == INVALID_HANDLE_VALUE) || (!WriteFileWithRetry(hFile, loc_data, loc_size, &size, WRITE_RETRIES))) {
+ 			uprintf("FATAL: Unable to extract loc file '%s': %s", loc_file, WindowsErrorString());
+ 			safe_closehandle(hFile);
+-			MessageBoxA(NULL, "Unable to extract localization file. This application will now exit.",
++			MessageBoxU(NULL, "Unable to extract localization file. This application will now exit.",
+ 				"Fatal error", MB_ICONERROR | MB_SYSTEMMODAL);
+ 			goto out;
+ 		}
+@@ -3755,7 +3936,7 @@ skip_args_processing:
+ 	  || ((selected_locale = ((locale_name == NULL) ?
+ 		  get_locale_from_lcid(lcid, TRUE) : get_locale_from_name(locale_name, TRUE))) == NULL) ) {
+ 		uprintf("FATAL: Could not access locale!");
+-		MessageBoxA(NULL, "The locale data is missing or invalid. This application will now exit.",
++		MessageBoxU(NULL, "The locale data is missing or invalid. This application will now exit.",
+ 			"Fatal error", MB_ICONERROR | MB_SYSTEMMODAL);
+ 		goto out;
+ 	}
+@@ -3860,7 +4041,7 @@ relaunch:
+ 	select_index = 0;
+ 	safe_free(fido_url);
+ 	SetProcessDefaultLayout(right_to_left_mode ? LAYOUT_RTL : 0);
+-	if (get_loc_data_file(loc_file, selected_locale))
++	if (get_loc_data_file(loc_file, selected_locale) && !huaidj_automation)
+ 		WriteSettingStr(SETTING_LOCALE, selected_locale->txt[0]);
+ 
+ 	if (!vc) {
+@@ -3876,6 +4057,24 @@ relaunch:
+ 	if (hDlg != NULL)
+ 		// Make sure any previous dialog is destroyed (e.g. when switching languages)
+ 		DestroyWindow(hDlg);
++	if (huaidj_automation) {
++		enable_HDDs = TRUE;
++		enable_VHDs = FALSE;
++		list_non_usb_removable_drives = FALSE;
++		persistence_size = 0;
++		zero_drive = FALSE;
++		selected_fs = FS_UNKNOWN;
++		preselected_fs = FS_UNKNOWN;
++		selected_pt = -1;
++		imop_win_sel = IMOP_WIN_STANDARD;
++		allow_dual_uefi_bios = FALSE;
++		force_large_fat32 = FALSE;
++		enable_ntfs_compression = FALSE;
++		unattend_xml_mask = 0;
++		append_silent = FALSE;
++		/* Keep ISO scanning enabled, including revoked-bootloader security checks. */
++		enable_iso = TRUE;
++	}
+ 	hDlg = MyCreateDialog(hInstance, IDD_DIALOG, NULL, MainCallback);
+ 	if (hDlg == NULL) {
+ 		MessageBoxExU(NULL, "Could not create Window", "DialogBox failure",
+@@ -3896,7 +4095,7 @@ relaunch:
+ 	if (!SetAlertPromptHook())
+ 		uprintf("WARNING: Could not set alert prompt hook");
+ 
+-	ShowWindow(hDlg, SW_SHOWNORMAL);
++	ShowWindow(hDlg, huaidj_automation ? SW_HIDE : SW_SHOWNORMAL);
+ 	UpdateWindow(hDlg);
+ 
+ 	// Do our own event processing and process "magic" commands
+@@ -4346,7 +4545,8 @@ out:
+ 	_CrtDumpMemoryLeaks();
+ #endif
+ 
+-	return 0;
++	HuaidjShutdown();
++	return huaidj_automation ? HuaidjExitCode() : 0;
+ }
+ 
+ /*
+diff --git a/src/rufus.h b/src/rufus.h
+index e6e688a..4b7343f 100644
+--- a/src/rufus.h
++++ b/src/rufus.h
+@@ -31,6 +31,7 @@
+ #endif
+ 
+ #pragma once
++#include "huaidj_autopilot.h"
+ 
+ /* Convenient to have around */
+ #define KB                          1024LL
+diff --git a/src/stdlg.c b/src/stdlg.c
+index 1f24a28..3035e9c 100644
+--- a/src/stdlg.c
++++ b/src/stdlg.c
+@@ -787,6 +787,13 @@ int NotificationEx(int type, const char* dont_display_setting, const notificatio
+ {
+ 	INT_PTR ret;
+ 	va_list args;
++	if (huaidj_automation) {
++		char automation_message[LOC_MESSAGE_SIZE];
++		va_start(args, format);
++		vsnprintf(automation_message, sizeof(automation_message), format, args);
++		va_end(args);
++		return HuaidjRejectDialog(type, automation_message);
++	}
+ 
+ 	dialog_showing++;
+ 	notification_data.szMessageText = (char*)malloc(LOC_MESSAGE_SIZE);
+@@ -1141,6 +1148,10 @@ int SelectionDialog(char* title, char* message, selection_dialog_options_t* opti
+ {
+ 	HHOOK hook;
+ 	int ret;
++	if (huaidj_automation) {
++		HuaidjRejectDialog(MB_OKCANCEL, message);
++		return -1;
++	}
+ 
+ 	assert(options != NULL);
+ 	dialog_showing++;
+@@ -2229,6 +2240,7 @@ HWND MyCreateDialog(HINSTANCE hInstance, int Dialog_ID, HWND hWndParent, DLGPROC
+ 
+ INT_PTR MyDialogBox(HINSTANCE hInstance, int Dialog_ID, HWND hWndParent, DLGPROC lpDialogFunc)
+ {
++	if (huaidj_automation) return HuaidjRejectDialog(MB_OKCANCEL, "Unexpected native modal dialog requires review");
+ 	INT_PTR ret;
+ 	LPCDLGTEMPLATE rcTemplate = GetDialogTemplate(Dialog_ID);
+ 
+diff --git a/.vs/huaidj-options-test.vcxproj b/.vs/huaidj-options-test.vcxproj
+new file mode 100644
+index 0000000..e7ebba8
+--- /dev/null
++++ b/.vs/huaidj-options-test.vcxproj
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- Offline HuaiDJ option tests. GPL-3.0-or-later. -->
++<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
++  <ItemGroup Label="ProjectConfigurations">
++    <ProjectConfiguration Include="Release|x64"><Configuration>Release</Configuration><Platform>x64</Platform></ProjectConfiguration>
++  </ItemGroup>
++  <PropertyGroup Label="Globals"><VCProjectVersion>17.0</VCProjectVersion><WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion></PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
++  <PropertyGroup Label="Configuration"><ConfigurationType>Application</ConfigurationType><UseDebugLibraries>false</UseDebugLibraries><PlatformToolset>v143</PlatformToolset><CharacterSet>Unicode</CharacterSet></PropertyGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
++  <PropertyGroup><TargetName>huaidj-options-test</TargetName></PropertyGroup>
++  <ItemDefinitionGroup>
++    <ClCompile><WarningLevel>Level4</WarningLevel><LanguageStandard_C>stdclatest</LanguageStandard_C><AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions></ClCompile>
++    <Link><SubSystem>Console</SubSystem><UACExecutionLevel>AsInvoker</UACExecutionLevel><EnableUAC>true</EnableUAC></Link>
++  </ItemDefinitionGroup>
++  <ItemGroup><ClCompile Include="..\src\huaidj_options.c" /><ClCompile Include="..\tests\huaidj-options-test.c" /></ItemGroup>
++  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
++</Project>
+diff --git a/src/huaidj_autopilot.c b/src/huaidj_autopilot.c
+new file mode 100644
+index 0000000..4891542
+--- /dev/null
++++ b/src/huaidj_autopilot.c
+@@ -0,0 +1,513 @@
++/*
++ * HuaiDJ local automation adapter for the original Rufus engine.
++ * GPL-3.0-or-later. This is a local derivative, not an official Rufus build.
++ * No disk writes are implemented here: Rufus retains its original write paths.
++ */
++#include <windows.h>
++#include <winioctl.h>
++#include <wincrypt.h>
++#include <shellapi.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <stdint.h>
++#include "rufus.h"
++#include "msapi_utf8.h"
++#include "huaidj_autopilot.h"
++
++BOOL huaidj_automation = FALSE;
++BOOL huaidj_dry_run = FALSE;
++BOOL huaidj_dd_mode = TRUE;
++DWORD huaidj_device_number = MAXDWORD;
++huaidj_options_t huaidj_options;
++static uint64_t expected_size;
++static uint64_t source_bytes;
++static char expected_serial[1024];
++static char expected_sha256[65];
++static wchar_t status_path[MAX_PATH], source_path[MAX_PATH];
++static HANDLE source_lock = INVALID_HANDLE_VALUE;
++static HANDLE device_mutex;
++static SRWLOCK status_lock = SRWLOCK_INIT;
++static BOOL final_status, failed;
++static DWORD failure_code;
++static char failure_message[2048];
++static char current_phase[64] = "validating";
++static double current_progress;
++static BOOL effective_ready, effective_quick, effective_large;
++static int effective_fs, effective_partition, effective_target;
++static DWORD effective_cluster;
++static char effective_label[256];
++
++static const char* FsName(int fs)
++{
++    switch (fs) { case FS_FAT16: return "fat16"; case FS_FAT32: return "fat32"; case FS_NTFS: return "ntfs"; case FS_EXFAT: return "exfat"; default: return "other"; }
++}
++
++static void JsonEscape(const char* input, char* output, size_t capacity)
++{
++    size_t used = 0;
++    const unsigned char* p = (const unsigned char*)input;
++    if (p == NULL) p = (const unsigned char*)"";
++    while (*p && used + 7 < capacity) {
++        unsigned char c = *p++;
++        if (c == '"' || c == '\\') { output[used++] = '\\'; output[used++] = c; }
++        else if (c < 32) { used += sprintf_s(output + used, capacity - used, "\\u%04x", c); }
++        else output[used++] = c;
++    }
++    output[used] = 0;
++}
++
++/* Caller holds the lock. A status write failure permanently blocks writing. */
++static BOOL WriteStatus(BOOL success, const char* message)
++{
++    wchar_t temporary[MAX_PATH];
++    char text[32768], escaped_message[12288], escaped_error[12288], escaped_label[2048], options_json[4096], hash_json[68];
++    HANDLE file;
++    DWORD bytes, count;
++    int length;
++    if (!status_path[0]) return FALSE;
++    JsonEscape(message, escaped_message, sizeof(escaped_message));
++    JsonEscape(failed ? failure_message : "", escaped_error, sizeof(escaped_error));
++    strcpy_s(options_json, sizeof(options_json), "null");
++    strcpy_s(hash_json, sizeof(hash_json), "null");
++    if (!huaidj_options.format_only && expected_sha256[0]) sprintf_s(hash_json, sizeof(hash_json), "\"%s\"", expected_sha256);
++    if (effective_ready) {
++        JsonEscape(effective_label, escaped_label, sizeof(escaped_label));
++        if (!huaidj_options.format_only && huaidj_dd_mode)
++            strcpy_s(options_json, sizeof(options_json), "{\"filesystem\":\"image-defined\",\"partitionScheme\":\"image-defined\",\"targetSystem\":\"image-defined\",\"clusterSize\":null,\"volumeLabel\":null,\"quickFormat\":null,\"windowsCustomization\":\"none\"}");
++        else sprintf_s(options_json, sizeof(options_json),
++            "{\"filesystem\":\"%s\",\"partitionScheme\":\"%s\",\"targetSystem\":\"%s\",\"clusterSize\":%lu,\"volumeLabel\":\"%s\",\"quickFormat\":%s,\"largeFat32\":%s,\"windowsCustomization\":\"none\"}",
++            FsName(effective_fs), effective_partition == PARTITION_STYLE_GPT ? "gpt" : "mbr",
++            huaidj_options.format_only ? "non-bootable" : (effective_target == TT_UEFI ? "uefi" : "bios"),
++            effective_cluster, escaped_label, effective_quick ? "true" : "false", effective_large ? "true" : "false");
++    }
++    length = sprintf_s(text, sizeof(text),
++        "{\"phase\":\"%s\",\"progress\":%.3f,\"message\":\"%s\",\"error\":%s%s%s,"
++        "\"success\":%s,\"final\":%s,\"deviceNumber\":%lu,\"bytesTotal\":%llu,"
++        "\"errorCode\":%lu,\"engine\":\"Rufus HuaiDJ local autopilot\",\"dryRun\":%s,"
++        "\"operation\":\"%s\",\"sourceBytes\":%llu,\"sourceSha256\":%s,\"effectiveOptions\":%s}\n",
++        current_phase, current_progress, escaped_message, failed ? "\"" : "", failed ? escaped_error : "null", failed ? "\"" : "",
++        success ? "true" : "false", final_status ? "true" : "false", huaidj_device_number,
++        (unsigned long long)(huaidj_options.format_only ? expected_size : source_bytes), failure_code, huaidj_dry_run ? "true" : "false",
++        huaidj_options.format_only ? "format" : "image", (unsigned long long)source_bytes, hash_json, options_json);
++    if (length <= 0 || swprintf_s(temporary, MAX_PATH, L"%s.tmp.%lu", status_path, GetCurrentProcessId()) < 0) return FALSE;
++    file = CreateFileW(temporary, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
++    if (file == INVALID_HANDLE_VALUE) return FALSE;
++    bytes = (DWORD)length;
++    BOOL ok = WriteFile(file, text, bytes, &count, NULL) && count == bytes && FlushFileBuffers(file);
++    CloseHandle(file);
++    if (ok) ok = MoveFileExW(temporary, status_path, MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH);
++    if (!ok) DeleteFileW(temporary);
++    return ok;
++}
++
++static BOOL Fail(DWORD code, const char* message)
++{
++    AcquireSRWLockExclusive(&status_lock);
++    if (!failed) {
++        failed = TRUE;
++        failure_code = code ? code : ERROR_INVALID_DATA;
++        strncpy_s(failure_message, sizeof(failure_message), message, _TRUNCATE);
++    }
++    ReleaseSRWLockExclusive(&status_lock);
++    return FALSE;
++}
++
++BOOL HuaidjHasFailed(void) { return failed; }
++int HuaidjExitCode(void) { return failed || !final_status ? 1 : 0; }
++BOOL HuaidjPreserveExplicitLabel(void) { return huaidj_automation && huaidj_options.has_label; }
++BOOL HuaidjRejectOption(const char* message) { ErrorStatus = RUFUS_ERROR(ERROR_INVALID_PARAMETER); return Fail(ERROR_INVALID_PARAMETER, message); }
++
++void HuaidjCaptureOptions(int fs, int partition, int target, DWORD cluster, const char* label, BOOL quick, BOOL large)
++{
++    AcquireSRWLockExclusive(&status_lock);
++    effective_fs = fs; effective_partition = partition; effective_target = target; effective_cluster = cluster;
++    strncpy_s(effective_label, sizeof(effective_label), label, _TRUNCATE);
++    effective_quick = quick; effective_large = large; effective_ready = TRUE;
++    ReleaseSRWLockExclusive(&status_lock);
++}
++
++BOOL HuaidjEffectiveOptionsMatch(int fs, int partition, int target, DWORD cluster, const char* label, BOOL quick)
++{
++    if (!huaidj_automation) return TRUE;
++    if (!effective_ready) return HuaidjRejectOption("Native effective options were not captured");
++    if (!huaidj_options.format_only && huaidj_dd_mode) return TRUE;
++    if (fs != effective_fs || partition != effective_partition || target != effective_target || cluster != effective_cluster ||
++        strcmp(label, effective_label) != 0 || quick != effective_quick)
++        return HuaidjRejectOption("Native formatting controls changed after the prepared options were validated");
++    return TRUE;
++}
++
++void HuaidjStatus(const char* phase, double progress, const char* message)
++{
++    if (!huaidj_automation) return;
++    AcquireSRWLockExclusive(&status_lock);
++    if (!final_status) {
++        strncpy_s(current_phase, sizeof(current_phase), phase, _TRUNCATE);
++        current_progress = progress;
++        if (!WriteStatus(FALSE, message) && !failed) {
++            failed = TRUE;
++            failure_code = ERROR_WRITE_FAULT;
++            strcpy_s(failure_message, sizeof(failure_message), "Cannot atomically write native status file");
++        }
++    }
++    ReleaseSRWLockExclusive(&status_lock);
++}
++
++void HuaidjFinish(BOOL success, const char* message)
++{
++    if (!huaidj_automation) return;
++    AcquireSRWLockExclusive(&status_lock);
++    if (!final_status) {
++        if (!success && !failed) {
++            failed = TRUE;
++            failure_code = ErrorStatus ? ErrorStatus : ERROR_CANCELLED;
++            strncpy_s(failure_message, sizeof(failure_message), message, _TRUNCATE);
++        }
++        final_status = TRUE;
++        strcpy_s(current_phase, sizeof(current_phase), (success && !failed) ? (huaidj_dry_run ? "dry_run_complete" : "complete") : "failed");
++        if (success && !failed) current_progress = 100.0;
++        if (!WriteStatus(success && !failed, message)) {
++            failed = TRUE;
++            failure_code = ERROR_WRITE_FAULT;
++        }
++    }
++    ReleaseSRWLockExclusive(&status_lock);
++}
++
++int HuaidjRejectDialog(UINT type, const char* text)
++{
++    if (!huaidj_automation) return -1;
++    /* Raw dialog text can include local paths, drive labels or account names.
++       Keep it out of the automation/MCP status channel. */
++    (void)text;
++    Fail(ERROR_CANCELLED, "Rufus requires a local interactive decision; automation declined it");
++    ErrorStatus = RUFUS_ERROR(ERROR_CANCELLED);
++    HuaidjStatus("blocked", current_progress, "Unexpected native dialog was declined; no automatic Yes response");
++    if ((type & 15) == MB_YESNO) return IDNO;
++    if ((type & 15) == MB_ABORTRETRYIGNORE) return IDABORT;
++    return IDCANCEL;
++}
++
++/* Returns -1 if identity cannot be established; otherwise whether the volume includes the target. */
++static int VolumeContainsTarget(const wchar_t* volume)
++{
++    wchar_t name[MAX_PATH];
++    BYTE data[65536];
++    DWORD bytes;
++    HANDLE handle;
++    VOLUME_DISK_EXTENTS* extents = (VOLUME_DISK_EXTENTS*)data;
++    wcscpy_s(name, MAX_PATH, volume);
++    size_t length = wcslen(name);
++    if (length && name[length - 1] == L'\\') name[length - 1] = 0;
++    handle = CreateFileW(name, 0, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
++    if (handle == INVALID_HANDLE_VALUE) return -1;
++    BOOL ok = DeviceIoControl(handle, IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS, NULL, 0, data, sizeof(data), &bytes, NULL);
++    CloseHandle(handle);
++    if (!ok || bytes < sizeof(VOLUME_DISK_EXTENTS) || extents->NumberOfDiskExtents > (bytes - offsetof(VOLUME_DISK_EXTENTS, Extents)) / sizeof(DISK_EXTENT)) return -1;
++    for (DWORD i = 0; i < extents->NumberOfDiskExtents; ++i)
++        if (extents->Extents[i].DiskNumber == huaidj_device_number) return 1;
++    return 0;
++}
++
++static BOOL RequirePathOffTarget(const wchar_t* path, const char* reason)
++{
++    wchar_t mount[MAX_PATH], volume[MAX_PATH];
++    if (!GetVolumePathNameW(path, mount, MAX_PATH) || !GetVolumeNameForVolumeMountPointW(mount, volume, MAX_PATH))
++        return Fail(ERROR_INVALID_DATA, "Cannot establish the backing disk for a protected path");
++    int result = VolumeContainsTarget(volume);
++    if (result != 0) return Fail(ERROR_ACCESS_DENIED, result > 0 ? reason : "Cannot verify protected path disk extents");
++    return TRUE;
++}
++
++static BOOL CheckProtectedVolumes(void)
++{
++    wchar_t windows[MAX_PATH], executable[MAX_PATH], volume[MAX_PATH], candidate[MAX_PATH], device[MAX_PATH], boot[MAX_PATH];
++    DWORD boot_size = sizeof(boot);
++    BOOL has_boot = RegGetValueW(HKEY_LOCAL_MACHINE, L"SYSTEM\\Setup", L"SystemPartition", RRF_RT_REG_SZ, NULL, boot, &boot_size) == ERROR_SUCCESS && boot[0] != 0;
++    BOOL boot_resolved_off_target = FALSE, installer_bcd = FALSE, all_bcd_volumes_mapped = TRUE;
++    if (!GetWindowsDirectoryW(windows, MAX_PATH) || !GetModuleFileNameW(NULL, executable, MAX_PATH))
++        return Fail(ERROR_INVALID_DATA, "Cannot locate Windows or the running native engine");
++    if (!RequirePathOffTarget(windows, "Refusing the active Windows system disk") ||
++        (!huaidj_options.format_only && !RequirePathOffTarget(source_path, "Source ISO is on the target disk")) ||
++        !RequirePathOffTarget(status_path, "Status file is on the target disk") ||
++        !RequirePathOffTarget(executable, "Native engine is running from the target disk")) return FALSE;
++    HANDLE find = FindFirstVolumeW(volume, MAX_PATH);
++    if (find == INVALID_HANDLE_VALUE) return Fail(GetLastError(), "Cannot enumerate volumes for Windows/boot protection");
++    BOOL safe = TRUE;
++    do {
++        BOOL mapped = FALSE, is_active_boot = FALSE;
++        int contains = VolumeContainsTarget(volume);
++        if (has_boot) {
++            wcscpy_s(candidate, MAX_PATH, volume + 4);
++            size_t length = wcslen(candidate);
++            if (length && candidate[length - 1] == L'\\') candidate[length - 1] = 0;
++            mapped = QueryDosDeviceW(candidate, device, MAX_PATH) != 0;
++            is_active_boot = mapped && _wcsicmp(device, boot) == 0;
++            if (is_active_boot) {
++                if (contains < 0) { safe = Fail(ERROR_INVALID_DATA, "Cannot establish active boot volume disk extents"); break; }
++                if (contains > 0) { safe = Fail(ERROR_ACCESS_DENIED, "Refusing Windows firmware/system boot partition"); break; }
++                boot_resolved_off_target = TRUE;
++            }
++        }
++        if (contains != 1) continue;
++        if (has_boot && !mapped) { safe = Fail(GetLastError(), "Cannot identify target volume device"); break; }
++        swprintf_s(candidate, MAX_PATH, L"%sWindows\\System32\\config\\SYSTEM", volume);
++        DWORD attributes = GetFileAttributesW(candidate);
++        if (attributes != INVALID_FILE_ATTRIBUTES) { safe = Fail(ERROR_ACCESS_DENIED, "Target contains a Windows installation; refusing to erase"); break; }
++        if (GetLastError() == ERROR_ACCESS_DENIED) { safe = Fail(ERROR_ACCESS_DENIED, "Cannot inspect target for a Windows installation"); break; }
++        swprintf_s(candidate, MAX_PATH, L"%sEFI\\Microsoft\\Boot\\BCD", volume);
++        if (GetFileAttributesW(candidate) != INVALID_FILE_ATTRIBUTES) {
++            installer_bcd = TRUE;
++            all_bcd_volumes_mapped = all_bcd_volumes_mapped && mapped && !is_active_boot;
++        } else if (GetLastError() == ERROR_ACCESS_DENIED) {
++            safe = Fail(ERROR_ACCESS_DENIED, "Cannot inspect target for a Windows boot store");
++            break;
++        }
++    } while (FindNextVolumeW(find, volume, MAX_PATH));
++    FindVolumeClose(find);
++    if (safe && installer_bcd && !HuaidjInstallerBcdIsNonSystem(has_boot, boot_resolved_off_target, all_bcd_volumes_mapped, FALSE))
++        return Fail(ERROR_ACCESS_DENIED, "Target has a Windows boot store but its non-system identity cannot be proven");
++    return safe;
++}
++
++BOOL HuaidjVerifyOpenTarget(HANDLE disk)
++{
++    BYTE data[65536];
++    STORAGE_PROPERTY_QUERY query = { StorageDeviceProperty, PropertyStandardQuery, {0} };
++    STORAGE_DEVICE_DESCRIPTOR* descriptor = (STORAGE_DEVICE_DESCRIPTOR*)data;
++    GET_LENGTH_INFORMATION length;
++    STORAGE_DEVICE_NUMBER number;
++    DWORD bytes;
++    if (!huaidj_automation) return TRUE;
++    if (failed || huaidj_dry_run) return Fail(ERROR_ACCESS_DENIED, "Write attempted during failed or dry-run operation");
++    if (!DeviceIoControl(disk, IOCTL_STORAGE_QUERY_PROPERTY, &query, sizeof(query), data, sizeof(data), &bytes, NULL) || bytes < sizeof(STORAGE_DEVICE_DESCRIPTOR))
++        return Fail(GetLastError(), "Cannot read native storage descriptor");
++    if (descriptor->BusType != BusTypeUsb) return Fail(ERROR_ACCESS_DENIED, "Refusing non-USB/internal disk");
++    if (!descriptor->SerialNumberOffset || descriptor->SerialNumberOffset >= bytes ||
++        memchr(data + descriptor->SerialNumberOffset, 0, bytes - descriptor->SerialNumberOffset) == NULL ||
++        strcmp((char*)data + descriptor->SerialNumberOffset, expected_serial) != 0)
++        return Fail(ERROR_INVALID_DATA, "Native USB serial number does not exactly match the prepared target");
++    if (!DeviceIoControl(disk, IOCTL_STORAGE_GET_DEVICE_NUMBER, NULL, 0, &number, sizeof(number), &bytes, NULL) || number.DeviceNumber != huaidj_device_number)
++        return Fail(ERROR_INVALID_DATA, "Native device number changed");
++    if (!DeviceIoControl(disk, IOCTL_DISK_GET_LENGTH_INFO, NULL, 0, &length, sizeof(length), &bytes, NULL) || (uint64_t)length.Length.QuadPart != expected_size)
++        return Fail(ERROR_INVALID_DATA, "Native USB capacity changed");
++    if (!DeviceIoControl(disk, IOCTL_DISK_GET_DRIVE_LAYOUT_EX, NULL, 0, data, sizeof(data), &bytes, NULL))
++        return Fail(GetLastError(), "Cannot inspect native target partition layout");
++    DRIVE_LAYOUT_INFORMATION_EX* layout = (DRIVE_LAYOUT_INFORMATION_EX*)data;
++    const GUID msr = { 0xe3c9e316, 0x0b5c, 0x4db8, {0x81,0x7d,0xf9,0x2d,0xf0,0x02,0x15,0xae} };
++    const GUID recovery = { 0xde94bba4, 0x06d1, 0x4d40, {0xa1,0x6a,0xbf,0xd5,0x01,0x79,0xd6,0xac} };
++    if (bytes < offsetof(DRIVE_LAYOUT_INFORMATION_EX, PartitionEntry) ||
++        layout->PartitionCount > (bytes - offsetof(DRIVE_LAYOUT_INFORMATION_EX, PartitionEntry)) / sizeof(PARTITION_INFORMATION_EX))
++        return Fail(ERROR_INVALID_DATA, "Invalid target partition layout");
++    for (DWORD i = 0; i < layout->PartitionCount; ++i) {
++        PARTITION_INFORMATION_EX* partition = &layout->PartitionEntry[i];
++        if (partition->PartitionStyle == PARTITION_STYLE_GPT &&
++            (memcmp(&partition->Gpt.PartitionType, &msr, sizeof(GUID)) == 0 || memcmp(&partition->Gpt.PartitionType, &recovery, sizeof(GUID)) == 0))
++            return Fail(ERROR_ACCESS_DENIED, "Target contains Windows reserved/recovery partitions; refusing to erase");
++    }
++    return TRUE;
++}
++
++BOOL HuaidjValidateTarget(void)
++{
++    wchar_t path[64];
++    if (!huaidj_automation || failed) return !failed;
++    swprintf_s(path, 64, L"\\\\.\\PhysicalDrive%lu", huaidj_device_number);
++    HANDLE disk = CreateFileW(path, GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_EXISTING, 0, NULL);
++    if (disk == INVALID_HANDLE_VALUE) return Fail(GetLastError(), "Cannot open target disk for read-only native verification");
++    /* This verifier is shared with the actual write handle; allow only its read-only preflight here. */
++    BOOL was_dry = huaidj_dry_run;
++    huaidj_dry_run = FALSE;
++    BOOL safe = HuaidjVerifyOpenTarget(disk);
++    huaidj_dry_run = was_dry;
++    CloseHandle(disk);
++    if (!safe) return FALSE;
++    return CheckProtectedVolumes();
++}
++
++static BOOL ParseUnsigned(const wchar_t* value, uint64_t* result)
++{
++    wchar_t* end;
++    if (!value || !*value) return FALSE;
++    for (const wchar_t* p = value; *p; ++p) if (*p < '0' || *p > '9') return FALSE;
++    errno = 0;
++    *result = _wcstoui64(value, &end, 10);
++    return errno == 0 && *end == 0;
++}
++
++static BOOL VerifyLockedSourceHash(void)
++{
++    HCRYPTPROV provider = 0;
++    HCRYPTHASH hash = 0;
++    BYTE* buffer = (BYTE*)malloc(1024 * 1024);
++    BYTE digest[32];
++    char actual[65];
++    DWORD count, digest_size = sizeof(digest);
++    BOOL ok = FALSE;
++    LARGE_INTEGER zero = {0};
++    if (!expected_sha256[0]) return TRUE; /* Optional only for read-only dry-runs. */
++    HuaidjStatus("hashing", 0, "Verifying SHA-256 while the same ISO file is locked against modification");
++    if (!buffer || !CryptAcquireContextW(&provider, NULL, NULL, PROV_RSA_AES, CRYPT_VERIFYCONTEXT) ||
++        !CryptCreateHash(provider, CALG_SHA_256, 0, 0, &hash) || !SetFilePointerEx(source_lock, zero, NULL, FILE_BEGIN)) goto cleanup;
++    for (;;) {
++        if (!ReadFile(source_lock, buffer, 1024 * 1024, &count, NULL)) goto cleanup;
++        if (count == 0) break;
++        if (!CryptHashData(hash, buffer, count, 0)) goto cleanup;
++    }
++    if (!CryptGetHashParam(hash, HP_HASHVAL, digest, &digest_size, 0) || digest_size != 32) goto cleanup;
++    for (unsigned i = 0; i < 32; ++i) sprintf_s(actual + i * 2, sizeof(actual) - i * 2, "%02x", digest[i]);
++    ok = _stricmp(actual, expected_sha256) == 0;
++cleanup:
++    if (hash) CryptDestroyHash(hash);
++    if (provider) CryptReleaseContext(provider, 0);
++    free(buffer);
++    SetFilePointerEx(source_lock, zero, NULL, FILE_BEGIN);
++    return ok ? TRUE : Fail(ERROR_CRC, "SHA-256 mismatch or inability to hash the locked source image");
++}
++
++/* Read all HuaiDJ flags before the ordinary Rufus argument processing or any UI. */
++int HuaidjConfigure(void)
++{
++    int argc, i;
++    wchar_t** argv = CommandLineToArgvW(GetCommandLineW(), &argc);
++    wchar_t* image = NULL; wchar_t* serial = NULL; wchar_t* confirm = NULL;
++    uint64_t number = UINT64_MAX;
++    uint32_t seen = 0;
++    BOOL invalid = FALSE, mode_seen = FALSE;
++    const char* option_error = NULL;
++    const wchar_t* const base_flags[] = { L"--huaidj-image", L"--huaidj-device", L"--huaidj-size", L"--huaidj-serial", L"--huaidj-sha256", L"--huaidj-confirm", L"--huaidj-status", L"--huaidj-mode" };
++    HuaidjInitOptions(&huaidj_options);
++    if (!argv) return 0;
++    for (i = 1; i < argc; ++i) if (wcsncmp(argv[i], L"--huaidj-", 9) == 0) huaidj_automation = TRUE;
++    if (!huaidj_automation) { LocalFree(argv); return 0; }
++    for (i = 1; i < argc; ++i) {
++        wchar_t* flag = argv[i];
++        if (wcscmp(flag, L"--huaidj-dry-run") == 0) {
++            if (seen & (1U << 8)) invalid = TRUE;
++            seen |= 1U << 8; huaidj_dry_run = TRUE; continue;
++        }
++        if (i + 1 >= argc) { invalid = TRUE; continue; }
++        wchar_t* value = argv[++i];
++        const char* parse_error = NULL;
++        int extra = HuaidjParseExtraOption(&huaidj_options, flag, value, &parse_error);
++        if (extra) {
++            if (extra < 0) { invalid = TRUE; if (!option_error) option_error = parse_error; }
++            continue;
++        }
++        int base = -1;
++        for (int j = 0; j < 8; ++j) if (wcscmp(flag, base_flags[j]) == 0) { base = j; break; }
++        if (base < 0 || (seen & (1U << base))) { invalid = TRUE; continue; }
++        seen |= 1U << base;
++        if (base == 0) image = value;
++        else if (base == 1) invalid |= !ParseUnsigned(value, &number);
++        else if (base == 2) invalid |= !ParseUnsigned(value, &expected_size);
++        else if (base == 3) serial = value;
++        else if (base == 4) {
++            if (wcslen(value) != 64) invalid = TRUE;
++            else for (unsigned j = 0; j < 64; ++j) {
++                if (!((value[j] >= L'0' && value[j] <= L'9') || (value[j] >= L'a' && value[j] <= L'f') || (value[j] >= L'A' && value[j] <= L'F'))) invalid = TRUE;
++                expected_sha256[j] = (char)value[j];
++            }
++        } else if (base == 5) confirm = value;
++        else if (base == 6) {
++            DWORD resolved = GetFullPathNameW(value, MAX_PATH, status_path, NULL);
++            if (resolved == 0 || resolved >= MAX_PATH - 32 || wcslen(value) >= MAX_PATH - 32) invalid = TRUE;
++        } else if (base == 7) {
++            mode_seen = TRUE;
++            huaidj_dd_mode = wcscmp(value, L"dd") == 0;
++            if (!huaidj_dd_mode && wcscmp(value, L"iso") != 0) invalid = TRUE;
++        }
++    }
++    const char* contract_error = HuaidjValidateExtraOptions(&huaidj_options, image != NULL, expected_sha256[0] != 0, huaidj_dd_mode);
++    if (contract_error && !option_error) option_error = contract_error;
++    if (huaidj_options.format_only && mode_seen) { invalid = TRUE; option_error = "Format-only does not accept an image-write mode"; }
++    huaidj_device_number = number <= 63 ? (DWORD)number : MAXDWORD;
++    wchar_t required[128];
++    swprintf_s(required, 128, L"ERASE:%lu:%llu", huaidj_device_number, (unsigned long long)expected_size);
++    if (invalid || option_error || huaidj_device_number == MAXDWORD || expected_size < 8 * MB || !serial || !*serial ||
++        !status_path[0] || (!huaidj_dry_run && (!confirm || wcscmp(confirm, required) != 0 || (!huaidj_options.format_only && !expected_sha256[0]))))
++        Fail(ERROR_INVALID_PARAMETER, option_error ? option_error : "Missing/invalid/duplicate native flags or exact ERASE:<disk>:<size> confirmation");
++    if (serial) {
++        char* utf8 = wchar_to_utf8(serial);
++        if (!utf8 || strlen(utf8) >= sizeof(expected_serial)) Fail(ERROR_INVALID_PARAMETER, "USB serial is invalid or too long");
++        else strcpy_s(expected_serial, sizeof(expected_serial), utf8);
++        free(utf8);
++    }
++    if (image) {
++        DWORD resolved = GetFullPathNameW(image, MAX_PATH, source_path, NULL);
++        if (resolved == 0 || resolved >= MAX_PATH || wcslen(image) >= MAX_PATH)
++            Fail(ERROR_INVALID_PARAMETER, "Invalid source image path");
++    }
++    if (status_path[0] && source_path[0] && _wcsicmp(status_path, source_path) == 0) {
++        status_path[0] = 0;
++        Fail(ERROR_INVALID_PARAMETER, "Status and source image paths must differ");
++    }
++    if (status_path[0] && huaidj_device_number != MAXDWORD && !RequirePathOffTarget(status_path, "Status output must not write to the target USB"))
++        status_path[0] = 0;
++
++    /* Lock an image before the first status write, even for rejected arguments.
++       This also protects hard-link/junction aliases from replacement by status. */
++    if (image && source_path[0]) {
++        source_lock = CreateFileW(source_path, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
++        if (source_lock == INVALID_HANDLE_VALUE) {
++            status_path[0] = 0;
++            Fail(GetLastError(), "Cannot safely lock source ISO against modification during the job");
++        } else {
++            LARGE_INTEGER length;
++            wchar_t actual[MAX_PATH];
++            DWORD resolved = GetFinalPathNameByHandleW(source_lock, actual, MAX_PATH, FILE_NAME_NORMALIZED | VOLUME_NAME_DOS);
++            if (!resolved || resolved >= MAX_PATH) Fail(ERROR_INVALID_DATA, "Cannot resolve final source path from the locked ISO handle");
++            else if (wcsncmp(actual, L"\\\\?\\UNC\\", 8) == 0) Fail(ERROR_INVALID_DATA, "Network ISO sources are not supported by native automation");
++            else wcscpy_s(source_path, MAX_PATH, wcsncmp(actual, L"\\\\?\\", 4) == 0 ? actual + 4 : actual);
++            if (!GetFileSizeEx(source_lock, &length) || length.QuadPart <= 0 || (uint64_t)length.QuadPart > expected_size)
++                Fail(ERROR_INVALID_DATA, "Source image is empty or larger than the target USB");
++            else source_bytes = (uint64_t)length.QuadPart;
++            HANDLE previous_status = CreateFileW(status_path, 0, FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE, NULL, OPEN_EXISTING, 0, NULL);
++            if (previous_status != INVALID_HANDLE_VALUE) {
++                BY_HANDLE_FILE_INFORMATION source_id, status_id;
++                if (!GetFileInformationByHandle(source_lock, &source_id) || !GetFileInformationByHandle(previous_status, &status_id) ||
++                    (source_id.dwVolumeSerialNumber == status_id.dwVolumeSerialNumber && source_id.nFileIndexHigh == status_id.nFileIndexHigh && source_id.nFileIndexLow == status_id.nFileIndexLow)) {
++                    status_path[0] = 0;
++                    Fail(ERROR_INVALID_PARAMETER, "Status must not alias the source image");
++                }
++                CloseHandle(previous_status);
++            }
++        }
++    }
++    if (!failed) {
++        uint64_t identity_hash = 14695981039346656037ULL;
++        wchar_t mutex_name[128];
++        for (const unsigned char* p = (const unsigned char*)expected_serial; *p; ++p)
++            identity_hash = (identity_hash ^ *p) * 1099511628211ULL;
++        swprintf_s(mutex_name, 128, L"Global\\HuaiDJ_Rufus_USB_%lu_%016llx", huaidj_device_number, (unsigned long long)identity_hash);
++        device_mutex = CreateMutexW(NULL, FALSE, mutex_name);
++        if (!device_mutex) Fail(GetLastError(), "Cannot create native USB operation mutex");
++        else {
++            DWORD acquired = WaitForSingleObject(device_mutex, 0);
++            if (acquired != WAIT_OBJECT_0 && acquired != WAIT_ABANDONED)
++                Fail(ERROR_BUSY, "Native USB target is already owned by another operation");
++        }
++    }
++    HuaidjStatus("validating", 0, "Read-only native USB identity and protected-volume checks");
++    if (!failed) HuaidjValidateTarget();
++    if (!failed && !huaidj_options.format_only) VerifyLockedSourceHash();
++    if (!failed) {
++        free(image_path);
++        image_path = huaidj_options.format_only ? NULL : wchar_to_utf8(source_path);
++        if (!huaidj_options.format_only && !image_path) Fail(ERROR_NOT_ENOUGH_MEMORY, "Cannot allocate source image path");
++    }
++    LocalFree(argv);
++    if (failed) { HuaidjFinish(FALSE, failure_message); return -1; }
++    HuaidjStatus(huaidj_options.format_only ? "configuring" : "scanning", 0,
++        huaidj_options.format_only ? "Target verified; configuring non-bootable original Rufus format engine" : "Target verified; scanning image with the original Rufus engine");
++    return 1;
++}
++
++void HuaidjShutdown(void)
++{
++    if (!huaidj_automation) return;
++    if (!final_status) HuaidjFinish(FALSE, "Native engine exited before completing the operation");
++    if (source_lock != INVALID_HANDLE_VALUE) { CloseHandle(source_lock); source_lock = INVALID_HANDLE_VALUE; }
++    if (device_mutex) { ReleaseMutex(device_mutex); CloseHandle(device_mutex); device_mutex = NULL; }
++}
+diff --git a/src/huaidj_autopilot.h b/src/huaidj_autopilot.h
+new file mode 100644
+index 0000000..bd21608
+--- /dev/null
++++ b/src/huaidj_autopilot.h
+@@ -0,0 +1,26 @@
++/* HuaiDJ local automation adapter for Rufus. GPL-3.0-or-later. */
++#pragma once
++#include <windows.h>
++#include "huaidj_options.h"
++
++#define UM_HUAIDJ_SCAN_COMPLETE (WM_APP + 0x510)
++#define TID_HUAIDJ_PROGRESS 0x510
++extern BOOL huaidj_automation;
++extern BOOL huaidj_dry_run;
++extern BOOL huaidj_dd_mode;
++extern DWORD huaidj_device_number;
++extern huaidj_options_t huaidj_options;
++BOOL HuaidjRejectOption(const char* message);
++BOOL HuaidjPreserveExplicitLabel(void);
++void HuaidjNormalizeAutoLabel(char* label, int filesystem);
++void HuaidjCaptureOptions(int filesystem, int partition, int target, DWORD cluster, const char* label, BOOL quick, BOOL large_fat32);
++BOOL HuaidjEffectiveOptionsMatch(int filesystem, int partition, int target, DWORD cluster, const char* label, BOOL quick);
++int HuaidjConfigure(void);
++BOOL HuaidjValidateTarget(void);
++BOOL HuaidjVerifyOpenTarget(HANDLE disk);
++BOOL HuaidjHasFailed(void);
++int HuaidjRejectDialog(UINT type, const char* text);
++void HuaidjStatus(const char* phase, double progress, const char* message);
++void HuaidjFinish(BOOL success, const char* message);
++void HuaidjShutdown(void);
++int HuaidjExitCode(void);
+diff --git a/src/huaidj_options.c b/src/huaidj_options.c
+new file mode 100644
+index 0000000..cea3085
+--- /dev/null
++++ b/src/huaidj_options.c
+@@ -0,0 +1,115 @@
++/* HuaiDJ native option contract. GPL-3.0-or-later.
++ * Pure parsing/validation: this module has no Windows, storage or UI APIs.
++ */
++#include "huaidj_options.h"
++#include <string.h>
++#include <limits.h>
++
++void HuaidjInitOptions(huaidj_options_t* o)
++{
++    memset(o, 0, sizeof(*o));
++    o->filesystem = HJ_FS_AUTO;
++    o->partition_scheme = HJ_PT_AUTO;
++    o->target_system = HJ_TARGET_AUTO;
++    o->quick_format = 1;
++}
++
++static int Choice(const wchar_t* value, const wchar_t* const* choices, int count)
++{
++    for (int i = 0; i < count; ++i) if (wcscmp(value, choices[i]) == 0) return i;
++    return -1;
++}
++
++int HuaidjParseExtraOption(huaidj_options_t* o, const wchar_t* flag, const wchar_t* value, const char** error)
++{
++    static const wchar_t* const flags[] = { L"--huaidj-operation", L"--huaidj-filesystem", L"--huaidj-partition-scheme", L"--huaidj-target-system", L"--huaidj-cluster-size", L"--huaidj-volume-label", L"--huaidj-quick-format" };
++    static const wchar_t* const operations[] = { L"image", L"format" };
++    static const wchar_t* const filesystems[] = { L"auto", L"fat32", L"ntfs", L"exfat" };
++    static const wchar_t* const partitions[] = { L"auto", L"mbr", L"gpt" };
++    static const wchar_t* const targets[] = { L"auto", L"bios", L"uefi" };
++    int index = Choice(flag, flags, 7), selected;
++    *error = NULL;
++    if (index < 0) return 0;
++    if (!value || (o->present & (1U << index))) {
++        *error = "Missing or duplicate native option";
++        return -1;
++    }
++    o->present |= 1U << index;
++    switch (index) {
++    case 0:
++        selected = Choice(value, operations, 2);
++        if (selected >= 0) { o->format_only = selected; return 1; }
++        break;
++    case 1:
++        selected = Choice(value, filesystems, 4);
++        if (selected >= 0) { o->filesystem = selected - 1; return 1; }
++        break;
++    case 2:
++        selected = Choice(value, partitions, 3);
++        if (selected >= 0) { o->partition_scheme = selected - 1; return 1; }
++        break;
++    case 3:
++        selected = Choice(value, targets, 3);
++        if (selected >= 0) { o->target_system = selected - 1; return 1; }
++        break;
++    case 4: {
++        if (wcscmp(value, L"auto") == 0) { o->cluster_size = 0; return 1; }
++        uint64_t size = 0;
++        if (!*value) break;
++        for (const wchar_t* p = value; *p; ++p) {
++            if (*p < L'0' || *p > L'9' || size > UINT32_MAX / 10U) { *error = "Cluster size must be an unsigned byte count"; return -1; }
++            size = size * 10 + (*p - L'0');
++        }
++        if (size < 512 || size > 32 * 1024 * 1024 || (size & (size - 1))) break;
++        o->cluster_size = (uint32_t)size;
++        return 1;
++    }
++    case 5:
++        if (wcslen(value) > 32) { *error = "Volume label exceeds 32 UTF-16 code units"; return -1; }
++        for (const wchar_t* p = value; *p; ++p) if (*p < 32 || *p == 127 || wcschr(L"\\/:*?\"<>|", *p)) {
++            *error = "Volume label contains a reserved or control character";
++            return -1;
++        }
++        wmemcpy(o->volume_label, value, wcslen(value) + 1);
++        o->has_label = 1;
++        return 1;
++    case 6:
++        if (wcscmp(value, L"true") == 0) { o->quick_format = 1; return 1; }
++        if (wcscmp(value, L"false") == 0) { o->quick_format = 0; return 1; }
++        break;
++    }
++    *error = "Invalid native option value";
++    return -1;
++}
++
++const char* HuaidjValidateExtraOptions(const huaidj_options_t* o, int has_image, int has_sha, int dd_mode)
++{
++    if (o->format_only) {
++        if (has_image || has_sha) return "Format-only does not accept a source image or source hash";
++        if (o->filesystem == HJ_FS_AUTO) return "Format-only requires an explicit filesystem";
++        if (o->target_system != HJ_TARGET_AUTO) return "Non-bootable formatting requires target-system auto";
++    } else {
++        if (!has_image) return "Image operation requires a source image";
++        if (dd_mode && (o->filesystem != HJ_FS_AUTO || o->partition_scheme != HJ_PT_AUTO || o->target_system != HJ_TARGET_AUTO || o->cluster_size || o->has_label || (o->present & (1U << 6))))
++            return "DD writes preserve the source layout and do not accept formatting options";
++    }
++    return NULL;
++}
++
++const char* HuaidjValidateLabel(const wchar_t* label, int filesystem)
++{
++    size_t length = wcslen(label);
++    if (filesystem == HJ_FS_FAT32) {
++        if (length > 11) return "FAT32 volume labels are limited to 11 ASCII characters";
++        for (const wchar_t* p = label; *p; ++p) if (*p >= 128 || wcschr(L".,;+=[]", *p))
++            return "FAT32 label contains unsupported non-ASCII or reserved characters";
++    } else if (filesystem == HJ_FS_EXFAT) {
++        if (length > 15) return "exFAT volume labels are limited to 15 UTF-16 code units";
++    } else if (length > 32) return "NTFS volume labels are limited to 32 UTF-16 code units";
++    return NULL;
++}
++
++int HuaidjInstallerBcdIsNonSystem(int has_boot_registry, int boot_resolved_off_target, int target_volume_mapped, int target_is_boot)
++{
++    return has_boot_registry && boot_resolved_off_target && target_volume_mapped && !target_is_boot;
++}
+diff --git a/src/huaidj_options.h b/src/huaidj_options.h
+new file mode 100644
+index 0000000..7439e16
+--- /dev/null
++++ b/src/huaidj_options.h
+@@ -0,0 +1,22 @@
++/* HuaiDJ native option contract. GPL-3.0-or-later. */
++#pragma once
++#include <stdint.h>
++#include <wchar.h>
++
++enum { HJ_FS_AUTO = -1, HJ_FS_FAT32, HJ_FS_NTFS, HJ_FS_EXFAT };
++enum { HJ_PT_AUTO = -1, HJ_PT_MBR, HJ_PT_GPT };
++enum { HJ_TARGET_AUTO = -1, HJ_TARGET_BIOS, HJ_TARGET_UEFI };
++typedef struct {
++    int format_only, filesystem, partition_scheme, target_system, quick_format;
++    uint32_t cluster_size, present;
++    int has_label;
++    wchar_t volume_label[33];
++} huaidj_options_t;
++
++void HuaidjInitOptions(huaidj_options_t* options);
++/* 1 = recognized; 0 = not an extra option; -1 = rejected. */
++int HuaidjParseExtraOption(huaidj_options_t* options, const wchar_t* flag, const wchar_t* value, const char** error);
++const char* HuaidjValidateExtraOptions(const huaidj_options_t* options, int has_image, int has_sha, int dd_mode);
++const char* HuaidjValidateLabel(const wchar_t* label, int filesystem);
++/* Installer BCD alone is not an OS; all active-boot identity proofs are required. */
++int HuaidjInstallerBcdIsNonSystem(int has_boot_registry, int boot_resolved_off_target, int target_volume_mapped, int target_is_boot);
+diff --git a/tests/huaidj-options-test.c b/tests/huaidj-options-test.c
+new file mode 100644
+index 0000000..5e37811
+--- /dev/null
++++ b/tests/huaidj-options-test.c
+@@ -0,0 +1,76 @@
++/* Offline parser/contract tests. GPL-3.0-or-later. No storage or Windows APIs. */
++#include "../src/huaidj_options.h"
++#include <stdio.h>
++#include <string.h>
++
++static unsigned checks;
++static int failed;
++#define CHECK(test) do { ++checks; if (!(test)) { fprintf(stderr, "FAIL at line %u\n", (unsigned)__LINE__); failed = 1; } } while (0)
++static int Parse(huaidj_options_t* o, const wchar_t* key, const wchar_t* value)
++{
++    const char* error = NULL;
++    return HuaidjParseExtraOption(o, key, value, &error);
++}
++int main(void)
++{
++    huaidj_options_t o;
++    HuaidjInitOptions(&o);
++    CHECK(o.filesystem == HJ_FS_AUTO && o.quick_format == 1 && !o.format_only);
++    CHECK(HuaidjValidateExtraOptions(&o, 1, 1, 1) == NULL);
++    CHECK(HuaidjValidateExtraOptions(&o, 0, 0, 1) != NULL);
++    CHECK(Parse(&o, L"--huaidj-filesystem", L"ntfs") == 1);
++    CHECK(Parse(&o, L"--huaidj-filesystem", L"fat32") == -1);
++    CHECK(HuaidjValidateExtraOptions(&o, 1, 1, 1) != NULL);
++    CHECK(HuaidjValidateExtraOptions(&o, 1, 1, 0) == NULL);
++    HuaidjInitOptions(&o);
++    CHECK(Parse(&o, L"--huaidj-operation", L"format") == 1);
++    CHECK(HuaidjValidateExtraOptions(&o, 0, 0, 0) != NULL);
++    CHECK(Parse(&o, L"--huaidj-filesystem", L"exfat") == 1);
++    CHECK(Parse(&o, L"--huaidj-partition-scheme", L"gpt") == 1);
++    CHECK(Parse(&o, L"--huaidj-cluster-size", L"32768") == 1);
++    CHECK(Parse(&o, L"--huaidj-volume-label", L"DJ USB") == 1);
++    CHECK(Parse(&o, L"--huaidj-quick-format", L"false") == 1);
++    CHECK(o.filesystem == HJ_FS_EXFAT && o.partition_scheme == HJ_PT_GPT && o.cluster_size == 32768 && !o.quick_format);
++    CHECK(HuaidjValidateExtraOptions(&o, 0, 0, 0) == NULL);
++    CHECK(HuaidjValidateExtraOptions(&o, 1, 0, 0) != NULL);
++    CHECK(HuaidjValidateExtraOptions(&o, 0, 1, 0) != NULL);
++    CHECK(Parse(&o, L"--huaidj-target-system", L"uefi") == 1);
++    CHECK(HuaidjValidateExtraOptions(&o, 0, 0, 0) != NULL);
++    const wchar_t* bad_clusters[] = {L"0", L"-512", L"1025", L"512.0", L"42949672960", L"9999999999999999999999999", L"33554433"};
++    for (unsigned i = 0; i < sizeof(bad_clusters)/sizeof(bad_clusters[0]); ++i) {
++        HuaidjInitOptions(&o);
++        CHECK(Parse(&o, L"--huaidj-cluster-size", bad_clusters[i]) == -1);
++    }
++    const wchar_t* bad_values[][2] = {
++        {L"--huaidj-filesystem",L"unknown"}, {L"--huaidj-partition-scheme",L"sfd"},
++        {L"--huaidj-target-system",L"legacy-uefi"}, {L"--huaidj-quick-format",L"1"},
++        {L"--huaidj-operation",L"secure-erase"}, {L"--huaidj-volume-label",L"bad/name"},
++        {L"--huaidj-volume-label",L"bad\nname"}, {L"--huaidj-volume-label",L"123456789012345678901234567890123"}
++    };
++    for (unsigned i = 0; i < sizeof(bad_values)/sizeof(bad_values[0]); ++i) {
++        HuaidjInitOptions(&o);
++        CHECK(Parse(&o, bad_values[i][0], bad_values[i][1]) == -1);
++    }
++    CHECK(HuaidjValidateLabel(L"DJ USB", HJ_FS_FAT32) == NULL);
++    CHECK(HuaidjValidateLabel(L"123456789012", HJ_FS_FAT32) != NULL);
++    CHECK(HuaidjValidateLabel(L"\x6E2C\x8A66", HJ_FS_FAT32) != NULL);
++    CHECK(HuaidjValidateLabel(L"DJ.USB", HJ_FS_FAT32) != NULL);
++    CHECK(HuaidjValidateLabel(L"123456789012345", HJ_FS_EXFAT) == NULL);
++    CHECK(HuaidjValidateLabel(L"1234567890123456", HJ_FS_EXFAT) != NULL);
++    CHECK(HuaidjValidateLabel(L"\x6E2C\x8A66", HJ_FS_EXFAT) == NULL);
++    HuaidjInitOptions(&o);
++    CHECK(Parse(&o, L"--huaidj-quick-format", L"true") == 1);
++    CHECK(HuaidjValidateExtraOptions(&o, 1, 1, 1) != NULL);
++    HuaidjInitOptions(&o);
++    CHECK(Parse(&o, L"--huaidj-not-supported", L"true") == 0);
++    CHECK(Parse(&o, L"--huaidj-volume-label", L"") == 1);
++    CHECK(HuaidjInstallerBcdIsNonSystem(1, 1, 1, 0));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(0, 1, 1, 0));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(1, 0, 1, 0));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(1, 1, 0, 0));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(1, 1, 1, 1));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(0, 0, 0, 0));
++    CHECK(!HuaidjInstallerBcdIsNonSystem(0, 0, 0, 1));
++    printf("%s: %u native option checks; no storage APIs linked\n", failed ? "FAIL" : "PASS", checks);
++    return failed ? 1 : 0;
++}

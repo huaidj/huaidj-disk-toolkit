@@ -1,0 +1,4699 @@
+{
+  "formatVersion": 1,
+  "package": "huaidj-disk-toolkit",
+  "containsNativeBinary": false,
+  "license": "GPL-3.0-or-later",
+  "thirdPartyNotices": "THIRD_PARTY_NOTICES.md",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "size": 87,
+      "sha256": "87681cd767beb503823ff80a2daa94f6e937af59ce086098dc2de04c698af61f"
+    },
+    {
+      "path": ".github/workflows/native-build.yml",
+      "size": 963,
+      "sha256": "03d85c4e933308828f74ba3e263a87d047c2e5165496ec8ec729f2dd2ecf89ea"
+    },
+    {
+      "path": ".github/workflows/offline-tests.yml",
+      "size": 867,
+      "sha256": "f05da64ce8c4ddf306a7ee58a8e602cc4a539fc75e4f00c6073bfde6e1c202d5"
+    },
+    {
+      "path": ".gitignore",
+      "size": 93,
+      "sha256": "5cffa98a74037fb76f858defb20d6078c4d7ebbc74253a5cd5198194d8bcbee6"
+    },
+    {
+      "path": "bin/huaidj-rufus.cmd",
+      "size": 70,
+      "sha256": "e9a7ef335117b780bd45cccd25811d00192c42ea9f76778d537f5e646fe60522"
+    },
+    {
+      "path": "config.example.json",
+      "size": 109,
+      "sha256": "e0d2a509c85f6ff275378bdf0f774cc9ddfd7f9aa54739ca75517b2aa12d529e"
+    },
+    {
+      "path": "desktop/app.manifest",
+      "size": 734,
+      "sha256": "52f5f4b466c19987b2e0d37b974f938f36602d3b27c8190ae2949151b8d06f11"
+    },
+    {
+      "path": "desktop/build.ps1",
+      "size": 1838,
+      "sha256": "d5b0766e29efb86c51c89035ec9294981e2bad244e7301d8a9a9d445d3d2b003"
+    },
+    {
+      "path": "desktop/DesktopPreferences.cs",
+      "size": 1045,
+      "sha256": "9863af49baf75edf8ba591737c6ef2be6cb159fd143a3c523bbcea9fbdde4264"
+    },
+    {
+      "path": "desktop/HuaiDJ.DiskToolkit.Desktop.csproj",
+      "size": 1010,
+      "sha256": "cbeb133a85cd4cefe5a63478b963fc55a5c45b22abb7962b92ac8a88e26ae460"
+    },
+    {
+      "path": "desktop/JsonValue.cs",
+      "size": 2173,
+      "sha256": "9b0c3ed470c4bb6a36c28764dd7c0f5c60a8f2e678d0503cf67c2356a171d33a"
+    },
+    {
+      "path": "desktop/LaunchOptions.cs",
+      "size": 5128,
+      "sha256": "0c6eed744705302f564763b9a4a927712ac5cb180f107dc8ab8ad73493f3efed"
+    },
+    {
+      "path": "desktop/MainForm.cs",
+      "size": 76585,
+      "sha256": "2ccb2ea2b33c663d11ef0b52719d5badf145381dd6ad25d780b1c0b3a0656758"
+    },
+    {
+      "path": "desktop/Program.cs",
+      "size": 609,
+      "sha256": "d3c41da274320e79963f15fc810fb9c0e1ae6552239738e24d216b45920d1ac9"
+    },
+    {
+      "path": "desktop/README.md",
+      "size": 2196,
+      "sha256": "04bb72aa933d2667e20ebf3511edce7643d53ffb6e18090d96dd325e2aec60f6"
+    },
+    {
+      "path": "desktop/ReviewDialog.cs",
+      "size": 2714,
+      "sha256": "199e73782af6b4d8d800e63b0226480028a46c3dc24fd69597395cb7b05f1f78"
+    },
+    {
+      "path": "desktop/StartupHelpForm.cs",
+      "size": 3492,
+      "sha256": "95fd1f17dd2dbedec708def14f29099dea74e34f5ad82ad022a0e5cfc00d8bb5"
+    },
+    {
+      "path": "desktop/ToolkitClient.cs",
+      "size": 3841,
+      "sha256": "7f2284fbb02273406b41df2ab11cc19189f845108a0177250bb9d2522450f7da"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "size": 3997,
+      "sha256": "ec58949100b576aeacdcc0821a4b2297840c61e35218237e1219b11dba497577"
+    },
+    {
+      "path": "docs/BUILDING.md",
+      "size": 3293,
+      "sha256": "bd2ec9eedf139b6005576620b6596c83755ba37082dfa9dbf9e8eddd1a72210c"
+    },
+    {
+      "path": "docs/CONNECT.md",
+      "size": 4703,
+      "sha256": "b6e8d4f5482a6ae8586f9ffd5dd3428f4d8c7c977217f9f5022634f2a7f29f47"
+    },
+    {
+      "path": "docs/DISTRIBUTION.md",
+      "size": 6919,
+      "sha256": "c5674c5c824911b851aa9ac2e867286fa045fbd81c3538a01e3cdd721d78c115"
+    },
+    {
+      "path": "docs/licenses/DOTNET-RUNTIME-MIT.txt",
+      "size": 1139,
+      "sha256": "d7a68596ab69b06f51ca278a6545148e4269a9381c26d597c13df5d88e08cf5b"
+    },
+    {
+      "path": "docs/licenses/DOTNET-THIRD-PARTY-NOTICES.txt",
+      "size": 78041,
+      "sha256": "6d15e10a101c6bfff2ab4429ed061bf76c456fc4b23ad6b03e0d0f8377148a21"
+    },
+    {
+      "path": "docs/licenses/GPL-3.0.txt",
+      "size": 35821,
+      "sha256": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"
+    },
+    {
+      "path": "docs/licenses/WINDOWS-DESKTOP-RUNTIME-MIT.txt",
+      "size": 1137,
+      "sha256": "a89886665765362eb77e0f8e26602c924520041d1711b2eedc136434fe4d01ab"
+    },
+    {
+      "path": "docs/LICENSING.md",
+      "size": 2304,
+      "sha256": "416bd1c50c0cba6bed59ae067c01f5eefa794d6fda05da240dc623441a58ab72"
+    },
+    {
+      "path": "docs/NATIVE_API.md",
+      "size": 5589,
+      "sha256": "6f31fcd280f330e134d291de4612f60e92d3e1c5c0d779b89580246ed65c351e"
+    },
+    {
+      "path": "docs/SUPPORT.md",
+      "size": 1653,
+      "sha256": "74787da8ab8cebd63aea4034df1629878ea023ffa294ef5a5d0b6042fad3a4de"
+    },
+    {
+      "path": "installers/dependencies.json",
+      "size": 3461,
+      "sha256": "c208ca0d613b1d2024d5e68816e43ee3a87ede0e4b7b5adb1d8c90432381d9db"
+    },
+    {
+      "path": "installers/README.md",
+      "size": 3443,
+      "sha256": "513fd66e5e81880e0e06dfd66f40ac8a0297295c6c11c12d8a44330c0999e143"
+    },
+    {
+      "path": "installers/release-manifest.schema.json",
+      "size": 2423,
+      "sha256": "465415918e711260754b4c607e9515c87b42950049036f5b7394802d182df447"
+    },
+    {
+      "path": "LICENSE",
+      "size": 35821,
+      "sha256": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"
+    },
+    {
+      "path": "package-lock.json",
+      "size": 44056,
+      "sha256": "564ac5af1538794100095862487026bd76c343c5a0e14caf2746f9eb914cb7ed"
+    },
+    {
+      "path": "package.json",
+      "size": 569,
+      "sha256": "3d143a6b2f2316c9cedda1be97e3e2fde8a1655d10f6320b7c506b4b4252a5d0"
+    },
+    {
+      "path": "patches/native-adapter.patch",
+      "size": 74326,
+      "sha256": "7522057c808c70384f303a57f3ed6cbdd5d28db58da507fe88daa83e278dacd9"
+    },
+    {
+      "path": "patches/native-engine.json",
+      "size": 4134,
+      "sha256": "0e8ebe891412399ca3a5debec1eca194068541f6e813dbe873cc29673b10c491"
+    },
+    {
+      "path": "README.md",
+      "size": 13643,
+      "sha256": "2be8327ceba7e36b8d8743bf695f170330d2ea11beede16dd9917204b4f8dec1"
+    },
+    {
+      "path": "README.zh-TW.md",
+      "size": 5321,
+      "sha256": "4a255af4044c956506fbf677caad9e5d061847a45394026b526c6fe2ed65c524"
+    },
+    {
+      "path": "scripts/bootstrap.sh",
+      "size": 19903,
+      "sha256": "e86381514c3a25e0b617a92c0786e9cdd641a9ad49abb4f66173b435c9b24840"
+    },
+    {
+      "path": "scripts/build-native.ps1",
+      "size": 3680,
+      "sha256": "83bb12bb349cb2fb36ff4f9b0644818d369301ae79afe3133bde15febc957b38"
+    },
+    {
+      "path": "scripts/build-release.py",
+      "size": 19350,
+      "sha256": "ac9e0172202df71e3333e0d92adf7f873cd2b7f4a53ea94aef1a7f0db4443420"
+    },
+    {
+      "path": "scripts/install.ps1",
+      "size": 36179,
+      "sha256": "b264fa07d2d73715b47c5bddcb91a5c8c4e69764e7cd0fec41a3ada6f4444b46"
+    },
+    {
+      "path": "scripts/prepare-public.py",
+      "size": 17599,
+      "sha256": "cfa6ddbd1140333b129abda642fe95a9c693f97e03b5a91cbcecfd6605a2c64e"
+    },
+    {
+      "path": "scripts/run-native-options-tests.ps1",
+      "size": 2318,
+      "sha256": "16a74d9be44972f287b5e099fd94a302b973b3cd15f10a8f7d1f9f66118cfd7b"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/agents/openai.yaml",
+      "size": 221,
+      "sha256": "530c35e7323ee72aa36b9efcdb048faab86d771cd8a8964941fd2c73f660175c"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/LICENSE",
+      "size": 35821,
+      "sha256": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/references/workflows.md",
+      "size": 5136,
+      "sha256": "d6da19a32f50fff8de6732fa9a3c7c44a5cfc52d9ae9ff10b4e387d59504a4dd"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/scripts/bootstrap.ps1",
+      "size": 36179,
+      "sha256": "b264fa07d2d73715b47c5bddcb91a5c8c4e69764e7cd0fec41a3ada6f4444b46"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/scripts/bootstrap.sh",
+      "size": 19903,
+      "sha256": "e86381514c3a25e0b617a92c0786e9cdd641a9ad49abb4f66173b435c9b24840"
+    },
+    {
+      "path": "skills/huaidj-disk-toolkit/SKILL.md",
+      "size": 1679,
+      "sha256": "2e2bc084591bb551c57ffc1bd9cbe62d7ad786b9282a3fede3281d6e50c0be9d"
+    },
+    {
+      "path": "sources/native-source-manifest.json",
+      "size": 139692,
+      "sha256": "d9e4fb8087ccb28244c459f4304d3542cd4835c1cad8f241d9f85402cf1d5b62"
+    },
+    {
+      "path": "sources/rufus/.gitattributes",
+      "size": 538,
+      "sha256": "ac9ef881ea5131c4fb639dcadd12e4066a5de6a4c8b26b8a6a806fb9806dabfb"
+    },
+    {
+      "path": "sources/rufus/.github/dependabot.yml",
+      "size": 118,
+      "sha256": "883b95e3be554fbadd92b315e4a8c6ea6ca688b64924e22dd61222b07f683507"
+    },
+    {
+      "path": "sources/rufus/.github/ISSUE_TEMPLATE/config.yml",
+      "size": 28,
+      "sha256": "1f103c6a9dd07cd13a9a6f17ace6b813f47747eb9cb7e00488cb2073caaf91bb"
+    },
+    {
+      "path": "sources/rufus/.github/ISSUE_TEMPLATE/issue-report.md",
+      "size": 2741,
+      "sha256": "06ff7d5a54bab60a50cd9983fed40cf659155b4f446c41cdbc5e5a19a7b24ff2"
+    },
+    {
+      "path": "sources/rufus/.github/pull_request_template.md",
+      "size": 196,
+      "sha256": "4dcd6efce01d953c184cfe8c853e43ef8cbe745ac2d329f27fc5fec023ccc8c5"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/codeql.yml",
+      "size": 1213,
+      "sha256": "9bb5fa4855f51cfdeca44bf19139642bcf764aa27006e33defdb0de65cab264d"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/coverity.yml",
+      "size": 1936,
+      "sha256": "40a6bd57826c28df993b0ed0663c845cd3dcf90b981b1da5993819221b55cc2f"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/lock.yml",
+      "size": 648,
+      "sha256": "2b19eb5ec3edc1095511aeeff43f83281a5e6c7bb5b255a7b6fcaf4d74482ebb"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/mingw.yml",
+      "size": 5271,
+      "sha256": "270afda35a4d6777e7b075655a8e5f86f3a0a8e08247738b1594066c1ad0428a"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/setup.yml",
+      "size": 1367,
+      "sha256": "d8a9a852f2634f2ae3cedb5991d4b5466f7bd0ffdd7529387cce2f31aff3aacc"
+    },
+    {
+      "path": "sources/rufus/.github/workflows/vs2026.yml",
+      "size": 6178,
+      "sha256": "de8bcd9a3f7cb2d070b360834812630205774997751a6e6c0d23e9e7c87515fb"
+    },
+    {
+      "path": "sources/rufus/.gitignore",
+      "size": 543,
+      "sha256": "1e8997e9e36ea3b4c6ed986075e1ab00006a3899c438944773aba4a36f2c41a4"
+    },
+    {
+      "path": "sources/rufus/.mingw/cfgmgr32.def",
+      "size": 239,
+      "sha256": "c382fe8f44f6903bc5db94ebb4c0a7c16522d0c6d94780248fcd7c9f5804d78a"
+    },
+    {
+      "path": "sources/rufus/.mingw/crypt32.def",
+      "size": 324,
+      "sha256": "9ae1677a11397ea98b07cd2a70110c3235918e2c8d5efc12f1820035ee342950"
+    },
+    {
+      "path": "sources/rufus/.mingw/dwmapi.def",
+      "size": 90,
+      "sha256": "b7957204c60dffcb00ff092269832e3a16d18fec9c32668109be4a9ca14139e6"
+    },
+    {
+      "path": "sources/rufus/.mingw/Makefile.am",
+      "size": 1464,
+      "sha256": "a0af635a22efceab0f83f3bc53658641ceb1ed53694df41cc637385a4123a9fb"
+    },
+    {
+      "path": "sources/rufus/.mingw/Makefile.in",
+      "size": 11372,
+      "sha256": "b6d95634c0293f5471dc1ef48450d58d43a55680e57d0eebb9273e95a8232f21"
+    },
+    {
+      "path": "sources/rufus/.mingw/setupapi.def",
+      "size": 565,
+      "sha256": "cbed41c35175a0af4fe54a64f7f751f4e52b5d16377f48cac4dc7554c07c0ad6"
+    },
+    {
+      "path": "sources/rufus/.mingw/uxtheme.def",
+      "size": 370,
+      "sha256": "ffd0432318735fed51e4647ac47468f923bfdd126bca0b5be5aaf56d7b7dd2c0"
+    },
+    {
+      "path": "sources/rufus/.mingw/version.def",
+      "size": 81,
+      "sha256": "190cf8140e6224e69cc8b4e588cfe4fe18e5904040d75953cea05c42a34aca87"
+    },
+    {
+      "path": "sources/rufus/.mingw/virtdisk.def",
+      "size": 198,
+      "sha256": "71dcb416851dcedb379a4bdf7657bb7c76a6baeecbcf2caf129c9ae342bd4811"
+    },
+    {
+      "path": "sources/rufus/.mingw/wininet.def",
+      "size": 324,
+      "sha256": "22b5c7d89b70871e360c3e3df1fbc664f932e37dba4644617b1dc1d8dba652c0"
+    },
+    {
+      "path": "sources/rufus/.mingw/wintrust.def",
+      "size": 30,
+      "sha256": "047e1312bea0f0865f63677638788fc4437da4fc01a29c765cef89e1f5430ca1"
+    },
+    {
+      "path": "sources/rufus/.vs/bled.vcxproj",
+      "size": 15506,
+      "sha256": "5d7a31d5694df344d8613cd2f71a12bce1e2d754782f46babf54396c9b51a17c"
+    },
+    {
+      "path": "sources/rufus/.vs/bled.vcxproj.filters",
+      "size": 7182,
+      "sha256": "5c54a0c5c502c82d7d7903ff033813f9517441cb068564b8ca6c0fed7583f5c1"
+    },
+    {
+      "path": "sources/rufus/.vs/ext2fs.vcxproj",
+      "size": 15578,
+      "sha256": "23fa16f17441a1a28339feea0e77a57c30df4d5c828afc0da04da1e634196df2"
+    },
+    {
+      "path": "sources/rufus/.vs/ext2fs.vcxproj.filters",
+      "size": 8162,
+      "sha256": "0e79fcb6351c34d929ef079fe18933380aebc2d209cfa087a5942b771dba814a"
+    },
+    {
+      "path": "sources/rufus/.vs/Generate.PDB.props",
+      "size": 261,
+      "sha256": "e567df507680fbd277d7fa718f00ccf326f01c4b4b2837d03abb906a5d594bba"
+    },
+    {
+      "path": "sources/rufus/.vs/getopt.vcxproj",
+      "size": 10278,
+      "sha256": "d946602d682382978ba37ac3bdccca96bfb3e1923142e6984853d6e56726a1c6"
+    },
+    {
+      "path": "sources/rufus/.vs/getopt.vcxproj.filters",
+      "size": 928,
+      "sha256": "7b5248072d55401aabb9af52668405a7b142b4e120e0ff35033d364114f5f0af"
+    },
+    {
+      "path": "sources/rufus/.vs/huaidj-options-test.vcxproj",
+      "size": 1538,
+      "sha256": "97bcad16f120c1a2e6ad35824f5ac02694d59ed0dbf0abe0c00cc0bd1254ca5b"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-driver.vcxproj",
+      "size": 13209,
+      "sha256": "824c8179b682889d79a0c9aa275b459f9f6cedc7dc7b354c25774dbb21e47188"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-driver.vcxproj.filters",
+      "size": 3476,
+      "sha256": "eb49a9fed8da4f05d27defd0fbe4bd95dfa375b8b5c5ef5947519e739fc0caab"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-iso9660.vcxproj",
+      "size": 12938,
+      "sha256": "b3759e03ccc5eb41599ae639df1b129abedc0175f6362f2a2ea93107569edfaf"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-iso9660.vcxproj.filters",
+      "size": 2714,
+      "sha256": "f2a733244205f8fc98fe843d231a0e9da47c856ad7c4e7a69fafba0aea4010ab"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-udf.vcxproj",
+      "size": 12495,
+      "sha256": "5cc0dba0bb8af78b83f6da3caaf811d48f0e00479cb284e16e68b0a59c6c4ea6"
+    },
+    {
+      "path": "sources/rufus/.vs/libcdio-udf.vcxproj.filters",
+      "size": 1919,
+      "sha256": "23019e111e4af30ec84f7456f23100e7057eff42594dccb942e102a04a8c3755"
+    },
+    {
+      "path": "sources/rufus/.vs/ms-sys.vcxproj",
+      "size": 14859,
+      "sha256": "2c1619749b2aecc0748a447e19100271854d101df0d6afc9e10c8f81a778dcbc"
+    },
+    {
+      "path": "sources/rufus/.vs/ms-sys.vcxproj.filters",
+      "size": 6904,
+      "sha256": "d231fa1cbf43a2cebc56c13b9a1d0b2cada372aa3dbd7a7a36998e11e0577f1c"
+    },
+    {
+      "path": "sources/rufus/.vs/rufus.vcxproj",
+      "size": 25755,
+      "sha256": "4ad850b1e89eb1cc849d561b06959dd810563e887ebbcfa1e818858893c61c69"
+    },
+    {
+      "path": "sources/rufus/.vs/rufus.vcxproj.filters",
+      "size": 7884,
+      "sha256": "b9cba329589163005a52f1667b131b6b9ea5333b4b86c432117aa794a7e16f59"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-libfat.vcxproj",
+      "size": 12163,
+      "sha256": "df2d0682df72707b08c959302a189677483c161f6305528bc06ae037867b292f"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-libfat.vcxproj.filters",
+      "size": 1619,
+      "sha256": "33dcec0a17da8817d107ef8a6f301d8fe6e99faa159473c1fe152f2a3eb50873"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-libinstaller.vcxproj",
+      "size": 12168,
+      "sha256": "2ca8796660dc83ba6f618b453d39eb92d8cbec22bedc68a8ba7a579f4958a2dd"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-libinstaller.vcxproj.filters",
+      "size": 1564,
+      "sha256": "4926a903a571b0cf1fd5abbbf9ca985b7a2eaf4c39167c9aa89c654279a73e57"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-win.vcxproj",
+      "size": 11763,
+      "sha256": "237fd3de5f4d7737cdb74b036bad44914701c6130c86c2a1df553fae0eaff7b4"
+    },
+    {
+      "path": "sources/rufus/.vs/syslinux-win.vcxproj.filters",
+      "size": 841,
+      "sha256": "e7f9761358cf7ed543bc80c64c71f409a832571672854a8c3f24d2c5a2b73451"
+    },
+    {
+      "path": "sources/rufus/.vs/wimlib.vcxproj",
+      "size": 20338,
+      "sha256": "838244ded0de4c9e8c7506c685ee732948055a6bf79e48f86461b2ab0b60a385"
+    },
+    {
+      "path": "sources/rufus/.vs/wimlib.vcxproj.filters",
+      "size": 15310,
+      "sha256": "932399dca34b135516e8576702c43da68e75e895bb199da1407a8592e3c1077a"
+    },
+    {
+      "path": "sources/rufus/_chver.sh",
+      "size": 1508,
+      "sha256": "9b70893161ca863d1028d31ff5b1c79c8c6528737311a64f5367b36946df59c4"
+    },
+    {
+      "path": "sources/rufus/_coverity.cmd",
+      "size": 1334,
+      "sha256": "89616d199036c43f669cc2cf975377dcf4d56592c5ab4bce61f0d09d6835a3fc"
+    },
+    {
+      "path": "sources/rufus/_detect-amend.sh",
+      "size": 773,
+      "sha256": "ab0eb8f670e395eae2f236fa3baa445f076fecee8e0d47838975ebcf7d759f39"
+    },
+    {
+      "path": "sources/rufus/_pre-commit.sh",
+      "size": 1569,
+      "sha256": "902d993ce070f17aa4fcef8227aed21f21503028c8561879ea5aee5cd056ac80"
+    },
+    {
+      "path": "sources/rufus/_release.sh",
+      "size": 77,
+      "sha256": "72d71023fbd48368ceb4ff0a40197e1d96567508a0c666a56b96f4a6093b8f2d"
+    },
+    {
+      "path": "sources/rufus/_set_git_hooks.sh",
+      "size": 405,
+      "sha256": "e0f3ca530911d7f54839cada6dde595f473921efa927dc96ac5a4cba3c9c6d8f"
+    },
+    {
+      "path": "sources/rufus/_sign.cmd",
+      "size": 195,
+      "sha256": "5f067d7f6f400b44c13276e6db869c808ad3e971c4c9c4fa44c4a750edffd36a"
+    },
+    {
+      "path": "sources/rufus/aclocal.m4",
+      "size": 37786,
+      "sha256": "197c11ec5866635d1c6ef0a3900cf5c511330fe0f3df3a107e8e0b2717b02f69"
+    },
+    {
+      "path": "sources/rufus/bootstrap.sh",
+      "size": 115,
+      "sha256": "2a4ef32be6c6195db0790bc7c4b6d85f92e60351ea8d532e16b572f2b024d87e"
+    },
+    {
+      "path": "sources/rufus/ChangeLog.txt",
+      "size": 47682,
+      "sha256": "423a77ce87ee42d478ab20985988fef27d2e8f92bc0ac1798a5be59ec0ff3575"
+    },
+    {
+      "path": "sources/rufus/compile",
+      "size": 7346,
+      "sha256": "d98553578cce57f5127c89dc2406a4b258168ae2ef8b740f58a10d22cb0d39fe"
+    },
+    {
+      "path": "sources/rufus/configure",
+      "size": 185714,
+      "sha256": "544bfa9aab8850848efb9dd0c120af693426c19bd929a9f684137c5d6f34ebd7"
+    },
+    {
+      "path": "sources/rufus/configure.ac",
+      "size": 3553,
+      "sha256": "19ca67bf99bf90c4ef7cf5157a9148fb29815642b9e4c929377534f9cb25bef9"
+    },
+    {
+      "path": "sources/rufus/install-sh",
+      "size": 15358,
+      "sha256": "3d7488bebd0cfc9b5c440c55d5b44f1c6e2e3d3e19894821bae4a27f9307f1d2"
+    },
+    {
+      "path": "sources/rufus/LICENSE.txt",
+      "size": 35147,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "path": "sources/rufus/Makefile.am",
+      "size": 684,
+      "sha256": "78e5663efb4601543ab3ce104927637a5fd9370518d444869627082d3506fa90"
+    },
+    {
+      "path": "sources/rufus/Makefile.in",
+      "size": 15794,
+      "sha256": "64e5527abc846ea6b6a758e40550b54c6a2e90b099df6c0db59c4c647986d470"
+    },
+    {
+      "path": "sources/rufus/missing",
+      "size": 6872,
+      "sha256": "f038345dab184e538098d22a8edc423762da66a90ebe269f23bfef85287cd30c"
+    },
+    {
+      "path": "sources/rufus/README.md",
+      "size": 4126,
+      "sha256": "d785e1ef1c852af02709346899a4b7460679122ca29f13142c9570fc2e1c7d17"
+    },
+    {
+      "path": "sources/rufus/res/appstore/.editorconfig",
+      "size": 161,
+      "sha256": "69f805febccbf22369132f49036d63b2fdc053ef94499e9564190ce38ba22039"
+    },
+    {
+      "path": "sources/rufus/res/appstore/gen_listing.ps1",
+      "size": 5266,
+      "sha256": "d031942521f1d97871f8196f32c2494e6efe696e94fd8231d01ed413acb9a185"
+    },
+    {
+      "path": "sources/rufus/res/appstore/get_pe_info.c",
+      "size": 1987,
+      "sha256": "5db4594f12302e94cb20a9e5aec831e359d7d03b9488285eeca53f882288775b"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/LargeTile.scale-100.png",
+      "size": 12158,
+      "sha256": "dc0b514d2d8bf51cb944cc42688127c79132cc57809323c8f2a6574371b759cd"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/LargeTile.scale-125.png",
+      "size": 17711,
+      "sha256": "27c1f944f1b1a8667e6735b257e73e1c4b1de9ef69b484fe53563ce247d98ec3"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/LargeTile.scale-150.png",
+      "size": 23751,
+      "sha256": "02fed73eba2a522964242af78d8cda501dff6e426cfa7d7aafa0323532772280"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/LargeTile.scale-200.png",
+      "size": 40076,
+      "sha256": "63f86c84af70486aad7497b01d55b869b0e02211c8f7edb968536f028f6ac28f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/LargeTile.scale-400.png",
+      "size": 130618,
+      "sha256": "739924ec25f006cb1cfc47cd354e61bc00cd0b53dcd0ac0c58e73227a5f58483"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/SmallTile.scale-100.png",
+      "size": 2235,
+      "sha256": "b24be7b8c6f7edd53fc0726726bf2f924a1d7b81dd1496454f4485741ccac706"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/SmallTile.scale-125.png",
+      "size": 3112,
+      "sha256": "216b13bc113e11d8201c2fa6c0910e79a4e3a4a11bb4441d2832740b4c8ca60e"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/SmallTile.scale-150.png",
+      "size": 4078,
+      "sha256": "67f745f410a48584711249f290ad27891e1010a41501e375fe13fda4a775416f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/SmallTile.scale-200.png",
+      "size": 6244,
+      "sha256": "bb06aaed82b6f3c25eddc3264894ef577ae57345b637faba80bfa89dc6e24179"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/SmallTile.scale-400.png",
+      "size": 19586,
+      "sha256": "cd3b6e023e45812b5f8c1cc875d72e23b26daadbeef0cbecdad5dfe643b204b9"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square150x150Logo.scale-100.png",
+      "size": 4054,
+      "sha256": "06954280f5aaaf222e6e86968e671f992eca70cfa37cf89c6a7917430f66d100"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square150x150Logo.scale-125.png",
+      "size": 5567,
+      "sha256": "5cba49733278a91d578dda823b2f575824b80c4f64536c4c593e45d4c88647fe"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square150x150Logo.scale-150.png",
+      "size": 7360,
+      "sha256": "d7226a3f425586dfaab7510f17190be4ed80fc9a2b3419200c35835dd1e58a70"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square150x150Logo.scale-200.png",
+      "size": 11730,
+      "sha256": "9e58f69001b65a9be6a92c3e36d1f510a3f4c9634d7a9cf7bf36494c83504ec0"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square150x150Logo.scale-400.png",
+      "size": 38051,
+      "sha256": "313812f630039ae3d7a019716e76e296245e8477b6c676ae1ffa564f42e7ece8"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-lightunplated_targetsize-16.png",
+      "size": 693,
+      "sha256": "88bea43f21828f31d91a2893e15b0c7bdd2756669ae3bfb03f2e265209f18dc5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-lightunplated_targetsize-24.png",
+      "size": 1225,
+      "sha256": "91252dbefc4bfce40c890f2ed2c04fb5e85700784e1d1a69f8dc8d18ba4dbb38"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-lightunplated_targetsize-256.png",
+      "size": 49188,
+      "sha256": "d9d721dc3f424f3eee871e9be4d6d3fce570a4025f22250ab178e79737de78ee"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-lightunplated_targetsize-32.png",
+      "size": 1776,
+      "sha256": "c0e9f05938c537cb42845bdb1b3d1ea5b360fafe686310bd3947f8cc30444c40"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-lightunplated_targetsize-48.png",
+      "size": 3183,
+      "sha256": "7e75fec804849e5bdeca4557f1f94da19c7fbe2ca98d7bf47895dd7a7d57d3ec"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-unplated_targetsize-16.png",
+      "size": 693,
+      "sha256": "88bea43f21828f31d91a2893e15b0c7bdd2756669ae3bfb03f2e265209f18dc5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-unplated_targetsize-256.png",
+      "size": 49188,
+      "sha256": "d9d721dc3f424f3eee871e9be4d6d3fce570a4025f22250ab178e79737de78ee"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-unplated_targetsize-32.png",
+      "size": 1776,
+      "sha256": "c0e9f05938c537cb42845bdb1b3d1ea5b360fafe686310bd3947f8cc30444c40"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.altform-unplated_targetsize-48.png",
+      "size": 3183,
+      "sha256": "7e75fec804849e5bdeca4557f1f94da19c7fbe2ca98d7bf47895dd7a7d57d3ec"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.scale-100.png",
+      "size": 1830,
+      "sha256": "52407aa33721d7b5ab9f63b9f7d308a94afffa696cdd434cb49b9c9efa8d7ccc"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.scale-125.png",
+      "size": 2577,
+      "sha256": "5d5d76d99bd5fa7f508475eff60a9fda2fc9c9732ed4c84fb9e42d4cc325807f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.scale-150.png",
+      "size": 3547,
+      "sha256": "450ce65e24212d08ede026c02509c1ec52cf789776ef9e960f94ff4dda83f0cc"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.scale-200.png",
+      "size": 5350,
+      "sha256": "3acea993e6228cdef4a09a476d131da5b5b5393a4ebd0a0d3d2599b312e3b484"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.scale-400.png",
+      "size": 16150,
+      "sha256": "06a2bd2dbf1f64c4d197149f215c910996392bd46ca088cd347364403d956a02"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-16.png",
+      "size": 494,
+      "sha256": "f2adc32e135cb108a68004106e04f66334758f3517c3fc1d7f27a22bdfe278cf"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-24.png",
+      "size": 824,
+      "sha256": "77cf3dac81eb5717e567f6d5326f6bb1274f0704c0a5814bd2677091faf275e5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-24_altform-unplated.png",
+      "size": 1255,
+      "sha256": "c51325ed15e1e7908f4298b3e3d6d19b89904c5826aba7b76968a0eff7a9465d"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-256.png",
+      "size": 30845,
+      "sha256": "66cbfe417eb47f23c759ad043d7607386e9b29638d2913157f46ff470f66f069"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-32.png",
+      "size": 1239,
+      "sha256": "980a5fce0b016bc2f4b1c5e6bd8a8a4c684a56bc145591e66d99c0b7b43f7888"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Square44x44Logo.targetsize-48.png",
+      "size": 2129,
+      "sha256": "b54471dd783d904f27a1abd645623b278a4c0e26004c543a48d19e24b33b6cd1"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/StoreLogo.scale-100.png",
+      "size": 3379,
+      "sha256": "e011202614624e53c9472cfc5f9d018efcb2b5d812e6a295c167a5ecf06098b6"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/StoreLogo.scale-125.png",
+      "size": 4770,
+      "sha256": "ed8b40460c262243a194ecff1c337a2f754e266d67c23b5e5c853571ebefb9ed"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/StoreLogo.scale-150.png",
+      "size": 6246,
+      "sha256": "885dcde46b2cd8a7f0dc4a207148018a2afd17205be6ade4d278e6b09b05dac7"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/StoreLogo.scale-200.png",
+      "size": 9798,
+      "sha256": "7841776b2a099eed58133b96476588591dc791c37b6ec68c3e559d40ebb91cce"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/StoreLogo.scale-400.png",
+      "size": 31983,
+      "sha256": "98504f4feea4ce7acdd6fe64fc3b62df714437a4119e815934897d608ff4d8e0"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Wide310x150Logo.scale-100.png",
+      "size": 4291,
+      "sha256": "5086431f06e7a88118b9cc9b601c91696b98968f272d71b8744cf283fa4e6fec"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Wide310x150Logo.scale-125.png",
+      "size": 5925,
+      "sha256": "2f566bb49e48e2d26a56179b773d4f559b4d5ed2e7aa2363f963d877668571dd"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Wide310x150Logo.scale-150.png",
+      "size": 7970,
+      "sha256": "e9389fcb83ed6df408d780e86ec450e1b1a70e4f02c1858523df41333d0127dc"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Wide310x150Logo.scale-200.png",
+      "size": 12729,
+      "sha256": "3b465a081dedc90980365315dfabdefcf679c337bf2e447cb061a4d52cd6873f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/Images/Wide310x150Logo.scale-400.png",
+      "size": 41144,
+      "sha256": "a068833e7aa117972a4e7f3d8e8d38d76900ecd974ef8a74ac357dd83abb0712"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ar-sa/Screenshot1.png",
+      "size": 36391,
+      "sha256": "dbb5ed68cfb61d7fb56f334fcf730d78f779feb269bc6017b29419b974654407"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/bg-bg/Screenshot1.png",
+      "size": 40667,
+      "sha256": "1df4c6fa246297e0fff569c3790ee3987864c53db2d582ccaae4f9858e4a8b6f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/cs-cz/Screenshot1.png",
+      "size": 39257,
+      "sha256": "3d4b0a762989098a53c68371030d1db99710587779d9c3e3cfc61b09ec6cd507"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/da-dk/Screenshot1.png",
+      "size": 36336,
+      "sha256": "45712dd6d8b9c468984ba0778877e8e0149ffc89227b2bbcaf8a28ccad963b77"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/de-de/Screenshot1.png",
+      "size": 39923,
+      "sha256": "b4cc1acfeb2c7ec8791fa113e5defdcd78f6170fbdb85a8aa57fbfd3e14b9061"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/el-gr/Screenshot1.png",
+      "size": 45390,
+      "sha256": "cfffcc1ed8778d6bc5e5dec2577e898f2bf7732d0465fb2b2b387d8d134e3fbc"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/en-us/Screenshot1.png",
+      "size": 46705,
+      "sha256": "90a51970623e3eeda285ea6824edf033a9739ae2a05759871b112cf6be251c98"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/en-us/Screenshot2.png",
+      "size": 81505,
+      "sha256": "31fa8345924e6bfee61a19d6ae86b12594e6fadec17ee44a2cfa84571328b5e1"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/en-us/Screenshot3.png",
+      "size": 61281,
+      "sha256": "b853e640e8f0e44c1a54c966a6e6812200e84b94fa148ac6f17e545ef73afb4f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/en-us/Screenshot4.png",
+      "size": 60656,
+      "sha256": "ba8c8502a966f21bb6a5a8c76e4c2ccae6fc37f52dafe3e4ba05c075967a065f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/es-es/Screenshot1.png",
+      "size": 41466,
+      "sha256": "ca947ac5f4da11330cfa16a0d140bd2117180278373c3dcb6dd681ef62bd4c5c"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/fa-ir/Screenshot1.png",
+      "size": 38612,
+      "sha256": "d8bd749063be84bb2be459641cc623e8c5cbd567c3eb91df1e558288de1cf729"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/fi-fi/Screenshot1.png",
+      "size": 36438,
+      "sha256": "862b87f60d5b7f2c454af75fac4298cdbd5292ec0ddd03604f17a3128acd5b73"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/fr-fr/Screenshot1.png",
+      "size": 40152,
+      "sha256": "da1beaadda1fbbee0e3839e321446fcc2b3fe14796f71de28536939c6e3d8db9"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/he-il/Screenshot1.png",
+      "size": 33817,
+      "sha256": "e9976052b8e058efe6a1d9878f19f229a485ea76d0da69559a5bcc6750766560"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/hr-hr/Screenshot1.png",
+      "size": 39551,
+      "sha256": "2bf29d4c09798651be409dd5323333bcde365a43b1db6e409bdf801fccf5f23b"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/hu-hu/Screenshot1.png",
+      "size": 40881,
+      "sha256": "cf64e011855964bac78f03bdd50fcaa90eecd5bbe7e8d1e4c43d8345a0e7f056"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/id-id/Screenshot1.png",
+      "size": 35751,
+      "sha256": "b7bb28e2b7baeac246bb7266608957ba948e54e7b22a43d1a6edd35b3a77045a"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/it-it/Screenshot1.png",
+      "size": 38920,
+      "sha256": "7a1c85d4bd969517f28389da3c36a4afa71871fab674f46abb60d4ababf95db5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ja-jp/Screenshot1.png",
+      "size": 33250,
+      "sha256": "278e8f7b6fa95ed82e22ca555e71ed7037142b43ef8d04fff0a0d11f9f5cdc8c"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ko-kr/Screenshot1.png",
+      "size": 34466,
+      "sha256": "ef660a32fd28c8125ad301cf9af24868745cc13837f07d0db5bb6fbaa8066e05"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/listing.csv",
+      "size": 79911,
+      "sha256": "14b6b2893f5b6fca50859f689b62593796e53fdae8c57ad98bd8aed286f86adf"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/lt-lt/Screenshot1.png",
+      "size": 40220,
+      "sha256": "25b0a6d78a7164a1af39e15d6125adf462350d4b0ea6eb41e2f21b4eec158e92"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/lv-lv/Screenshot1.png",
+      "size": 38878,
+      "sha256": "ce6d5423293f8299825a8ed5a3b2abf088ef0bbb8518803d65254deedf72c234"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ms-my/Screenshot1.png",
+      "size": 36185,
+      "sha256": "00ac690c637379dedaad4e3e7d902fc54225a16ef6520350e6966aa5a9e5443e"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/nb-no/Screenshot1.png",
+      "size": 36075,
+      "sha256": "41bcb082c69d8e4a49c24688b091646dd9615836aea874c192007e057da42852"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/nl-nl/Screenshot1.png",
+      "size": 40467,
+      "sha256": "5d371798213ca6e86683e93c3aeb9c83733a3b6e6bc7498a9154541dc70f9330"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/pl-pl/Screenshot1.png",
+      "size": 41445,
+      "sha256": "0de0b1d894779821e8447c41bffdbead922a76ab2c4805d956e8688bd38b2dbc"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/pt-br/Screenshot1.png",
+      "size": 40607,
+      "sha256": "1f5625c0ddcd0f95edd46c8ea887e6f1f9a2130a06101f66a02c31917ae19151"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/pt-pt/Screenshot1.png",
+      "size": 41168,
+      "sha256": "70afc2245d840b97be2304de844a34cd03437e10e87239dd8ed4f1f5950ba6a7"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ro-ro/Screenshot1.png",
+      "size": 38856,
+      "sha256": "5dd37dc8a6bf34cc05ff2075532ec3d23b4d52c36a451abae8e433efe15b347a"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/ru-ru/Screenshot1.png",
+      "size": 40152,
+      "sha256": "6124575c6388caffe6f3e7284936591b0a7b7f31ae51992429c806d6d6954beb"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/sk-sk/Screenshot1.png",
+      "size": 41796,
+      "sha256": "c43814183706600edffedd12394f78428ec2e87e815d0fe7f99085da296c8c08"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/sl-si/Screenshot1.png",
+      "size": 39724,
+      "sha256": "027e389fad53c7d7dcf229c0ebd85b02d07d7b3078757b7e57fb86fde090eab5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/sr-latn-rs/Screenshot1.png",
+      "size": 40902,
+      "sha256": "55f9c01e106d50e2caaf67fb6f40c924f040020d621f2f973e8002a326315c57"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/sv-se/Screenshot1.png",
+      "size": 38349,
+      "sha256": "82cd6a35af905d748d6ed3ad8d3647db7e35333c7b32032163f473c2dc6504ea"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/th-th/Screenshot1.png",
+      "size": 42764,
+      "sha256": "410efc7c643a84b83f022c4c2bd8cc73bd25ccf514db31d438f4e7d3902f150c"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/tr-tr/Screenshot1.png",
+      "size": 38579,
+      "sha256": "e16e2f0603c8816db5afc3b930d12b465981f210b6f6105732298b28ff8bb66c"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/uk-ua/Screenshot1.png",
+      "size": 41585,
+      "sha256": "db313d3c6aa482f4d65b3bc14ca317586589a1c468ec962a2ababc80d21efd4e"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/vi-vn/Screenshot1.png",
+      "size": 40138,
+      "sha256": "b3768052665cf2719fc76a0a1d625cdd19fa934f84e9652d0ad2d27ecbc720b4"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/zh-cn/Screenshot1.png",
+      "size": 39265,
+      "sha256": "51d1b4766d8bfdb13633ec57d2a45bc0494fc123d87dacab711d48bf44976ce5"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing/zh-tw/Screenshot1.png",
+      "size": 32597,
+      "sha256": "c8fe8abc3f0e836c6329ddf0b25955930c0b50b603a64653a993d71973333fbd"
+    },
+    {
+      "path": "sources/rufus/res/appstore/listing_template.csv",
+      "size": 9733,
+      "sha256": "104581c6ac334ae5734f90cf7ca980b307afe56acd3c5f61619984858fd22e31"
+    },
+    {
+      "path": "sources/rufus/res/appstore/packme.cmd",
+      "size": 7024,
+      "sha256": "b109f41cdf2833ebdcd032fddca11290d39e96a97d9c5a2304855e8e31a1689e"
+    },
+    {
+      "path": "sources/rufus/res/appstore/RufusAppxManifest.xml",
+      "size": 3669,
+      "sha256": "19fd264e3d161bbc1649d1c4c1bf323930b71b834f5f1bb7e892157b85432f9f"
+    },
+    {
+      "path": "sources/rufus/res/appstore/runme.ps1",
+      "size": 1924,
+      "sha256": "0efc8493de7cdd3f0ff027db75a1e34b1c60a08adb7a4dbdbaae7833dc10530a"
+    },
+    {
+      "path": "sources/rufus/res/appstore/ScaleAppxManifest.xml",
+      "size": 840,
+      "sha256": "cca543ba0bafba88aa30398639f5ebb7d8f916ef8f20e0ad5d927854c2497847"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_aarch64.efiauth2",
+      "size": 4344,
+      "sha256": "a9469ad3f349e0904212626f1badbb826c1a8944dd8341af57df544e8a2cad57"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_arm.efiauth2",
+      "size": 4071,
+      "sha256": "a8e538f81ff9d1bf3ae57e78ff71657719c2d4a71e2cf6756c6cd3d91deafb6e"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_ia32.efiauth2",
+      "size": 5559,
+      "sha256": "a5157d1af1d1a5ce0f105f52dccc66249a8fdb2e09297316c200e376abc7e5b4"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_ia64.efiauth2",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_info.h",
+      "size": 1085,
+      "sha256": "5b1e2b6c182ae7c27d87504ef808ae6e1c5c22119b02edb5385bf21b9c877419"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_loongarch64.efiauth2",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_riscv64.efiauth2",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_update.sh",
+      "size": 2391,
+      "sha256": "24cacf1309e6d1c577e31b27acf7ec7dd8b5e74dd0c93108d0b5540f93e1a319"
+    },
+    {
+      "path": "sources/rufus/res/dbx/dbx_x64.efiauth2",
+      "size": 17256,
+      "sha256": "524c796ade42db0048b656f6cf3863832174ae7f58cad6986d1ccae1e3d3ecd1"
+    },
+    {
+      "path": "sources/rufus/res/dbx/readme.txt",
+      "size": 236,
+      "sha256": "5563b07eea0ab5281510b710ef2d887b68cca1eb488e7cd1c675e0df1c176e0b"
+    },
+    {
+      "path": "sources/rufus/res/freedos/COMMAND.COM",
+      "size": 87772,
+      "sha256": "077808379e896476f7f69d62e6c8989d8fc23e8ef58d1c8492db1ac106784107"
+    },
+    {
+      "path": "sources/rufus/res/freedos/DISPLAY.EXE",
+      "size": 3657,
+      "sha256": "16c7ab70957f72974d644f1d2dcbde3f1921d2f49cee2a03ca5173fc7e6ddbae"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA.CPX",
+      "size": 6464,
+      "sha256": "8c903b7a9e35715d38ee29a3ed42be3975c0840dbfd4fc5f9f028632bf28758d"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA10.CPX",
+      "size": 5543,
+      "sha256": "847c835ef80284704ef3594032cfffde4d22958eb8bc154c5a282ee3c07e920a"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA11.CPX",
+      "size": 7228,
+      "sha256": "1793d99f8cd9d6017e6a0dd14a679080ba60e46fb9b59c344b5df986c50973ee"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA12.CPX",
+      "size": 8119,
+      "sha256": "02751b3aa18225c197e9b0fdadbbd5989b6e76b13aec19c350956f64c3b2910a"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA13.CPX",
+      "size": 6281,
+      "sha256": "287073ea7ad566d57b3c82ad84e079a7268a699dca863c2132f9c3faa02ac02e"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA14.CPX",
+      "size": 7758,
+      "sha256": "76a8f3737a198961750783f74cb3b5f5054aa8491a36f33ba5c410528e97de22"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA15.CPX",
+      "size": 6458,
+      "sha256": "26a2395cd6651a715ce78f4e70ae4d2b959e32aca775241a3bb094ae7efe9fee"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA16.CPX",
+      "size": 7793,
+      "sha256": "e8ad25e433e3213609d44d25e690aee046192f4f91b3ee705ac28a0643b4da74"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA17.CPX",
+      "size": 8929,
+      "sha256": "a53f84a041014a3815f489b71336a0a1253f853c6fc10d1c7c60020d9453c717"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA18.CPX",
+      "size": 5158,
+      "sha256": "11944b119a838656de3fc795521e90bbc610b000fe603f95f8c685ee21216b1f"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA2.CPX",
+      "size": 7059,
+      "sha256": "60a4b001c05eb5c21ec4463fe5a31d890a566cd9ef3309d61b56f671f1c454fc"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA3.CPX",
+      "size": 5469,
+      "sha256": "84ba78e35a0b3b2a55c829c26a25aca27ff1bdd07e3f918d0a93e6f5bb218a4a"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA4.CPX",
+      "size": 4431,
+      "sha256": "3bb7958d837e00639c5d97943bcc9073b579eba2e9f2730a2d65ffc4da34be30"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA5.CPX",
+      "size": 7217,
+      "sha256": "15726b1ee4b2deb48f4b93f5e209b486db7cbe8cf0223692466b7aa1dd3b8743"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA6.CPX",
+      "size": 7409,
+      "sha256": "4791297678611ab4900f137853002233a12e2c0387f9db5259df33e0213ff0ff"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA7.CPX",
+      "size": 5387,
+      "sha256": "fe5b927dccd2c5c8f792d827b871248b06ff79b20d9d1807eced5b89122dcc04"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA8.CPX",
+      "size": 6973,
+      "sha256": "30a37619137f93fff9b8ab35e7cb7ab573bf411e575046ae468e0c884df4c936"
+    },
+    {
+      "path": "sources/rufus/res/freedos/EGA9.CPX",
+      "size": 5785,
+      "sha256": "cb7615db6ae6b9bf2e12d9bea079126478ea1b0ff48e4bd378c538d7a077f987"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KERNEL.SYS",
+      "size": 46256,
+      "sha256": "57504a0d5e1d57a0407d995e77fcebb9627da2c0dbe0f1cbf7c5fa901d2efc6c"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KEYB.EXE",
+      "size": 11819,
+      "sha256": "1845b9a91b933042d85d8c9b129e1d61aa014b90d1371ad4fc9724aa97d391d8"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KEYBOARD.SYS",
+      "size": 40362,
+      "sha256": "5cf40be4b062681f4b50446a60f0bd4b5077451ef278dea74044ef22862fb433"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KEYBRD2.SYS",
+      "size": 29750,
+      "sha256": "39131eddb9c55a4488fa4b3555f5c0f4d00acaf197b91adb5b5c79123f844a56"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KEYBRD3.SYS",
+      "size": 32178,
+      "sha256": "00b0e774792fde542eb3d29e9b1de1e11d00bf685e39989d91b6b45a5453a401"
+    },
+    {
+      "path": "sources/rufus/res/freedos/KEYBRD4.SYS",
+      "size": 13105,
+      "sha256": "3d4723d1c5c2e276849f8353790f0ced5b2eb4ff5464c2be58bee5d07a7878e8"
+    },
+    {
+      "path": "sources/rufus/res/freedos/MODE.COM",
+      "size": 16244,
+      "sha256": "a8dfbfd17b7402407cfe35b9fdb5a72e6894d488f6c736289eb0991be4a1ab09"
+    },
+    {
+      "path": "sources/rufus/res/freedos/readme.txt",
+      "size": 692,
+      "sha256": "ea2369bf6d46a577ac268b8a57585841a60077bb53ea00e21382190f67b5e1cc"
+    },
+    {
+      "path": "sources/rufus/res/grub/grldr.mbr",
+      "size": 8192,
+      "sha256": "a2a8769371eb57c5e79b3cea4a911275af4743f10f420ed6d26e4eec5c865059"
+    },
+    {
+      "path": "sources/rufus/res/grub/grub_version.h",
+      "size": 221,
+      "sha256": "c85e81ed23d0d470016057ab456306064c12d7bf243a33baea91f24435784c1c"
+    },
+    {
+      "path": "sources/rufus/res/grub/readme.txt",
+      "size": 680,
+      "sha256": "abac38ab9ef463a3fc8983ecfd43cc93eb5ba3c5858c82677762e939616ff0f7"
+    },
+    {
+      "path": "sources/rufus/res/grub2/boot.img",
+      "size": 512,
+      "sha256": "b31c4cf688e8e16ddd177b619c20b049940bab5c675f877a1aa84a15e1e6e2e6"
+    },
+    {
+      "path": "sources/rufus/res/grub2/core.img",
+      "size": 43239,
+      "sha256": "5f3ec6f568fc07e36f108463c2de0a8287e9650dd0bdd8b9879cb4faf0f13882"
+    },
+    {
+      "path": "sources/rufus/res/grub2/grub2_version.h",
+      "size": 202,
+      "sha256": "96511d89c52358f31147e5db97d0d144afbf428a04f9489de80d21f0be9a5a00"
+    },
+    {
+      "path": "sources/rufus/res/grub2/readme.txt",
+      "size": 1236,
+      "sha256": "cb1491e159e85de150f33b41da0841ccebd2eda51e3cdf7197341fc2c5d7ec2a"
+    },
+    {
+      "path": "sources/rufus/res/hogger/hogger.asm",
+      "size": 1958,
+      "sha256": "aae6bb11f4c2d60e40d5c43bd966491fc11100bc590c8a7125a337bcb8a10d31"
+    },
+    {
+      "path": "sources/rufus/res/hogger/hogger.c",
+      "size": 1260,
+      "sha256": "b056b76a19656b240ca845ba020b0f1d68d0acd20ce5adc35ad23cd9133c080f"
+    },
+    {
+      "path": "sources/rufus/res/hogger/hogger.exe",
+      "size": 2048,
+      "sha256": "5f819f6eae4b5845c082edf14cb389ab9805bc3c17440f3b5398d4fdd0079ffe"
+    },
+    {
+      "path": "sources/rufus/res/hogger/readme.txt",
+      "size": 3140,
+      "sha256": "532a097139a07f48cca2396f283e809db1f1c54bcf7aa74c7abbfbca54425ab6"
+    },
+    {
+      "path": "sources/rufus/res/icons/hash-16.png",
+      "size": 502,
+      "sha256": "e35857e8ccd4b2c72ac8d1b0006b036a2416c73e63d358d7d4a31f75966f7b2d"
+    },
+    {
+      "path": "sources/rufus/res/icons/hash-24.png",
+      "size": 633,
+      "sha256": "b335219d88da39ed15076220688a75985f580090a8bf64777ba6c92302e6953d"
+    },
+    {
+      "path": "sources/rufus/res/icons/hash-32.png",
+      "size": 870,
+      "sha256": "b681ff9c3808d052ca5cfd89c7ee5f84264223167743f6549c3a443075ec5c7a"
+    },
+    {
+      "path": "sources/rufus/res/icons/info-16.png",
+      "size": 421,
+      "sha256": "b7acc62cc070241af7de394adaebea25f03a74e32d423c32c49555ca7decf3e7"
+    },
+    {
+      "path": "sources/rufus/res/icons/info-24.png",
+      "size": 496,
+      "sha256": "85976a8959b6936521e72fab1a6875d0d0f3aefffb3a0086a5b9c1ea00ab5218"
+    },
+    {
+      "path": "sources/rufus/res/icons/info-32.png",
+      "size": 732,
+      "sha256": "acf9afd672d20c1201c41d0438690406d742f8bce4e8efbe778ce01df1cd22d2"
+    },
+    {
+      "path": "sources/rufus/res/icons/lang-16.png",
+      "size": 618,
+      "sha256": "80ba4b70bcdd4f2ff6d030be465285b68129c686cbeac371c3207e31c33817aa"
+    },
+    {
+      "path": "sources/rufus/res/icons/lang-24.png",
+      "size": 827,
+      "sha256": "eefff58b66da8635d9ce8c0b3d139bfdc9ac9d129900e48390671943166c30b8"
+    },
+    {
+      "path": "sources/rufus/res/icons/lang-32.png",
+      "size": 1072,
+      "sha256": "5d4d7455d4beafebec2a759fee8351a9b6e863350c414ac140ab76ce30fc7543"
+    },
+    {
+      "path": "sources/rufus/res/icons/license.txt",
+      "size": 858,
+      "sha256": "6d327337410cfdd9fceff893c2ef7c00deb552cbf9a5a580421d4c38aab9a69d"
+    },
+    {
+      "path": "sources/rufus/res/icons/log-16.png",
+      "size": 351,
+      "sha256": "728cbb01c73c44d2bb58eee570c76352b23ea26fa663a0a63de78fcf5fb01239"
+    },
+    {
+      "path": "sources/rufus/res/icons/log-24.png",
+      "size": 517,
+      "sha256": "7615fedfbf4e887618aa3a148698454d2f0f5358fe2106c7940448906c24f995"
+    },
+    {
+      "path": "sources/rufus/res/icons/log-32.png",
+      "size": 365,
+      "sha256": "a5d2926097d5ba3c6d2f0309c37687755515cb2ce187ab8430c08fd0221eb541"
+    },
+    {
+      "path": "sources/rufus/res/icons/log.svg",
+      "size": 659,
+      "sha256": "b42a63bea41ed99d084106232053e545b7a4af39bf7a6068efb105328916dde3"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-128.png",
+      "size": 10703,
+      "sha256": "644219ed0a678021c8ba3783a0242b7257d6c6ce2410eb916a3218d72827829d"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-150.png",
+      "size": 5100,
+      "sha256": "3b575d7e54a24469d386f81a8e4561982391fabfe1e55dbc456ab6edb3c39599"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-16.png",
+      "size": 545,
+      "sha256": "254967ab35a5da687ae94f0166e5e57554fe1cc109dc65a760a8be27ff04deb3"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-24.png",
+      "size": 969,
+      "sha256": "c747cd3215b96195cbd54827628d527932a589317be1dc11ac4164e1225af09b"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-256.png",
+      "size": 34971,
+      "sha256": "209dfca832c43898a5018edd9eb5b304d320609c466bb9a1464e8c80528c4dd5"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-32.png",
+      "size": 1372,
+      "sha256": "1fdb2c2433a922070f9f69da97a267bcab7738a576182433a4128061a90c3766"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-44.png",
+      "size": 2338,
+      "sha256": "b6b2528310b8a727b47812b21be1eef306eab766f3872ec66ab7901f494518c5"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-48.png",
+      "size": 2632,
+      "sha256": "6f86bb4e7dd0801d18bb5a8db2ce2e88a59aa5c99cb257c030465171b3ab769d"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-512.png",
+      "size": 128074,
+      "sha256": "c532b3826ce5d7cd16fe3167b1ed129bd62e24b4513be63c1019c4286a2e58c7"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-64.png",
+      "size": 3723,
+      "sha256": "c716b91bc0f4aa879a889f25545ebae8b75013a858ac287b5a8ef29c054fe436"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus-72.png",
+      "size": 4824,
+      "sha256": "24d24b40207202ab8565c4d22225d7ac478ab6b3b8e2ac4c556016096c37f150"
+    },
+    {
+      "path": "sources/rufus/res/icons/rufus.ico",
+      "size": 165566,
+      "sha256": "9cb5e37a10e506517affeabbc89ad4960cee59fefd68a834309836cd80337bfb"
+    },
+    {
+      "path": "sources/rufus/res/icons/save-16.png",
+      "size": 191,
+      "sha256": "13f8774825522a53e726281078976c4cd30a7619954731bc41ee39aa0b160f09"
+    },
+    {
+      "path": "sources/rufus/res/icons/save-24.png",
+      "size": 340,
+      "sha256": "8a6f63e0c964315d2375719b0a845d5f5631c3cebef72de536772927a14ff9a4"
+    },
+    {
+      "path": "sources/rufus/res/icons/save-32.png",
+      "size": 269,
+      "sha256": "4ba3eda90d24af9de19965e1ea2229d5fb5d2550b0aabc0a7751ad18dbbdc7b7"
+    },
+    {
+      "path": "sources/rufus/res/icons/settings-16.png",
+      "size": 207,
+      "sha256": "08bbf9db6eea1ed802289705b1098244ef61816be7d6358e04870bd9cd05e63f"
+    },
+    {
+      "path": "sources/rufus/res/icons/settings-24.png",
+      "size": 385,
+      "sha256": "e6fb3def5d5c03b1207f1eb066384098f0f4a71ff55e30c1c32900a4e578263c"
+    },
+    {
+      "path": "sources/rufus/res/icons/settings-32.png",
+      "size": 288,
+      "sha256": "2b7bff9c3e81b680b12bda495f8ab19acdeccc5ccd89720e129a3295967c7613"
+    },
+    {
+      "path": "sources/rufus/res/icons/setup.ico",
+      "size": 31354,
+      "sha256": "016f15875fe599e8961e065696e615a5485a99c282fb3c6816543bbe971952b9"
+    },
+    {
+      "path": "sources/rufus/res/icons/setup.svg",
+      "size": 739,
+      "sha256": "f84a8f60406dad2c3c9574113060a8eabb7d9a0ab38088a19c0948d9e7107f26"
+    },
+    {
+      "path": "sources/rufus/res/loc/ChangeLog.txt",
+      "size": 35369,
+      "sha256": "8a213ddb90b2142de982825b65125f943d9f5a512e9ae19ae7779e1745a566e9"
+    },
+    {
+      "path": "sources/rufus/res/loc/embedded.sed",
+      "size": 536,
+      "sha256": "1886d39fbdabb2520d09b8d6d17938c02271ba877808645a84d3009521b95e9a"
+    },
+    {
+      "path": "sources/rufus/res/loc/Makefile.am",
+      "size": 334,
+      "sha256": "1a2819c2ed82484bc82aa507f845acf7c64b2442230d6e033ff25d95318599d0"
+    },
+    {
+      "path": "sources/rufus/res/loc/Makefile.in",
+      "size": 10719,
+      "sha256": "859b1d388a36ab67dc6872ae9137e41c145b32eee9e6336d6b6992f553ccd770"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/!update.cmd",
+      "size": 375,
+      "sha256": "952f3e7c09dd94380b6a2880f36b047c51b8b7268efb6fc9898bf63fef56d21e"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ar-SA.po",
+      "size": 84188,
+      "sha256": "5a26e3af9997fcd50a5307f9b4bfaa6e2f68dd53f0cfcc26988218e4d968066a"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/bg-BG.po",
+      "size": 92766,
+      "sha256": "e03367bfe2c1dd0a860557f6d2857d8e053ca0cfeaf0996a953d2669130bdb2b"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/cs-CZ.po",
+      "size": 73472,
+      "sha256": "5b9ac91815aec0e856c40c7c44a4bb2eee5d24c246a8974930bc6d68130e8079"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/da-DK.po",
+      "size": 71537,
+      "sha256": "2decf908d65c879c2c1a037e33007136ede130517e1cdda9097818dc2598910e"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/de-DE.po",
+      "size": 74303,
+      "sha256": "82b082dbe3bf8edc1125d4c66fc7a356879a1416e10132a8e869d1755f89236e"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/el-GR.po",
+      "size": 98323,
+      "sha256": "60bcf4e6e34e67883d551dca0ce050fa0291fddf477adbde25fbc1bd3118a8ea"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/es-ES.po",
+      "size": 74949,
+      "sha256": "fa565d50037b7b7370c9bc21408fbb4f5b1f67c5ef5944a38311c11818be1ae3"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/fa-IR.po",
+      "size": 93332,
+      "sha256": "89e410ae85d908b48a8fd59aa1a9d25d9a8cc16259bf7159fb51f9c8de5b1e52"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/fi-FI.po",
+      "size": 72850,
+      "sha256": "214d2f4c2a35c0cfec87925c99e3d40149c8596036cacf5e86f9289a0df77f98"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/fr-FR.po",
+      "size": 76325,
+      "sha256": "1a2af61aa30cf2a132a1109c5dcf956af31481557eb4e2d269500075fb466f08"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/he-IL.po",
+      "size": 82696,
+      "sha256": "476f3b8e4a8676da1cd9f2131090570070a27f39dd031b2fe7fd66d40ecfe318"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/hr-HR.po",
+      "size": 70364,
+      "sha256": "825830c48f39b710632623b549221075612e89e1f9f3d08da622537410596515"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/hu-HU.po",
+      "size": 75429,
+      "sha256": "297bfdd7103054a009a3ac1473392729a06c90081b4aaf89ec2ad9947ef73079"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/id-ID.po",
+      "size": 71095,
+      "sha256": "124f3957f4fe1b6a88b28cc6fa47a423236f68fcd135cdf3d6fbf8ae010f5110"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/it-IT.po",
+      "size": 73983,
+      "sha256": "61e984d5673c6ab97a9e73ff14e1120070b9903b17f4a4de618a50415a99e063"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ja-JP.po",
+      "size": 81843,
+      "sha256": "ab00089962076df6f42af12ecaa888075c2b5e50da5be6554d3f671590b3bed8"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ko-KR.po",
+      "size": 76737,
+      "sha256": "3f99dbbc2a757b068c133ef46af5b9ca32ab3d2f7b09bd94825145fc0eb9b3bc"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/lt-LT.po",
+      "size": 72834,
+      "sha256": "8f12349a0845aaa590b23dc7701cc972033f8d57e7e2dbbde359733134d4b7be"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/lv-LV.po",
+      "size": 72030,
+      "sha256": "2bc6b4a1f8584b7ee655550c40ab847848a37eacb3b2b8afa2db7ac24fec9be5"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ms-MY.po",
+      "size": 72217,
+      "sha256": "72239f29797dbca77cdef5bac83767d85212b4d187c2bd86be1bb69ea935b712"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/nb-NO.po",
+      "size": 71776,
+      "sha256": "b615ae73319010d6b7014f139dae53b1acf55883465ba9f427027d5a4fe4257a"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/nl-NL.po",
+      "size": 73588,
+      "sha256": "317c00e0cd2f6442e679c9416bc48d66efd1496cfd6a95271017a93f79ff9623"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/pl-PL.po",
+      "size": 73790,
+      "sha256": "369b5f5839ab184a9440e6596628ae3df86b87d9c8035ef2b5ee0cd41ba2e11c"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/pt-BR.po",
+      "size": 74478,
+      "sha256": "a67ecd332ad9af53f7e1dee73704c1018ac78907fa2b2bd361858c9d06b73c27"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/pt-PT.po",
+      "size": 74062,
+      "sha256": "300d115c238775e84858a43119fe063f2b2617cd4de6e305ad153343e6b597e5"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ro-RO.po",
+      "size": 74953,
+      "sha256": "e8aac0a4fb9cfef3d575e5e281b432c2fdd2844fc3795dac901a44b9c433993d"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/ru-RU.po",
+      "size": 88095,
+      "sha256": "ce1d845e50493d9bc6a3aa40f0b7bcdf76b0eeb06b7f0befc0f508761f09aa8b"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/sk-SK.po",
+      "size": 74335,
+      "sha256": "3e64a93eb7927cd4ca3ff407b18320eff6e1e3f614ac2efb5f610c99d8377a64"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/sl-SI.po",
+      "size": 63851,
+      "sha256": "018cdf26ff4809db7fab9725a3c175bb4e64e5a372f4fbddc2169317cc0fc15e"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/sr-RS.po",
+      "size": 73123,
+      "sha256": "183844a9f4a2b30efa248f0a9c05830f71f784216d37f9c324564fb6b4bf0342"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/sv-SE.po",
+      "size": 71780,
+      "sha256": "cae7af561e4589a77a95600d7d4ead9232be37e62ab23b7118ff0a115fe078a1"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/th-TH.po",
+      "size": 104805,
+      "sha256": "87c90dafe80ec56aacf908366452d15b1ac73668c15ae01f4f5577c40046846d"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/tr-TR.po",
+      "size": 73985,
+      "sha256": "30c0512bf03780ef4e790aacae3f26484bba7f5a772f808b893e685acc9c1dfd"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/uk-UA.po",
+      "size": 90698,
+      "sha256": "8007f16e183af419e2e82da83176afd1ef5e93122df0fa28643aa8e600f3bb97"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/vi-VN.po",
+      "size": 78432,
+      "sha256": "e716b56a359eb65bde732f64514e6e2f06cad1749c1d115c243801c1262a3845"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/zh-CN.po",
+      "size": 67894,
+      "sha256": "7726531d5a4ac9fbf94f825837a72327981973c44cdb2d360d8bf826e6f1d516"
+    },
+    {
+      "path": "sources/rufus/res/loc/po/zh-TW.po",
+      "size": 67181,
+      "sha256": "2bd4bdf2c3c11c4239e1313f0c7b64ffb960bc9a00e745cfc1ad28e9a204fa8e"
+    },
+    {
+      "path": "sources/rufus/res/loc/pollock/app.config",
+      "size": 160,
+      "sha256": "9d1ac1797bdefd5c040ed737a213d55c492276b00cb78201a2183c0a2c868749"
+    },
+    {
+      "path": "sources/rufus/res/loc/pollock/Pollock.cs",
+      "size": 53637,
+      "sha256": "1a71b92ebdb557f5fe61ac1889d4508d438d528c68d76fd4803b56031a4b7291"
+    },
+    {
+      "path": "sources/rufus/res/loc/pollock/Pollock.csproj",
+      "size": 3695,
+      "sha256": "90ebe4834ffff3bc439e5e1b25e5d001f8972cbd165a1c345ddcc6c2148ea81a"
+    },
+    {
+      "path": "sources/rufus/res/loc/pollock/pollock.ico",
+      "size": 24038,
+      "sha256": "9ffc6623d35bc2770b3102d4534d129d264087b23efd077ccf47d01f98f6b741"
+    },
+    {
+      "path": "sources/rufus/res/loc/pollock/Pollock.sln",
+      "size": 1053,
+      "sha256": "8de676db3ff3a7b4620309d82ac1e5dbb5b6a6e6aafcffc4e411c5f8d4a7dbb2"
+    },
+    {
+      "path": "sources/rufus/res/loc/rufus.loc",
+      "size": 1402260,
+      "sha256": "d818c17ec7f81f0e5a6610f71754b78a62ff9d77630f464e891007da5d6b2a6b"
+    },
+    {
+      "path": "sources/rufus/res/loc/test/arch_trunc.iso",
+      "size": 524288,
+      "sha256": "0c251d51358ee5cb156898703b1faae618a1b84b108c0af69581babf80ac08ac"
+    },
+    {
+      "path": "sources/rufus/res/loc/test/casper_test.iso",
+      "size": 374784,
+      "sha256": "92b5da4a05edb398e826ab9731240842e815b7525cdefada9d0cb6a095c37d34"
+    },
+    {
+      "path": "sources/rufus/res/loc/test/esp_test.iso",
+      "size": 403456,
+      "sha256": "3eae62992e0949a3ae9b828ba42bd5a8d00ea2d8045b75731761ac1324b93b9d"
+    },
+    {
+      "path": "sources/rufus/res/loc/test/menu_c32_test.iso",
+      "size": 122880,
+      "sha256": "1296bfd0df10afdc35b8312edc3be16a4b0cc646eb6339325f8e034de740192c"
+    },
+    {
+      "path": "sources/rufus/res/loc/test/windows_to_go.iso",
+      "size": 364544,
+      "sha256": "cb220bdb5d2cf281a32eb37cd834dc11bd9056171e0db33644433e048a536feb"
+    },
+    {
+      "path": "sources/rufus/res/mbr/bochsrc.bxrc",
+      "size": 2389,
+      "sha256": "806918cafdbfb2d48509ae070cb3e74b33ddced5b59ea92be13ee0b83e9ca706"
+    },
+    {
+      "path": "sources/rufus/res/mbr/Makefile",
+      "size": 2053,
+      "sha256": "e8daea64039fc209cc172594e91411d73d14f305e4a01445dd12c0aae4a48908"
+    },
+    {
+      "path": "sources/rufus/res/mbr/mbr.ld",
+      "size": 176,
+      "sha256": "03f3b06050e5aa4af1f2187d22fb4841a31ebbef43aaccb690e8da0263409771"
+    },
+    {
+      "path": "sources/rufus/res/mbr/mbr.S",
+      "size": 12665,
+      "sha256": "f6a831462d1cfefa739362223f31c61f8ad8d11466c6c0cc96ab2c646f002684"
+    },
+    {
+      "path": "sources/rufus/res/mbr/msg.bin",
+      "size": 512,
+      "sha256": "02792dae2bff92dab3826e0f506b695f639a74e16ea1c06c7d625bd2a53b7147"
+    },
+    {
+      "path": "sources/rufus/res/mbr/msg.S",
+      "size": 8658,
+      "sha256": "91bdbaaff655e1e78d261af9ed14e221b3b20bdac4a1c9ad7db3e51765e3b935"
+    },
+    {
+      "path": "sources/rufus/res/mbr/msg.txt",
+      "size": 1244,
+      "sha256": "108394c8fedd8ab808f45bd3f0ef1b39980a1192848cd9297c258774be13b37a"
+    },
+    {
+      "path": "sources/rufus/res/mbr/readme.txt",
+      "size": 3356,
+      "sha256": "1360c5e8951300ece287e2929e137032ae8a53d84dcdafa7b082b45a61f8fb55"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootaa64.efi",
+      "size": 50704,
+      "sha256": "799b64e8d32cbe5829b2f81c96a1a4936935da31df7ce70c0e6ae68ffdaf23bd"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootarm.efi",
+      "size": 27232,
+      "sha256": "10eadb8e80f446ebd62568f9275d6a328cfdc399ef8b2ee71857c3d2f7134f28"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootia32.efi",
+      "size": 40280,
+      "sha256": "089190606ad0e16b58b208aa262533c941f11a9a27a48fade672efcca3a720c1"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootloongarch64.efi",
+      "size": 35712,
+      "sha256": "0085afb9ca64ac5f922b21d541344b3ff140e13acf596041ff6ce7b7d71c229e"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootriscv64.efi",
+      "size": 38656,
+      "sha256": "3e53e975fad71c7e30ac35bfc83ba5b31fad7e6d9deaaee14f77dab820ed2c7a"
+    },
+    {
+      "path": "sources/rufus/res/md5/bootx64.efi",
+      "size": 40536,
+      "sha256": "9b0b326ca3da0693fc99789f73e548c3dc69a2cd654bd7abcd1a92ba900878cc"
+    },
+    {
+      "path": "sources/rufus/res/md5/readme.txt",
+      "size": 226,
+      "sha256": "3ab2ec2bb9c123f421a8231a9415fa4d675843464657e5b7a35996fc3d1b547a"
+    },
+    {
+      "path": "sources/rufus/res/rufus.ico",
+      "size": 34494,
+      "sha256": "15337501f2b2be6b84ecf5571d6419b9a2e54a6c1fcaebf77cbf5becd2ed86e2"
+    },
+    {
+      "path": "sources/rufus/res/rufus.ini",
+      "size": 2584,
+      "sha256": "675ab3afdd4603b713789df78fd5a4397038674cb9e25ede4ef853435562fc1d"
+    },
+    {
+      "path": "sources/rufus/res/scripts/loadcfg.py",
+      "size": 2042,
+      "sha256": "4b31310cf416c645c34e0f1e4a977ff3fa3dfaccc8b04c3d1e56d2894e0d70d7"
+    },
+    {
+      "path": "sources/rufus/res/scripts/SspToBar.ps1",
+      "size": 7026,
+      "sha256": "c0a84f6b14e34dd1ded752e76eba56b6ae0a93673267d40c6bce4086b2bcc425"
+    },
+    {
+      "path": "sources/rufus/res/setup/.editorconfig",
+      "size": 171,
+      "sha256": "b4a7029ca257bbfa6d805ae3b8c179a9ff2d4b48469f14cefbca77972fb6064d"
+    },
+    {
+      "path": "sources/rufus/res/setup/readme.txt",
+      "size": 2538,
+      "sha256": "f295ded5fefc33f460c7cee3088e56cd5d1b65eef0bbb8c69e7655e88ccb36d7"
+    },
+    {
+      "path": "sources/rufus/res/setup/resource.h",
+      "size": 431,
+      "sha256": "008a2221e01b7eddcc610c1bbb37b0a501681c973185ccd395602bba5af56d3a"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup.c",
+      "size": 4893,
+      "sha256": "c06248ff1b3cc3d5b7a22e4ef1113361305786b0afd19968bef9233901a01e94"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup.rc",
+      "size": 2597,
+      "sha256": "8d892c4ebe4713297f5e91e5b08cb2c1c3217282482fe40055cfd153d701670d"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup.sln",
+      "size": 1771,
+      "sha256": "59044bd869c5ef9663305bb1b293cc542fc971a8a2db4700516521944cb6444d"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup.vcxproj",
+      "size": 14146,
+      "sha256": "184bad85272b24bebb5d76ea6ec3e119b0c74d3dcbc8291fdf9fadc1827aeb56"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup.vcxproj.filters",
+      "size": 871,
+      "sha256": "7d46f49029230e010b148a44f850166a1b0e8b1dce4eb5bd6838b5f51e928b38"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup_arm64.exe",
+      "size": 150376,
+      "sha256": "14bd07f559513890a0f6565df3927392b4fe6b8e6fc3f5e832e9d69c8b7bb7eb"
+    },
+    {
+      "path": "sources/rufus/res/setup/setup_x64.exe",
+      "size": 150888,
+      "sha256": "11df838dc69378187e1e1aaf32d34384157642d07096c6e49c1d0e7375634544"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/ldlinux_v4.bss",
+      "size": 512,
+      "sha256": "8dc6ec58b4f1df391db68d9e2165ccd47d84f4ba64675f87b677077aae5b53fa"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/ldlinux_v4.sys",
+      "size": 36488,
+      "sha256": "d5b6310740a596ba4367719a3dff4b3442f6da81cbeafbb0bf3fab026d8bc910"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/ldlinux_v6.bss",
+      "size": 512,
+      "sha256": "cc40ba0349782cb4c9021e54dcc0a4540c3a8b96088b3a5648671926ef44d2f0"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/ldlinux_v6.sys",
+      "size": 68121,
+      "sha256": "73b62767a16200b9af193a7d5c94e9c294c6dbb6d5b17c15038c9f3173c9a7bc"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/mboot.c32",
+      "size": 34140,
+      "sha256": "d555749052e1835742b0cb0975db7a3b7937aef20840fd7959de720d5ea94990"
+    },
+    {
+      "path": "sources/rufus/res/syslinux/readme.txt",
+      "size": 299,
+      "sha256": "24229daaf2eae71806be923492e76a6e700310ea5328393533941035f2d549ba"
+    },
+    {
+      "path": "sources/rufus/res/uefi/readme.txt",
+      "size": 1718,
+      "sha256": "9bb1070861fb87d8e68dc90c3e79a8daf136d5059ef5a1bc14a4f7c2e098b7a4"
+    },
+    {
+      "path": "sources/rufus/res/uefi/uefi-ntfs.img",
+      "size": 1048576,
+      "sha256": "72683fa1250eeea772d3399277b434d4e55ba8dd0dc926e52d817e701fc2eb9e"
+    },
+    {
+      "path": "sources/rufus/rufus.sln",
+      "size": 13551,
+      "sha256": "414fed56cea8bd6237795ea259272a4d911fe9a31614751b0c663035cf0cbbf4"
+    },
+    {
+      "path": "sources/rufus/SECURITY.md",
+      "size": 723,
+      "sha256": "e04c5bbb3a5463d93d344a8befbf8c669eae94aeade25a83c6db787f837986f7"
+    },
+    {
+      "path": "sources/rufus/src/.editorconfig",
+      "size": 212,
+      "sha256": "d5ef53d7bf528b67490aec51b2c9355daa19b2a37360bada656049a4f7615559"
+    },
+    {
+      "path": "sources/rufus/src/badblocks.c",
+      "size": 15605,
+      "sha256": "b153f25f9f6a4da95d9fd23b4226c62567200646b79566c7e45751c8645b1a73"
+    },
+    {
+      "path": "sources/rufus/src/badblocks.h",
+      "size": 1869,
+      "sha256": "60fa9fa5a8cb0e23067471b0b6300a12543f64e3f381c06dc9c1e63cf62b06bc"
+    },
+    {
+      "path": "sources/rufus/src/bled/bb_archive.h",
+      "size": 11740,
+      "sha256": "dd52eb53ec82f8bf9ed687cac84fc6af44433f0d7e2f60de18b08d8869f997d9"
+    },
+    {
+      "path": "sources/rufus/src/bled/bled.c",
+      "size": 9522,
+      "sha256": "87751d0d791648fbdf8810e6a1e4eefe8c903654b72299911b1fb64104aa3579"
+    },
+    {
+      "path": "sources/rufus/src/bled/bled.h",
+      "size": 2993,
+      "sha256": "2bdc052b4061535cb46da6ee79a3d2275fe9d3aeb943293f22020f034e104a38"
+    },
+    {
+      "path": "sources/rufus/src/bled/bled_size.c",
+      "size": 23802,
+      "sha256": "bbf653101a1a2216825e759b7d71c031a0dade5ffb820f85110f6fc906775815"
+    },
+    {
+      "path": "sources/rufus/src/bled/crc32.c",
+      "size": 9815,
+      "sha256": "0f599b8ab9b1b8dbcf54d0250c0c310be256e2dbdb8b24ad67a2aed93a79998b"
+    },
+    {
+      "path": "sources/rufus/src/bled/data_align.c",
+      "size": 417,
+      "sha256": "5661e4282f5ca53e515ffcad7e63e860114a96d7cc27401f9e00e0c0801652ed"
+    },
+    {
+      "path": "sources/rufus/src/bled/data_extract_all.c",
+      "size": 7479,
+      "sha256": "a3f7167bc30a3efed9b0b125659eef946db1779d2d6c9e6d9297af8f6aa8e3d0"
+    },
+    {
+      "path": "sources/rufus/src/bled/data_skip.c",
+      "size": 293,
+      "sha256": "745d22f7780bcdc62c6bae73cd98ba219f45006e17f8a6294a78bd01701bf2cc"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_bunzip2.c",
+      "size": 28708,
+      "sha256": "2860276ae62e7439be3ccacf84b963b56ddcfbe6fa41b1f7d331fccfd1aca98f"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_gunzip.c",
+      "size": 38465,
+      "sha256": "74b8ffa12b13e3a88329b9b83717128e341f635d273deb50381757c13638cf70"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_uncompress.c",
+      "size": 8449,
+      "sha256": "ae19e48b35171aa2624c44e9f32e7a2d9907f769748bfdbad5850f4a045eda24"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_unlzma.c",
+      "size": 14083,
+      "sha256": "35132e44890e493752cf7a8822cf143165f5c98ea7d0451fa361597b02ec89ba"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_unxz.c",
+      "size": 3182,
+      "sha256": "f940845292536422f995fb8160867204dc5a2151870c8f563d068fd793517c2e"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_unzip.c",
+      "size": 19768,
+      "sha256": "eb4b8c7143bc2531aaf6fa5e0af2c0017242c7197ff006cf2602ed71a6d769e3"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_unzstd.c",
+      "size": 4397,
+      "sha256": "b0af03ab7151acc241fa511f746e433874e073bb2d96977cd9af108ebf565a53"
+    },
+    {
+      "path": "sources/rufus/src/bled/decompress_vtsi.c",
+      "size": 4567,
+      "sha256": "9d4a52f111ba30b6460ea555ad795fbd9ac5cf9d76a06326c6b3de97a84d4c17"
+    },
+    {
+      "path": "sources/rufus/src/bled/filter_accept_all.c",
+      "size": 409,
+      "sha256": "8916cc039f146aa10949f951d81e256e54a9a9d68def2c5be4e114840a78071c"
+    },
+    {
+      "path": "sources/rufus/src/bled/filter_accept_list.c",
+      "size": 462,
+      "sha256": "e0a91666a208aba1b751fa8cc7dfd1d82efcf68169bfd976974288e76565e947"
+    },
+    {
+      "path": "sources/rufus/src/bled/filter_accept_reject_list.c",
+      "size": 883,
+      "sha256": "07b6b1c9bc7494898df25ed435cf4f9d4344e419b5376cb1bc46a76f6d874b1b"
+    },
+    {
+      "path": "sources/rufus/src/bled/find_list_entry.c",
+      "size": 1162,
+      "sha256": "f7ad05e64463ce679edb128d93430c1522ab5c9975fa1f0d7cce32724596e437"
+    },
+    {
+      "path": "sources/rufus/src/bled/fse.h",
+      "size": 30132,
+      "sha256": "01c7ad93cdc87c1cb9c9b32a133301e1281832f62a4f8e358c193b248e65d4ab"
+    },
+    {
+      "path": "sources/rufus/src/bled/fse_bitstream.h",
+      "size": 18432,
+      "sha256": "576ccab82e19059f6def76d9f900d016974c070acbd26811065dbc2e576917d5"
+    },
+    {
+      "path": "sources/rufus/src/bled/fse_decompress.c",
+      "size": 12455,
+      "sha256": "620ac899dc5985cdd25ed6242cb6f0af59ec23a11438149ae0709ad8a63d72f1"
+    },
+    {
+      "path": "sources/rufus/src/bled/header_list.c",
+      "size": 305,
+      "sha256": "2eee8ffe21e4a7b7a5d756ab40b4fa61f6b15e62662a2dc7e9cc713122023ee4"
+    },
+    {
+      "path": "sources/rufus/src/bled/header_skip.c",
+      "size": 226,
+      "sha256": "39e65626677c8bd331cfaa0da3f4718ed63efef6cec230857a2b8d60b00c5219"
+    },
+    {
+      "path": "sources/rufus/src/bled/header_verbose_list.c",
+      "size": 1574,
+      "sha256": "baabaf07c051d32be2575af21962920941c2db9ebdc2cd70e09faf7ef38c4799"
+    },
+    {
+      "path": "sources/rufus/src/bled/huf.h",
+      "size": 14203,
+      "sha256": "34a898b856ba3feff14ca0e018aec84b9e8444d445f14e847633be10ac16fc4a"
+    },
+    {
+      "path": "sources/rufus/src/bled/huf_decompress.c",
+      "size": 76876,
+      "sha256": "2ceeb6e54646a6614feebc3faad09e30915cd1af5b0d428d5cbe1a754a743081"
+    },
+    {
+      "path": "sources/rufus/src/bled/init_handle.c",
+      "size": 773,
+      "sha256": "35b566f25e1e1da6941bb0285d8faeb2c043e3d33d03da713ed3bbe8cb434998"
+    },
+    {
+      "path": "sources/rufus/src/bled/libbb.h",
+      "size": 9781,
+      "sha256": "149ef12e90163b5fa4f9d2cd3d36a689f050204a479448d055eeac6ae2263dad"
+    },
+    {
+      "path": "sources/rufus/src/bled/Makefile.am",
+      "size": 809,
+      "sha256": "3bfc27ec1d5ff0e384b15ea198cfd0151a7d6832195de864486b0874fdb6208c"
+    },
+    {
+      "path": "sources/rufus/src/bled/Makefile.in",
+      "size": 37145,
+      "sha256": "d9b9158860ead3cc897639239d75f60aac41a033f3dfce7b9cd8db03d8d8b283"
+    },
+    {
+      "path": "sources/rufus/src/bled/open_transformer.c",
+      "size": 10211,
+      "sha256": "8a13493adbec04a5394cc46aefea61dcf06b3d8cd429a53472f7757f3fb3ca29"
+    },
+    {
+      "path": "sources/rufus/src/bled/platform.h",
+      "size": 18103,
+      "sha256": "22b27e264890e45a6b7e467be67c4aab24672f345cd5a65b22698d2b1b116f9b"
+    },
+    {
+      "path": "sources/rufus/src/bled/seek_by_jump.c",
+      "size": 370,
+      "sha256": "7d4bb3332f05b1129d9a62167a05445eca2f1cb4594fbda3ad06490bccd9bdf0"
+    },
+    {
+      "path": "sources/rufus/src/bled/seek_by_read.c",
+      "size": 387,
+      "sha256": "40a3f2fbd00b754f81cc994c9aedda5036023f90e1ff540ad2f4b1f4de47c300"
+    },
+    {
+      "path": "sources/rufus/src/bled/xxhash.c",
+      "size": 607,
+      "sha256": "8444d064922f434b67b708a987981aa21dfeece735b48c82d31f7027d0ccef03"
+    },
+    {
+      "path": "sources/rufus/src/bled/xxhash.h",
+      "size": 261505,
+      "sha256": "b2a40ac5a6731cfd63b1dee98f3b84106d71ef997da802021ce72e30136cdebf"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz.h",
+      "size": 11710,
+      "sha256": "b084b47dd7caa695522b779b5b213c7c98ec6a4b851d305fc4183007db17577b"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_config.h",
+      "size": 3446,
+      "sha256": "449a6846ed9568d526e3bd5b4ebaedf6213fd68d02bdc3efad428014fa50548b"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_dec_bcj.c",
+      "size": 14147,
+      "sha256": "01ff8fc9a45e2b03293964f4e8bdad0de4e20ef83d9b7ea5cb0836caf6b78f0e"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_dec_lzma2.c",
+      "size": 29463,
+      "sha256": "8d96342f53cc9d2f3812fdb78dade0fc8f118e355e921310fbb08adb325b6c79"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_dec_stream.c",
+      "size": 19892,
+      "sha256": "3f0d00d97019321d123bb7489e5c5a828c1fc3308b63874889e9f69b929ddda1"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_lzma2.h",
+      "size": 6160,
+      "sha256": "ef38ebe621800cf4960575136ea167171648c9e8e0d8ed3b98be6651d1651981"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_private.h",
+      "size": 4679,
+      "sha256": "d0d05b876173512ec45fd5ac89163dbdd89cd95a0a1759e9f4473872d3393d37"
+    },
+    {
+      "path": "sources/rufus/src/bled/xz_stream.h",
+      "size": 1472,
+      "sha256": "8a55b8e7905e4915dae9e7a6645ac38d615d778ac43b6b0ebbadd34272011b8c"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd.h",
+      "size": 179025,
+      "sha256": "881e19ae2f1afe29948066ae90bd428a5eafcd6c423cbc8525068ea319e089f9"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_bits.h",
+      "size": 6533,
+      "sha256": "87dd3fcf6d3ae5879cafe701089ffb37b9a81a42d9d517ba28d03a1109d824dd"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_common.c",
+      "size": 1688,
+      "sha256": "2a28e124771da01f936d35b31eb826e2ae2ecae1f442901f3707310df6a45823"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_compiler.h",
+      "size": 16423,
+      "sha256": "1932f7773fc89e2b3623bbd37a7d1b36c1ffdf846edffab87ca9af68cc7664e0"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_config.h",
+      "size": 1481,
+      "sha256": "09e59529ac92c36981c7f1b39d4694696987087687f804ebaee3996bc4038c90"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_cpu.h",
+      "size": 5443,
+      "sha256": "da254e3838456634e4998d1b2abeaea614d295e193017411a223e484d0a823ac"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_ddict.c",
+      "size": 9144,
+      "sha256": "905b3f10872978a39ec9fa76a6a5e6ed723f5d684373171f773436c687ba3c56"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_ddict.h",
+      "size": 1309,
+      "sha256": "a4334693aaeb3043ab05862d1f33034d65f6a1e42bc71e45ece77294191fd08e"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_decompress.c",
+      "size": 102113,
+      "sha256": "2a111f83c51ac4a005ac1a8a05398124ee33e66d89298587b4714d7a11793b6d"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_decompress_block.c",
+      "size": 101749,
+      "sha256": "5ee6f937e55d413118fb524f279ff224c8c6a3d11655db01ebf7c684ae41d0d8"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_decompress_block.h",
+      "size": 2669,
+      "sha256": "2cc06318a1e3e3b185c729d1df56660b18e87909d587658646d7f363c7f4faf9"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_decompress_internal.h",
+      "size": 9667,
+      "sha256": "7fe5731341e5351da98091a763e172c1f19c9612151a2a166e575b4ba18ffa31"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_deps.h",
+      "size": 3510,
+      "sha256": "1117dd3a9b6e1ff50bdc8f6874e508363cb2540140b49fd0d4a0a5b4bf89c7f6"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_entropy_common.c",
+      "size": 13313,
+      "sha256": "9cf6a88fd69deb6000d977c4c4e93260d409aa22db4b26334e23f7bd356044f7"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_error_private.c",
+      "size": 3802,
+      "sha256": "e0484e469191b46327e222e2921b53eb3586379923fff223e81de33d5c8a423d"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_error_private.h",
+      "size": 6509,
+      "sha256": "fd4dd94e7bcb79be37e979977fb3ee8282ddbe0e9b75053b01a24ac698ee7d6a"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_errors.h",
+      "size": 4227,
+      "sha256": "dbb66f7c5beefd405362cb94fa8d89bf9ce2f7c2f431a2c5447b28b0b438398a"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_internal.h",
+      "size": 13239,
+      "sha256": "8671927f9ab4fb825c6a2bfb702135d5092baff30f0c3bba79914b1f2a584242"
+    },
+    {
+      "path": "sources/rufus/src/bled/zstd_mem.h",
+      "size": 12984,
+      "sha256": "705f8a4e3bc5023acb50306d091ec33ec8942daf28e41af14e7c768961e25cee"
+    },
+    {
+      "path": "sources/rufus/src/cregex.h",
+      "size": 3979,
+      "sha256": "d73b750ca853d1a202d3e073dc567a57d2bba9e35d5e3cc482377020225ac2d6"
+    },
+    {
+      "path": "sources/rufus/src/cregex_compile.c",
+      "size": 10551,
+      "sha256": "6db65a38c5f67372d46de96e0b673e219c531c5a5bb9e9d468088f3e35e0cc76"
+    },
+    {
+      "path": "sources/rufus/src/cregex_parse.c",
+      "size": 9471,
+      "sha256": "4cb037ce81192327580a882a16691812a748c5118513eb374fee210ff8055775"
+    },
+    {
+      "path": "sources/rufus/src/cregex_vm.c",
+      "size": 7262,
+      "sha256": "2842b7459d1257b8806a1e97ccd9b82af4f3954352d94de03ccd366c5970dd80"
+    },
+    {
+      "path": "sources/rufus/src/darkmode.c",
+      "size": 35850,
+      "sha256": "c9ce1aa23b24be3f380466eb2b4e86916976f4c5835e49bb6db97395c6ca3627"
+    },
+    {
+      "path": "sources/rufus/src/darkmode.h",
+      "size": 3660,
+      "sha256": "80cadedcbc3bf8b908156512935b5d3810c411af65df10804924511bc520e83e"
+    },
+    {
+      "path": "sources/rufus/src/db.h",
+      "size": 24716,
+      "sha256": "a087279aba73728f6ab41733f2da2257166d575478bb8bf51001d18187a7e179"
+    },
+    {
+      "path": "sources/rufus/src/dev.c",
+      "size": 48777,
+      "sha256": "fded177d09450094256f51ea86a86eac40c573556e205598b59e58f58f6dd051"
+    },
+    {
+      "path": "sources/rufus/src/dev.h",
+      "size": 5812,
+      "sha256": "21f564195d0f26465b695e82bb8f157186fab8084547fa2f9349e08def0382af"
+    },
+    {
+      "path": "sources/rufus/src/dos.c",
+      "size": 14316,
+      "sha256": "513cbccfc490300c2aa2bd48690ddcd68f72fce18928dc6e780723c4b74e9730"
+    },
+    {
+      "path": "sources/rufus/src/dos.h",
+      "size": 4149,
+      "sha256": "1d9cf6f57faef6234c819aad0ca491eeed539277a8d32c7b32941e9f9d033b0e"
+    },
+    {
+      "path": "sources/rufus/src/dos_locale.c",
+      "size": 30136,
+      "sha256": "bfc334bd290f284efac7b6f41b0e0286f661e436f79691875e1112af13e972bc"
+    },
+    {
+      "path": "sources/rufus/src/drive.c",
+      "size": 102702,
+      "sha256": "c3080cf2f352ebe5855abb685aff0a0bdc0133a6f8f050f5b0f5f5a713500a66"
+    },
+    {
+      "path": "sources/rufus/src/drive.h",
+      "size": 25382,
+      "sha256": "1e852ae32febc777a3f9b9942f8f91bbaae6c4040a062358345cd0bb496bf95d"
+    },
+    {
+      "path": "sources/rufus/src/efi.h",
+      "size": 1844,
+      "sha256": "0f9e05300b0aeeb693ab514fe23cfb83583ef04858bb20b5059af0266a6c6e8a"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/.editorconfig",
+      "size": 37,
+      "sha256": "3a9b19f1d26bf847390df8882029c47a44d18070778d524222d6caf2262c6636"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/alloc.c",
+      "size": 14737,
+      "sha256": "66dd5fb1f322f6abaf8b56c1aafddb2505691c5db3b5563439a0236071de9074"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/alloc_sb.c",
+      "size": 2446,
+      "sha256": "b25002a29a6e151e5d33516fb2945c4b45f7789861293baadbdaff40ac849dc6"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/alloc_stats.c",
+      "size": 4644,
+      "sha256": "1d31214dabf318f6274b5e3a7c51e3bb9a2a5650e57e7cb6b8860225e6387cae"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/alloc_tables.c",
+      "size": 8190,
+      "sha256": "a8dfcb9499e89feafc24d3f30e8c93c68b023806adc480e2aef069e28f9ef177"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/badblocks.c",
+      "size": 6558,
+      "sha256": "c7a62f79828545f2ec7f04d275e6aa3d952b90ea9a3a1a55369df7ee7fce1ae2"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bb_inode.c",
+      "size": 6336,
+      "sha256": "ed0d18a6255e945c3b4e25ce949a8da8370fd2c23681ad19de6dc9839382f43f"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bitmaps.c",
+      "size": 8227,
+      "sha256": "6f9b95c9a4d6d6b0c1b843b8f840c7f8bbddf8a01adbe1a2f2f1e5a184bcfa3a"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bitops.c",
+      "size": 3317,
+      "sha256": "6d5491b34b2a5b5298d180edef69c71e98ec11f8b81c1cb367f565bf7a3fb029"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bitops.h",
+      "size": 22148,
+      "sha256": "c8290484f930fefb434d89e5eaa0f5a071a056f947ea48bce18d928b1079dc35"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/blkmap64_ba.c",
+      "size": 11692,
+      "sha256": "09cf481b8b43c8166f5b17c44cca50d0b487333d2f0569aade4f84e87a3dcc38"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/blkmap64_rb.c",
+      "size": 22269,
+      "sha256": "8892c17a4ce5f1605b66c41cb28da8ffb13f2e8f74815c9fa0cf7f7d732bd803"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/blknum.c",
+      "size": 14465,
+      "sha256": "1796df811b1cd77262f4f5a664086e624b4ae02d356f9c4e66877937885fdede"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/block.c",
+      "size": 16659,
+      "sha256": "b05cd044b3c03ea88f288d9c3d6b31811b3eb1874b3e4f428ece37cec6dccc7f"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bmap.c",
+      "size": 12596,
+      "sha256": "3bbc3328f1ef656fcfc7d36f02949040b6bc7b6302422631ce1b844b6d55de8d"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/bmap64.h",
+      "size": 3427,
+      "sha256": "9f4094e31fd46eb8c936fd6d51a74c2e187965aed8e93f149a0eddf0d948a892"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/closefs.c",
+      "size": 13542,
+      "sha256": "c4def788d1ec37fff067d65deba2a42f1ad7463f4ec5e7d5038118b3716eaed6"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/com_err.h",
+      "size": 2117,
+      "sha256": "a1cef61fc1f7d970178aff8eddb8574c041db3b3cec3911735cb8aef39e0a74d"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/config.h",
+      "size": 13401,
+      "sha256": "39f037bf6980af72e8c63a93880d5b810be8b163013a31eb9521d95436486f0f"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/crc16.c",
+      "size": 3130,
+      "sha256": "f6b9d7d686c7a9d45d2099eb2c084069e2204537d1828fa6ebfd14cf88fdc46b"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/crc16.h",
+      "size": 700,
+      "sha256": "6fbf36bd4b8c054a1dd5a5c0ddd5ac1b2438e99e8b0b08ad2a7090a249144954"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/crc32c.c",
+      "size": 41165,
+      "sha256": "d7dcf55a241f9c7893a66fe546e2312d28be8a0616e7ae3a81565f33a9b72d3b"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/crc32c_defs.h",
+      "size": 1794,
+      "sha256": "71eda916354dd50706a6d6cccda29fbe41da40bda66e4a3c99076cdb4c074b0e"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/crc32c_table.h",
+      "size": 79057,
+      "sha256": "760d01104a18a80b19704653bc87006dbf4ba652347eb3404dce18cbbbc65076"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/csum.c",
+      "size": 27788,
+      "sha256": "2f8dc4fcc21b0980d460e9a0a39d58687314aa64840b760069598d3a62c8b4c4"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/dir_iterate.c",
+      "size": 7730,
+      "sha256": "a01d5ef522401042bf254785ae79f72444ae4b06acc1e80f67d5f18b70861b59"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/dirblock.c",
+      "size": 2610,
+      "sha256": "c710070a30090e7e6352857cddd075ab580e0e01429d280a6fc683fc9a27ae2e"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/dirhash.c",
+      "size": 7407,
+      "sha256": "5f9590f3b37e302f830e10656705a6d52a4cbb8484745e30644b904f6dd4b3d4"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/e2image.h",
+      "size": 1355,
+      "sha256": "9d15318f8be8c5ba72f04e1d70ac21f1563ae8495744ca2a472a88c570225d74"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2_err.h",
+      "size": 11844,
+      "sha256": "9dc6b436e43a6e8c1d265b479b622cb96ce8e7f189b4e9b1eb6c9ac77ef85811"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2_ext_attr.h",
+      "size": 2644,
+      "sha256": "042b104aa88ac2abbd4c992dbfbe9e9fcab734b08b86ac8e7efeea0cb87d3500"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2_fs.h",
+      "size": 42815,
+      "sha256": "5a9bbf9666cda691f2d6b3d1c069119c311851191758130af5ebba517ffd1344"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2_io.h",
+      "size": 5391,
+      "sha256": "9034f71676c886c29f18328e2b82995a1c4ef2fbf4045bbd8997ab71a1a7909b"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2_types.h",
+      "size": 1815,
+      "sha256": "6d861903afd6e669c305da4145098fed93135b434da65b6ad0cde4022706f1c3"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2fs.h",
+      "size": 72979,
+      "sha256": "dd7f37978de763b6229708f940bffef0ebc4de18e3de785aa25a4027b04deeaf"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext2fsP.h",
+      "size": 5139,
+      "sha256": "211a718d71cf37bde7a9bb6492e7fc171143b24fbfd6f5e8c3726f4df3af07fd"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext3_extents.h",
+      "size": 4558,
+      "sha256": "9bc0bde79cae4f460c238a161a23eed3ef53c34f8d65c51d15c1b2d9d4910cdc"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext4_acl.h",
+      "size": 1350,
+      "sha256": "65df095a8b1150970f63fc12b9138e1360aa1ff5ad3e483b379402aaa21537b1"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ext_attr.c",
+      "size": 42829,
+      "sha256": "e737ed90b92c8d42ad5629c5f18f77be297aec91e54ac0944b3775469bec632d"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/extent.c",
+      "size": 46540,
+      "sha256": "6e88f7de9736fb3d5efce9ec55541056eca31a1ca7df78bb96b357ff2fcd3ee2"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/fallocate.c",
+      "size": 25584,
+      "sha256": "606beb1a098a41d78bb291f1006272e9f7903acf5af697d2d5bcc92e4c9fa4cc"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/fileio.c",
+      "size": 14685,
+      "sha256": "9e8c36f6f1f071c477f193ba1b487dd53968978c89bdb1daea7816d812e3d2c5"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/freefs.c",
+      "size": 2218,
+      "sha256": "37046364fbb29c7f9174829eb0cd5afb49210d67d82daff738b8409fe67e2eaa"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/gen_bitmap.c",
+      "size": 16731,
+      "sha256": "d2bc3f951eff56c1bfef26787a64c0b9f396add550398d4f8b7c088736b53491"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/gen_bitmap64.c",
+      "size": 24652,
+      "sha256": "ddccd38d78f46ad40a3bb61ae11ea5a4588f2360fdec2cbafa1b6a7b4dac610a"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/get_num_dirs.c",
+      "size": 1105,
+      "sha256": "eae7717f48c90761755a07c71c6f1c9b97bcbe7a78b305fbd223883ea5449e86"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/hashmap.c",
+      "size": 2304,
+      "sha256": "a58f2e311fe6266368460b6e186f5cf855f34d35a1f645ffcec0f3d396d84a04"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/hashmap.h",
+      "size": 1179,
+      "sha256": "27515b6b19cdd98803071409bdc72cc170621e56081d4fe21b5e7be16b6a846a"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/i_block.c",
+      "size": 2207,
+      "sha256": "9a7a5cbd1a05803cfb0f01d293c84efb307b96a067c056351c5a45cd549c0fc1"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/ind_block.c",
+      "size": 1416,
+      "sha256": "a0d42a7530a8463e2a417c57cb75cdab4a503d174bb4af7b062da280c8c31e4f"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/initialize.c",
+      "size": 17575,
+      "sha256": "6ce7a5e8df756240202361b8c4b48105314d81bad10b77b1776e96084f859834"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/inline.c",
+      "size": 2412,
+      "sha256": "d9f2f878cc06b4f2f61725d3fc2d31a497159571021d503fc3e7774aacd31197"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/inline_data.c",
+      "size": 20146,
+      "sha256": "b6092118b873d78179d1384812746fb27cc9baabe92d439e0aa3309d8bf8265e"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/inode.c",
+      "size": 29366,
+      "sha256": "d9ab7882387bb704cfa3c59ccc4128721385531371071ea1c24b4ec3491e17af"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/io_manager.c",
+      "size": 3388,
+      "sha256": "bacad4713eb9f9a127d1d4436813106be2d3afbfde25aa0762b60690ecc5e3e2"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/jfs_compat.h",
+      "size": 2507,
+      "sha256": "629e2026cabfcc4121d8171064ea3a57f69d6414bd425bab7b207dce31668374"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/kernel-jbd.h",
+      "size": 13767,
+      "sha256": "ada054140706ac7a7037da28ced1fba8d3f01e215c9758af3ac16929c9f2284e"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/kernel-list.h",
+      "size": 2436,
+      "sha256": "fd61a39bb3e4b42aa8065f938ab739a1c4eb7ed33c33a0587bae95af55f200a2"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/LICENSE.txt",
+      "size": 25290,
+      "sha256": "5abeb32c9e777e393ac58c5a39e4e03540cefa19c3b92e28e11336d7c1b3df7e"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/link.c",
+      "size": 16993,
+      "sha256": "3e810a9077cf29c31f697f571192d10071fc7cf77e30803c9c4164eb90ecdbb2"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/lookup.c",
+      "size": 1472,
+      "sha256": "7cf3c5c0bcfba7ca55bf7c292a9de60cfd26f8ec6818124094403ca8d9860a5a"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/Makefile.am",
+      "size": 782,
+      "sha256": "6c049b5de33f8dcfb528c03e153d5b7ee7d5bdb16192de288f0e75683c2ae766"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/Makefile.in",
+      "size": 42959,
+      "sha256": "de1940625f606d81beec79116e396a2ddfba130570cc254a8f7b17a276d0d716"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/mkdir.c",
+      "size": 4438,
+      "sha256": "b5191f62f08d38d1f5bd3b3b4c22e67189a5df6b177a6c4c314f9354a2a3d4fe"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/mkjournal.c",
+      "size": 14833,
+      "sha256": "74a3fbfb243b88a9c9a14c75d9d56b464643e67969b9a55039646fac3aa34a61"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/mmp.c",
+      "size": 11099,
+      "sha256": "4c79e238f9c33ffc693bac98ca85788e6410f492ccacf771db52c6842d6cc97f"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/namei.c",
+      "size": 5471,
+      "sha256": "b0bebc33cede8caef5158e57790d56f706f7f7d45f810941d5b1a10e30edc8c4"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/newdir.c",
+      "size": 2815,
+      "sha256": "c72a392dc4399014eccb517d301cd5e76a40d5dda12ff9782f236f89bd08fcf1"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/nt_io.c",
+      "size": 20586,
+      "sha256": "f9c68f69d521a4795f7c8440315df824e9b28ca86a261e2f10ed8e2d03f8ecb4"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/openfs.c",
+      "size": 16264,
+      "sha256": "ae4d544903547de09f8e208654c94c4f31eb29a0991fd7f5142ad72373e9fa3d"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/punch.c",
+      "size": 13541,
+      "sha256": "4451928ddc2fcd21f1d9854d5f55aa1764fca583aaacedbc50a348c9c0597848"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/rbtree.c",
+      "size": 10622,
+      "sha256": "eb2e85f5dc24d86ae0c997aa9e275cf3e06edba537cfa09c6a4fac325b7b03aa"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/rbtree.h",
+      "size": 6172,
+      "sha256": "d24874740492ec662610c3800d1b9990b14699fb8f85d3effdbcb811a45bd8a8"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/read_bb.c",
+      "size": 2232,
+      "sha256": "31c6fa0c45d6b7ea3dc92ea9fca2b4b97312ba1c927c90a5dffd052c4a873567"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/rw_bitmaps.c",
+      "size": 11287,
+      "sha256": "bc928746f209ed4c8bc6bd988fdd9a194cb7330499d6dfc4aa48ae4d6bf1c759"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/sha512.c",
+      "size": 10094,
+      "sha256": "9e208739e1717890842e25b0c8762b5c83131c14105625709d5ecbc7105e1d47"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/symlink.c",
+      "size": 5046,
+      "sha256": "679015bc86cc39dc8b2332738eca2b3305a63e6a2b02a6ef1bccd357ca1f6af7"
+    },
+    {
+      "path": "sources/rufus/src/ext2fs/valid_blk.c",
+      "size": 1670,
+      "sha256": "cc6f78f9b71979acd0d433cb4c458ad85d2df69c576691db8cb358b332ef26f1"
+    },
+    {
+      "path": "sources/rufus/src/format.c",
+      "size": 77061,
+      "sha256": "3e1033a2fa086a2854c7a006f905476f3904d7495646a2fe1c1a72848706cb31"
+    },
+    {
+      "path": "sources/rufus/src/format.h",
+      "size": 3851,
+      "sha256": "51d5a53c21d8bfd2be796d0474acada2dad48df039e404be5c7e6bd1c59c4add"
+    },
+    {
+      "path": "sources/rufus/src/format_ext.c",
+      "size": 17507,
+      "sha256": "ef2c1026baeace5130837cabc43485340081bad482517a2727e796fef099516a"
+    },
+    {
+      "path": "sources/rufus/src/format_fat32.c",
+      "size": 17406,
+      "sha256": "3646174e2e043de4c62ec12a9e8ef431aa745e5fac96164e4cefc4f95d1f774d"
+    },
+    {
+      "path": "sources/rufus/src/getopt/.editorconfig",
+      "size": 18,
+      "sha256": "9cffd3915d9a58cb47f1ebf711fd80dddad4d9ca0a9404ccab10a7377d97e498"
+    },
+    {
+      "path": "sources/rufus/src/getopt/getopt.c",
+      "size": 30517,
+      "sha256": "b35860116e92620606b6a79a01dc1cfbf59012dfda32d01c90f7bea7970f7d05"
+    },
+    {
+      "path": "sources/rufus/src/getopt/getopt.h",
+      "size": 6447,
+      "sha256": "1e15f8e70323d7da5fc5d7f03416f9113d57694e4b93a0b77233ed72b6ee4aff"
+    },
+    {
+      "path": "sources/rufus/src/getopt/getopt1.c",
+      "size": 4520,
+      "sha256": "92d1f8b2c63a5f590be8a33f8a2657769e435f351f4ad6152333687eb0492d36"
+    },
+    {
+      "path": "sources/rufus/src/gpt_types.h",
+      "size": 38705,
+      "sha256": "82773534c4409bafde7ee5cc59fc8a1294847fc8d23daa699b6bd8fbd910a42d"
+    },
+    {
+      "path": "sources/rufus/src/hash.c",
+      "size": 88496,
+      "sha256": "3954902d2ed87ef7c91773af61a1db48fed5884c3886e60f900875fe71520d3e"
+    },
+    {
+      "path": "sources/rufus/src/hdd_vs_ufd.h",
+      "size": 10854,
+      "sha256": "4fa8c8c4325c57748caa7cd6c3e6857e29f8ca28c3d1ddd33a5b7edd01b41fdb"
+    },
+    {
+      "path": "sources/rufus/src/huaidj_autopilot.c",
+      "size": 29178,
+      "sha256": "6a20d6f81d9b3d4d8d65e7fb5ca443b806b46097d7d9eaf5d9a221f2c47eafd2"
+    },
+    {
+      "path": "sources/rufus/src/huaidj_autopilot.h",
+      "size": 1170,
+      "sha256": "2257516f637f9e98c9c53b6b726c90e4e1b35d84737cac07094123e680ee38cc"
+    },
+    {
+      "path": "sources/rufus/src/huaidj_options.c",
+      "size": 5195,
+      "sha256": "9735c204938e9a9eacf0840bfdeb57e69cff77d630c186785693a2da4b8e78f9"
+    },
+    {
+      "path": "sources/rufus/src/huaidj_options.h",
+      "size": 1143,
+      "sha256": "319412a5d65c6053051f23e544f3c070603936a744c3e655a56832e110269119"
+    },
+    {
+      "path": "sources/rufus/src/icon.c",
+      "size": 6328,
+      "sha256": "c2e09ca6b332df584708dc2c86168b55930bef57233beb7491e0c861ac821507"
+    },
+    {
+      "path": "sources/rufus/src/iso.c",
+      "size": 92222,
+      "sha256": "569cadebdc12cc0028ce20ce5ba4aeb83215ffbe4d614df776a33ba80ffb2f71"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/.editorconfig",
+      "size": 18,
+      "sha256": "9cffd3915d9a58cb47f1ebf711fd80dddad4d9ca0a9404ccab10a7377d97e498"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/audio.h",
+      "size": 4084,
+      "sha256": "0f3063b62ab22cdb418c4723556b8b7e54395c83e898443d9fe1fdcb8386c782"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/bytesex.h",
+      "size": 7449,
+      "sha256": "26bfc751d5d964ffd0a29db9985e95000796be52c489cdb5eebc04a27166d73e"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/bytesex_asm.h",
+      "size": 3286,
+      "sha256": "f3501a92f7d8e99c76fd79660280ed60b939be4a13132fe7d4f7542a35b7dbb1"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/cdio.h",
+      "size": 2015,
+      "sha256": "c68fc6aaad844fdbe98e6cf1e7b5d8a4b6027ca370cb35fe11e5d14581705fe1"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/cdtext.h",
+      "size": 14168,
+      "sha256": "eb6cfe637cb54b4494a5ebd3a91f061dc9a5e881168789fc8408ef9d0383ea45"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/device.h",
+      "size": 35076,
+      "sha256": "f00386e81940abf55b2cdb6663ba51c5991a47d52f81efb6959dff563a93f2cb"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/disc.h",
+      "size": 4763,
+      "sha256": "b8bffe5b472cea585e5303fce4ec1e494310cc6975d9ee2eba257cd8c75a8f0a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/ds.h",
+      "size": 2634,
+      "sha256": "8385c820a5d3214b91872b52c1665f75c4db83617e3f6366dec45b639bd1609a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/dvd.h",
+      "size": 3833,
+      "sha256": "642672b13310bb8d4ace3a21a8aaf5ea826d3c5b6c71fda0a8be6285230ae7e3"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/ecma_167.h",
+      "size": 34142,
+      "sha256": "81316be4ae4a380c355fd1d50f31487eda70de82ff38445b252d48ce58c80ad4"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/iso9660.h",
+      "size": 55454,
+      "sha256": "200435a043ee024409ca88583eb3f71cc2a181b762026fe982b8523ca2de5bb0"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/logging.h",
+      "size": 3924,
+      "sha256": "a238441fbb243a3894ba14a9c695cf1ef2fa20efb30d8ed29d122749b580921c"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/memory.h",
+      "size": 1057,
+      "sha256": "20af4ce2775f3a457c5456db20598f29c1be74572b298895eeeb69ee9246f739"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/posix.h",
+      "size": 1122,
+      "sha256": "5623301e93a5ac67dd62f50a52dce0cdc99a2e23fbb650895f74f9b6a6644040"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/read.h",
+      "size": 8565,
+      "sha256": "a1ad5c98b9c2893d0fa5f608d1175e217c0f984510693117946bd87b5c8493a0"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/rock.h",
+      "size": 16095,
+      "sha256": "75373588f6673ef47734ecc3be32be727dfc63b5b2149ec9939e9f2587c766de"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/sector.h",
+      "size": 11586,
+      "sha256": "b80ea2713dd211b236b405903949e4bfc6b09d68f1442334afe798c929b1c45c"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/track.h",
+      "size": 9145,
+      "sha256": "cb4ad9e25369131015ffee45dc01c6dd859a3f85ab0f1181b176a3135064f336"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/types.h",
+      "size": 9706,
+      "sha256": "42e910d8a19f0380df7437091f4f9aad891a779a1e3ab7df34e88432d5a8d25d"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/udf.h",
+      "size": 6820,
+      "sha256": "fa7bfa632191cb9ffa827a135ab0eb7ca9bfae70305f0f944852f6a841165ab3"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/udf_file.h",
+      "size": 3302,
+      "sha256": "0a7e4be00d33d46c2f916ff564346be9bda7d45244523553f602806d3b097f94"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/udf_time.h",
+      "size": 2344,
+      "sha256": "f0643a9339d452e8b4a171b75344f18d629e38e60fb79906fef0004c1e84fcf4"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/utf8.h",
+      "size": 4076,
+      "sha256": "4256d24a077dc15f6c9f1bfe1e134d660c59d397637c798f967e0b256e06183f"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/util.h",
+      "size": 3632,
+      "sha256": "077c941d1566c23d1f1603f79cdf14af85bf1e1b306cf9c77c2fb0f5d1e660b5"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/version.h",
+      "size": 762,
+      "sha256": "1f342e55298dbb01ff3e00b4ab32b1bbd76e1badbbb4f7ffdb5ddf17d9aa592b"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/cdio/xa.h",
+      "size": 6662,
+      "sha256": "4cc08f9cecf26abe0384528f629e60f3b2636ab415df640a289413dc1370b37d"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/config.h",
+      "size": 6712,
+      "sha256": "833e81c7ce26b06d5b219afd77d21e022cbf81570b393d15e209cca76cd8e3a2"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/_cdio_stdio.c",
+      "size": 7602,
+      "sha256": "259eab98f75c83caca752b71e5634063324f1b749ddbce6f243330aa186a5b27"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/_cdio_stdio.h",
+      "size": 1426,
+      "sha256": "3cee012513f561758e5c7029a338353db480afac8d3421d27ca5e18111e2f723"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/_cdio_stream.c",
+      "size": 5594,
+      "sha256": "417e3a3e19802545cde3a6e31e65c8796ff726325dd875efc1c4815d08e8d08e"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/_cdio_stream.h",
+      "size": 4348,
+      "sha256": "56cce44370ce97ff2116429862a460770abbbb000d6ac139940c339494514099"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/cdio_assert.h",
+      "size": 1588,
+      "sha256": "bb399e5e7ab81f218825ba2a998b4660597dec521a3f5af7d744ce98f6b11bcd"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/cdio_private.h",
+      "size": 18837,
+      "sha256": "6bbfae71336de59af30bc98e95dab9176c6199a1a1da1cae2417d43a3bdf5253"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/disc.c",
+      "size": 3813,
+      "sha256": "5fb50543023b448702b184e754fd3ffaf1e494a5ef873f47ea3ee792aa93900b"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/ds.c",
+      "size": 5023,
+      "sha256": "0457969a5f9bb342d724798385411eb0263327553c45ca553bba6270dccc465d"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/filemode.h",
+      "size": 3461,
+      "sha256": "a21e40eea4b3edb75d655d9ccdd6420c009f1fe0c4820f01b967ff1d960bc1e8"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/generic.h",
+      "size": 8095,
+      "sha256": "2d5718bfec116219147de384cd617ee5245845fea11b56a5150429d1f3fec5c3"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/logging.c",
+      "size": 3634,
+      "sha256": "b74654abf5d12572070284c3adba5d09538ca7fd89f7d7f019fa65a0fcaa7044"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/Makefile.am",
+      "size": 308,
+      "sha256": "bf2af00050e5d5ec7a17ee863229e7b552033752234f3da869ce7035e088be6b"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/Makefile.in",
+      "size": 19759,
+      "sha256": "388c8cd66e967a9583bc95259ac6955dcd0e7c3a66fc9ec7ec0b594ffdc780b1"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/memory.c",
+      "size": 1072,
+      "sha256": "9211dbbac798bebad85403a8578d21f2900da99a2ac10e3883a1a1f258146e5a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/portable.h",
+      "size": 2004,
+      "sha256": "67b1e227a3f59a7dc8da1d8557bf58a83296e24bbe370400127e6dd06a95644a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/read.c",
+      "size": 11408,
+      "sha256": "bfdf4860aa0956a5a96dbddfa7b5388db250d0f1b08ab81f8b1c637f61ec2eb4"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/sector.c",
+      "size": 6042,
+      "sha256": "ae7f1a2bda47ac03d4d4a627664e2d4d72c9e1b20ac7c2998d1327338c4da1de"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/track.c",
+      "size": 11474,
+      "sha256": "9cd3192cd96a000acacceff25122d166e703fe4799fbe8b3200a858c40fc6ce8"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/utf8.c",
+      "size": 9675,
+      "sha256": "dcf3bd6db4d1ca2d813ea923e1fdd8f8b188b87007c77d65ee52654d91ace486"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/driver/util.c",
+      "size": 3917,
+      "sha256": "3cde69bed16741adaab7a7bd40e94d1ee4023f2114f37d6ce06abbfda004ed82"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/iso9660.c",
+      "size": 33124,
+      "sha256": "e4c68ddf0f8e04c793a5866f406620a5dd87224a5626f5c3ba1d3a3b156d8248"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/iso9660_fs.c",
+      "size": 66954,
+      "sha256": "f65291d09ca649a297d16888a218112585d21382c47229109d5e7bf7e4567934"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/iso9660_private.h",
+      "size": 2491,
+      "sha256": "d108d6ce7e36c86ec5e1d88688a0e5c4575702a9b8c1d46784c233bfff94476a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/Makefile.am",
+      "size": 270,
+      "sha256": "90315d493504643d544bd8d56403b5d6542e7ea52f8073896a1b2881675c492a"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/Makefile.in",
+      "size": 16044,
+      "sha256": "67e70e827cd1d0b73fc8d526b0765f0b15425af0ac4f81e6b36f464769fc531e"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/rock.c",
+      "size": 16346,
+      "sha256": "6cbacc231c1f835c7891e01e1b55b04bed54b0e520b9e3a26a6e1eddefff227f"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/iso9660/xa.c",
+      "size": 5073,
+      "sha256": "91624a712dc004d849d19bd18ab8353160c13ec05e8b3cb4638fbf802b170e9d"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/mmc/mmc_private.h",
+      "size": 110,
+      "sha256": "a9e4bda353843061fc8160afa2132a50abc6d800db911b450f24720187b794bf"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/filemode.c",
+      "size": 5007,
+      "sha256": "905a1994016838c10e39c3c8668945df6a4ebeb25fdddc470a9c8e3a4aa3439d"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/Makefile.am",
+      "size": 271,
+      "sha256": "9c9e0e3fc51bc727048cd6bd93632ce342a77d8a550b1219e356bb2edcb25b56"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/Makefile.in",
+      "size": 16407,
+      "sha256": "1b82ba8b8dafc28c4f7980bc65118c2404d8e170836e7537fddf5047a5b1f8f6"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf.c",
+      "size": 3447,
+      "sha256": "d7d042ae2c1d2509e6d474b6e08c84d072d5d1fad74ce2d17ce50998736f1872"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf_file.c",
+      "size": 8149,
+      "sha256": "60fdd914dd27ee61729905e107feff82e66c8aad0fad1567bdf0d14b24402303"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf_fs.c",
+      "size": 25674,
+      "sha256": "afec793fbc8756cc0ed5eac0c9ac7c5bedaf590da8f39b54f84580180dc4bf63"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf_fs.h",
+      "size": 1114,
+      "sha256": "f2fc342687e69511b9f37e7cda699f5da1486f405c5a6bf3a61e86ae945540f7"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf_private.h",
+      "size": 1984,
+      "sha256": "d8b9e516ad0460bf6b0d4a83e0ed4a995d2b6a55ae91598e77640da4364ad359"
+    },
+    {
+      "path": "sources/rufus/src/libcdio/udf/udf_time.c",
+      "size": 7697,
+      "sha256": "ff7a58bcd6f29eff59a9f3094f61882ea917a8d8d062a3531d3f03fd4271b13b"
+    },
+    {
+      "path": "sources/rufus/src/license.h",
+      "size": 43035,
+      "sha256": "f754cfea2ade513d55574f1c6a6f198e6c3d434df3d2fd80a0026904f33ffdc9"
+    },
+    {
+      "path": "sources/rufus/src/localization.c",
+      "size": 19863,
+      "sha256": "aabca26be097b4fcba4df544da2df213062f745a06d4f8d49a1e15f20101b6e0"
+    },
+    {
+      "path": "sources/rufus/src/localization.h",
+      "size": 5313,
+      "sha256": "f35e400d959f39595c341767e86978c67f3dec615fe1cb71764b24d214ecf560"
+    },
+    {
+      "path": "sources/rufus/src/localization_data.h",
+      "size": 13388,
+      "sha256": "8b50f4a4405a110ee699a28b9f138e93ffba921bdea4908abd1695c091a1ed9a"
+    },
+    {
+      "path": "sources/rufus/src/localization_data.sh",
+      "size": 2350,
+      "sha256": "97adebb216c8f66a8bb648235a7fdd35e4bab1ad9b72d97d214993a9e00d3fb4"
+    },
+    {
+      "path": "sources/rufus/src/Makefile.am",
+      "size": 1938,
+      "sha256": "1d21ddce14e6a5e60d478d12d5de6a447293301ca98ad09652eb0870b99903bf"
+    },
+    {
+      "path": "sources/rufus/src/Makefile.in",
+      "size": 34933,
+      "sha256": "d93b00c953204ce774fffe27ccf81273fef6d42a7c9b24988fd4257afcd41009"
+    },
+    {
+      "path": "sources/rufus/src/mbr_types.h",
+      "size": 5007,
+      "sha256": "802e4bd1a706a649994dfda9d9da65d6c44088ef804f26f9cb08a7547e8e0bcf"
+    },
+    {
+      "path": "sources/rufus/src/missing.h",
+      "size": 6908,
+      "sha256": "edbf7c7e716f98c0ef1ced1b05dd67d873d937dff927cd2905960df15bece014"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/.editorconfig",
+      "size": 18,
+      "sha256": "9cffd3915d9a58cb47f1ebf711fd80dddad4d9ca0a9404ccab10a7377d97e498"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/br.c",
+      "size": 9590,
+      "sha256": "6f2ce43b5ecf2d0ba62a594247d45874b33f5f93282ebf68d9a5e464777cd96a"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/fat12.c",
+      "size": 2100,
+      "sha256": "b49c62f80ce4a2621674d4fce136eef451465fc1476b408ec16a761c4c728775"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/fat16.c",
+      "size": 4579,
+      "sha256": "57bf393818c8d9baf96aeca6709e656285d104cb9ffadd20bc8776cdf6846c3a"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/fat32.c",
+      "size": 11597,
+      "sha256": "d8d58c2536f174174fb591d9ada705bc7caa336642aee3fa794b37a21c0d799a"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/file.c",
+      "size": 6883,
+      "sha256": "f4a28adee51d458fc956f6be034d08f8d2712343565631e53785e263953fc454"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br.h",
+      "size": 5662,
+      "sha256": "8e1c317ebc398f3606ca003085a2cbd0611b7aeaa6ce85276546b31afee885c2"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat12_0x0.h",
+      "size": 103,
+      "sha256": "6fe820f9cc08bcaf1245d954295a06a3807f6d4539884ec4f9ceb306fa244c43"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat12_0x3e.h",
+      "size": 2825,
+      "sha256": "48fe52feed25a6366775bb803f70bdc36676ef07f16827cf64567c8d6929569b"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat16_0x0.h",
+      "size": 103,
+      "sha256": "f1867318bbb20321c1f4043a73b6ad821bb4ecbf5861419142edef73fe0d814c"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat16_0x3e.h",
+      "size": 2904,
+      "sha256": "ca23eb58c31dd4af01f15f757bf518f1ff6ea344a2485b086db3d12b86f9d7bd"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat16fd_0x3e.h",
+      "size": 2910,
+      "sha256": "ec08ee38f9156e192041ac1dfe38d855600438e85b9f1172776c8767da06bcea"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat16ros_0x0.h",
+      "size": 103,
+      "sha256": "dda08ee9e0f1df52ac32a62ded4cb0c91891885dada4fdc50bd5635fcd2c6084"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat16ros_0x3e.h",
+      "size": 2774,
+      "sha256": "07ce57aad27bf01d17657609edf97e41f563d3780417636bff8f309595979e6e"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32_0x0.h",
+      "size": 103,
+      "sha256": "043237b08779d0b43bd521dfd899f46c395d5029c60d1222ee4e89ea87dd41b1"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32_0x3f0.h",
+      "size": 3293,
+      "sha256": "00b2120b926e0f2cc58586b37efd501d1adae242b97df4f0c202d9b501891d69"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32_0x52.h",
+      "size": 5760,
+      "sha256": "2becbe4c0aa60ca7f7d80cc11b2c8e013b32612629e090d15b16933de812a3c9"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32fd_0x3f0.h",
+      "size": 3537,
+      "sha256": "41119997fac52f9eb511fe9a52dfb9c9f03547a20ae4cf92cb2ad4f692ba6bdc"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32fd_0x52.h",
+      "size": 6043,
+      "sha256": "b001c3bbe329650bb7d60e17a662e70b103a8a852946c05237e51f9a4e8c433e"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32kos_0x52.h",
+      "size": 2655,
+      "sha256": "bfd00cb234cae10e3d6adea805ed30ffc0ff6f9c44fc4cc04246dc203bd5938b"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32nt_0x1800.h",
+      "size": 3198,
+      "sha256": "9cf167870e7a0ebfd452a7bd98e7a9c17f377a4608971fc01b130448620ae2cb"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32nt_0x3f0.h",
+      "size": 3295,
+      "sha256": "d3b1f1a5f67f521405bde31f77363d83af54e0b0e091b0714af59439f55d1cd6"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32nt_0x52.h",
+      "size": 5762,
+      "sha256": "e4fc4d51753db95b694f3fd47112eeb55fcb527904aa27ddd323ee9adf2e246d"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32pe_0x1800.h",
+      "size": 3198,
+      "sha256": "2fbfd05ab95614f580f8afdc85d36915a311149884e9e54fb0c8e14c654287f9"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32pe_0x3f0.h",
+      "size": 3295,
+      "sha256": "28bc996379bfd9cfd98c09e10404fe9376261817166c942162f87ebf5022b0f2"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32pe_0x52.h",
+      "size": 5792,
+      "sha256": "6b935a84c7dc7b0a9a27cd1996e7251853d1587dd520a34d0639b1bc4d2a4ed5"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32ros_0x1c00.h",
+      "size": 3156,
+      "sha256": "80b8e0bdfa0d733cf8daf177548722dc5bde14c1c31df85c9b114e96fcf93c2b"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32ros_0x3f0.h",
+      "size": 140,
+      "sha256": "4e5125fd395b444539f82bc5618bf01b52b2519a1046b6301a35cde40f2087d8"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_fat32ros_0x52.h",
+      "size": 5624,
+      "sha256": "5d05eac9519d316a52b4acfac4411f2d3e7790d6454bb824092cd5ecb0b4f313"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_ntfs_0x0.h",
+      "size": 102,
+      "sha256": "66fdf077a5e265b829de0040d714634ea732c48bc8e0d131e7cab7b0dde8c6e5"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/br_ntfs_0x54.h",
+      "size": 25023,
+      "sha256": "1796ec402376b110d08d9d64fdaf62e1b82392a010549407c9c359816082fef0"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/fat12.h",
+      "size": 568,
+      "sha256": "f01b681f15165584590a4448d9924a792fb60f6cd371df837f83272df3a2218d"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/fat16.h",
+      "size": 1530,
+      "sha256": "56e0b0c1005d054cca82c205dd4e5801382b8dc4660d205a6ccaa1d496f9d3ce"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/fat32.h",
+      "size": 2692,
+      "sha256": "bf5ba439f7ade4d3b839fa42094d63072a984937477508e71e5e479fe305687b"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/file.h",
+      "size": 1370,
+      "sha256": "8e67a652512631120b0c23d6738aba5333f8707d8d104cadc180ab4590a4dc15"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/label_11_char.h",
+      "size": 79,
+      "sha256": "82c7a4c4ade6f31f56a4e6a2b0ecc75bcc0b72d87eb126ef51cc96b8e3b65b5d"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/libintl.h",
+      "size": 205,
+      "sha256": "ffd5c814226ced8eb776b3dac33c1712c07920e71793d558a841e6357ecfceaf"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_2000.h",
+      "size": 3338,
+      "sha256": "1bffc902212a2e75a675cc27a6e02c2213811afd8e3ed5b7c75468b6b6019e29"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_95b.h",
+      "size": 3232,
+      "sha256": "21c3705b0a260ff90c6de5c48dc4b223c542f524c724864cd05739640cb35f3c"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_dos.h",
+      "size": 3020,
+      "sha256": "82b1152c83471c230bf9e04597b038a1a88ed4bcb8014d36a67825a6026a2a81"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_dos_f2.h",
+      "size": 2817,
+      "sha256": "88b71283610292ca0f1976e89aefd9877fc729c3d8c14b4cd37232c79c322c30"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_gpt_syslinux.h",
+      "size": 2814,
+      "sha256": "face6291a444689bb635a0568b889e2ab5201aea5d58fdae490dbe5dec26fbd3"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_grub.h",
+      "size": 2800,
+      "sha256": "260b8ade38f9242766fca03ad2d0d4e81b97a5fe3b70d278e985af87c4b6823a"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_grub2.h",
+      "size": 2975,
+      "sha256": "644c01a3ed85d554221c8eb1f5368484a120dce98c8331a530d12c4028bf105e"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_isolinux.h",
+      "size": 1948,
+      "sha256": "e9bf6d556a89188883a64185b5936894d4fbb3f8aed4550e8250d82e24ed364f"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_kolibri.h",
+      "size": 2759,
+      "sha256": "7f782b1418123d46290305e7b5bf43a22d37d38b545a7c12afd7f93188da440f"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_msg_rufus.h",
+      "size": 2935,
+      "sha256": "d7aeb5f6fa5099d67dfb7995b4e16dd9d2dfbdc70854571a63d1c9938f106b73"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_reactos.h",
+      "size": 1705,
+      "sha256": "56e23ab7132ebbc570bb0b0876b214831740009dd4d5db8df549eaab320b50ec"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_rufus.h",
+      "size": 2861,
+      "sha256": "464d2584142959be7e7db4e4254ba3ea1976c828ba7fa51ee7fe53a51b8f96cc"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_syslinux.h",
+      "size": 2807,
+      "sha256": "7857f7469f08c8d39f52037ae31f911a01455dd4a592286a42baa249dfd4d54e"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_vista.h",
+      "size": 3255,
+      "sha256": "3bf441ab5bf3efae5c591c7e135a8697cf1360763925a278547bfa5e881bcbfe"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_win7.h",
+      "size": 3322,
+      "sha256": "92555ae771de13886ebe3a429d0e9d616280f66988bbb41f5b1dc5cf7e507685"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/mbr_zero.h",
+      "size": 2824,
+      "sha256": "7af36ce11f6ddc3ab1d07dc2c08c2a969469d0d61ec6eaa7201c3165a4876e27"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/nls.h",
+      "size": 297,
+      "sha256": "17b4d412baaeaee93ff1bbd2a44a5c82eb5788abdbc61de69dd1a57089acc914"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/ntfs.h",
+      "size": 723,
+      "sha256": "c9631916a58d1f38169a3391cd76ebedb24832b45e6cc32b94011163ddb4ed41"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/inc/partition_info.h",
+      "size": 611,
+      "sha256": "f0603a0e71cbe15ee72371af43d0610c70055290b12de2092b16cf4cbe1a41ed"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/Makefile.am",
+      "size": 161,
+      "sha256": "a09684539a25e5f6a3e71f763bbdeed72f25dc49e8beb7d90dc825d8cc2075df"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/Makefile.in",
+      "size": 17366,
+      "sha256": "8b34c54dd92da9faf7fa84a2c4aa764ffb12dc04f1109d5ea8e652a5259c907e"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/ntfs.c",
+      "size": 2282,
+      "sha256": "3fbc9ff3dca9f71c546cc3abfd921f42720da87e8d2c7deb4703f5991602b6b3"
+    },
+    {
+      "path": "sources/rufus/src/ms-sys/partition_info.c",
+      "size": 2505,
+      "sha256": "3263bdb7d436145f8469f0464ecd00c0e959dbbf543ad397176edea6610a360f"
+    },
+    {
+      "path": "sources/rufus/src/msapi_utf8.h",
+      "size": 45490,
+      "sha256": "8f8e7f283e536b4a8b34861110155a22e55b4c2cc3aa6368a4aae1d52fa15021"
+    },
+    {
+      "path": "sources/rufus/src/msvc-missing/unistd.h",
+      "size": 1497,
+      "sha256": "34b385b0abc50a50210504c896853b8742fdfa70ea48cf472cf93f31b8f9e699"
+    },
+    {
+      "path": "sources/rufus/src/net.c",
+      "size": 41999,
+      "sha256": "190e7733f81b1ab417060b68285d0e9b65aedaf86a839e688dce02401bd8d90d"
+    },
+    {
+      "path": "sources/rufus/src/ntdll.h",
+      "size": 13491,
+      "sha256": "72b14988b1d3b7faa0ae61c877667884cbeed0a0d4fdb81b8f25ca8ee614b50c"
+    },
+    {
+      "path": "sources/rufus/src/parser.c",
+      "size": 53340,
+      "sha256": "cbe39d86a3794ff2d0f7911e30d4c79b9fedee316148f2f9e10acfcff5eeec26"
+    },
+    {
+      "path": "sources/rufus/src/pki.c",
+      "size": 34233,
+      "sha256": "2ebdf0eededafb2d7d9468b16512b40b698fde0f18553794039d4abf5e701314"
+    },
+    {
+      "path": "sources/rufus/src/process.c",
+      "size": 31940,
+      "sha256": "cdb72a353295c95963210e9110604b8e962b1ea2ff052af44052d3cfd94effbd"
+    },
+    {
+      "path": "sources/rufus/src/registry.h",
+      "size": 7233,
+      "sha256": "4c88b20852e8bf56e7c285a0632290f6d5d244bd8e561d54d7fa35a98a1648da"
+    },
+    {
+      "path": "sources/rufus/src/resource.h",
+      "size": 27860,
+      "sha256": "b67977aaeee46c60a099a2d084387785df5cad8e4abc0ab068acd9c7fe47924d"
+    },
+    {
+      "path": "sources/rufus/src/rufus.c",
+      "size": 195216,
+      "sha256": "b87dea14cd85fa652cf92e90256b2f9263a99043bcb908a2bbfcbe641f470345"
+    },
+    {
+      "path": "sources/rufus/src/rufus.h",
+      "size": 47190,
+      "sha256": "2198937a22c9a5f8f537f8bf28620c9eee8bbcc54f7f5a6887addb95bbe17f47"
+    },
+    {
+      "path": "sources/rufus/src/rufus.manifest",
+      "size": 2185,
+      "sha256": "94e4495b583e3c2f74998fcaf37eb70a8732e92f5e0124f53d288259aff843c7"
+    },
+    {
+      "path": "sources/rufus/src/rufus.rc",
+      "size": 29462,
+      "sha256": "5e7c25969a5dac4da899d1a6609f6a16d8a59bc7ca6bdde7cbf2030009806048"
+    },
+    {
+      "path": "sources/rufus/src/settings.h",
+      "size": 5995,
+      "sha256": "54506060b5c77270a4fc78dd51f613b629385a42645f0d1c4e5641db31e30211"
+    },
+    {
+      "path": "sources/rufus/src/smart.c",
+      "size": 18255,
+      "sha256": "bd7b96ac3c9e308c56f9d63726a74670fc7886b8bcc5c060ceb76a568ee772c7"
+    },
+    {
+      "path": "sources/rufus/src/smart.h",
+      "size": 12033,
+      "sha256": "b68129ae7a736bbbbdcd71a62d2b89619276d09632e9df7068d4a62e57e164fb"
+    },
+    {
+      "path": "sources/rufus/src/stdfn.c",
+      "size": 39245,
+      "sha256": "f0ff4081dc4f5bd6610f38a5807228d9b097e826707f47aed52f08e9631d8d4e"
+    },
+    {
+      "path": "sources/rufus/src/stdio.c",
+      "size": 32426,
+      "sha256": "ed2514e9b51b46c971758b87e3796695171dc25b937be242ee8064b66ffef785"
+    },
+    {
+      "path": "sources/rufus/src/stdlg.c",
+      "size": 92757,
+      "sha256": "beb2c6e10eeb1f1f11ced1704014d913d8998a0eb0894c5e7112a221ba271ec0"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/.editorconfig",
+      "size": 34,
+      "sha256": "70dfa2e9ca235121a7e43d4f78bc4015272a88da6579ee6835d8712ff7b4fc4c"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/cache.c",
+      "size": 2148,
+      "sha256": "11bd0df6fda7169f630065204836316fb0dcee2795f707e5376227860ae135aa"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/dumpdir.c",
+      "size": 3993,
+      "sha256": "8f1c0fd12d87030c8866f3df454e5b0268ff847d22ab934baf83f09118ab7644"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/fat.h",
+      "size": 3662,
+      "sha256": "caf9994591e4a2ad3e870f26549842b3d961e08865dd802f97c14c05d9079d53"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/fatchain.c",
+      "size": 3259,
+      "sha256": "45c93a096cf1edacc02b529260a3b7e74d750716c97f9f75ed0c29f18f60185b"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/libfat.h",
+      "size": 3225,
+      "sha256": "557652246620b7be5488f22194fa0ce6265944713261dcce67695fc345ba6156"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/libfatint.h",
+      "size": 1806,
+      "sha256": "b80b3c15495ed0922a9569e294a8e3e8078c7483640c6ce5f1be9674ccc48481"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/Makefile.am",
+      "size": 127,
+      "sha256": "6d1d110e86970ee5a679d931815906d1daa01c11ce0bac8c9029824564d2c1b9"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/Makefile.in",
+      "size": 16274,
+      "sha256": "b5d76c359ed18ce1f95110b6fbf1b1cdfcdcd82d05b748b1c249dd5002c9a4eb"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/open.c",
+      "size": 3012,
+      "sha256": "b05b35c65f2ad1a2078d109fbb64fb6231cf35b87d23edd3bd53c8ff1af5e58c"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/searchdir.c",
+      "size": 1965,
+      "sha256": "2f1758edb0797e98399e2df950923d5ead59fed0c698216cfaa5a285a333a6d5"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libfat/ulint.h",
+      "size": 2339,
+      "sha256": "db8592ea5db13620383ab34d0088e030c8180af302648e2c17e040b6e9ce1a5d"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/advconst.h",
+      "size": 1771,
+      "sha256": "55b0bd83ddfe31b91fb31aea050daf535ec5e8f74434aac0c080b7e39570f6dd"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/fs.c",
+      "size": 5808,
+      "sha256": "4209b40fdfd308a0b6e66d5b1a179c3f600340453cd96fdbb9ae00ceb510f2d8"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/Makefile.am",
+      "size": 151,
+      "sha256": "a50ba7d3e24c2e1d94403063fca7b073b95a674517f4e87edc119a49a628e744"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/Makefile.in",
+      "size": 15471,
+      "sha256": "7ab3ef9488efad6683f0d3a32b7628f633596c1653ea5736c2c8f533a42f1bca"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/setadv.c",
+      "size": 3991,
+      "sha256": "d6c0dd733c857b7acc3b428d246b5ea2376b23d259950323407eedd8957a3fb2"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/setadv.h",
+      "size": 473,
+      "sha256": "ec2b94207879b608cdf10f08d4101f608f8e68eb6df8fbdf7870ddf20f0c2e08"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/syslinux.h",
+      "size": 1845,
+      "sha256": "2dcd73981ba20c6ec3de17b400300431c1effa8adf9d1201cfa6f352956b1755"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/syslxcom.h",
+      "size": 75,
+      "sha256": "42f903335c8afc26fa6776f290f9404fa0387b07f9276e826ee6cc8efe310c33"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/syslxfs.h",
+      "size": 773,
+      "sha256": "ce60e364cc10bedc3b550b1873f5166105b0f958a53e232e3ca989e1ce465d42"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/syslxint.h",
+      "size": 9593,
+      "sha256": "63e1d75c21fe9c2957ffd68126968bbd6d730e4747b3c5527482cc4f05a516c7"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/libinstaller/syslxmod.c",
+      "size": 6188,
+      "sha256": "9c4448e85180d06bb34ab60954c37ab12f8d853383ad6d9673fe89c3588247ed"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/sltypes.h",
+      "size": 574,
+      "sha256": "94f5c9281d933c47ee6fd06e3ae8868f27bb16685f11e0c755901fd5cc877ac5"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/win/Makefile.am",
+      "size": 90,
+      "sha256": "0a643093d2a39122eb7cd5ce36087cc23970ab2d5183fdd341a589e5443b9f40"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/win/Makefile.in",
+      "size": 14170,
+      "sha256": "dcc4938ca58ae454137d8cd379f7f660fbeb5e22a31867c079561db6f2bb3de0"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/win/ntfssect.c",
+      "size": 8678,
+      "sha256": "ad9a640d496787aff712a8acb1d392616fa4313cdeb8bcc4c8fded314a4c4d4a"
+    },
+    {
+      "path": "sources/rufus/src/syslinux/win/ntfssect.h",
+      "size": 3444,
+      "sha256": "647d6e300997c89403129bdb02578e9d55d5e9e2efd4829747c147027bc10a06"
+    },
+    {
+      "path": "sources/rufus/src/syslinux.c",
+      "size": 14983,
+      "sha256": "4f6be12a8089dc2ea50c4929cb9399a08279366637aa516496609280bbf197dd"
+    },
+    {
+      "path": "sources/rufus/src/ui.c",
+      "size": 60950,
+      "sha256": "691384c1c43bc9fc62637f8271262d8ef4fe23758048bc8f1ec61216f2109002"
+    },
+    {
+      "path": "sources/rufus/src/ui.h",
+      "size": 4956,
+      "sha256": "c96ee172eb7a527188c5a7bd956f75de57c4a62829ce9d9de73a49ec92a6476c"
+    },
+    {
+      "path": "sources/rufus/src/ui_data.h",
+      "size": 5172,
+      "sha256": "04b595d32782f4ffc685c97b439176a555854269738cfb9beaa11b9950175703"
+    },
+    {
+      "path": "sources/rufus/src/vhd.c",
+      "size": 24667,
+      "sha256": "55d8f50f7e9479360e347482fa6d5814cd30c75680f6b2b0a971f1559336db72"
+    },
+    {
+      "path": "sources/rufus/src/vhd.h",
+      "size": 4973,
+      "sha256": "7a1d8c31fe44fa537a8360db07763bf9b36a3f59e1cb791d13e0e41cdef8875b"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/avl_tree.c",
+      "size": 23985,
+      "sha256": "5fff3f95b6c3fb89804314313cd5edf2f1cb7d55db5f21dddf7ff269b703cc82"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/blob_table.c",
+      "size": 40309,
+      "sha256": "f9d7ebaf371394d43cf2b350aa56ce87d37eceb9eed2f2a2a68d282145670909"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/compress.c",
+      "size": 4904,
+      "sha256": "bc3173b058a8142b110d8eb6cf5fbffd88d2ef3618ec8c155054b65585bb0542"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/compress_common.c",
+      "size": 24747,
+      "sha256": "a588cccd434c0b7c3849601502b45c6b0a5034315b6e08809fb3272cde51ddae"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/compress_parallel.c",
+      "size": 12950,
+      "sha256": "52057836bf0bee55e0a8589bbbc669bf2f61680fd16923a720cf570b5a718d8f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/compress_serial.c",
+      "size": 3753,
+      "sha256": "9eb76bc32eac2120c05d0b258fa4eb4105499886fd072f355513df4ff3d0a454"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/config.h",
+      "size": 5927,
+      "sha256": "c1c738174fa47d254eb15ede0f6803a53e8ac3697db9302632ab454cb0c16733"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/cpu_features.c",
+      "size": 7726,
+      "sha256": "41ae441cff43e182fc98cf720e9652ca1115055a5a611ee43ff388c13bbbfa55"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/decompress.c",
+      "size": 2879,
+      "sha256": "18683bfbc476dd616eefaee812334a922baef9ed6d8dc9af9f41548705a2970c"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/decompress_common.c",
+      "size": 13436,
+      "sha256": "6f9a00c4346c2cef0fb129e0e26e5434548d23f24dd3fcaebe579d7e0304c1c5"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/dentry.c",
+      "size": 59654,
+      "sha256": "ecfcdb6dab07a1db134e312ddfac4779a876b0cd8f1e870b329a3c7bfad679a7"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/divsufsort.c",
+      "size": 46296,
+      "sha256": "3bce72edafd09209df8c6fccaa961affcbf3a8a2795200ae8f17c3c3f6fefc97"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/encoding.c",
+      "size": 15719,
+      "sha256": "cb589388883bedc861e7944cab6862a5b3323ffc043caa8dac79e31dc8c49edf"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/error.c",
+      "size": 11245,
+      "sha256": "e2e733c5eb969733b01e43d719f4b39f9d087f77b496cc390f3de69cf9042dfc"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/export_image.c",
+      "size": 8721,
+      "sha256": "b56327e985e258f9fd17fa45eba7184c59baca4be0a449063d9ae01a01036935"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/extract.c",
+      "size": 60938,
+      "sha256": "09544db12118e6a1d43f53d1f6e8b3965acf9b5e44a1a7a312c221e77d56da31"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/file_io.c",
+      "size": 8642,
+      "sha256": "c712a3d2f10670d3259d496c1bc04ec153d84cc9538ba1e3d45105ccb199a067"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/header.c",
+      "size": 10040,
+      "sha256": "506cae7cefea0962c37679bdbcfc9eeb9395e84f2480ca669f34e735f9bc635b"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/inode.c",
+      "size": 16884,
+      "sha256": "826eb6443de1318231539b693e4566b7047519822c8def6216ce223da394221b"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/inode_fixup.c",
+      "size": 6480,
+      "sha256": "ce54c0928764ab720447a07fb80a39925d72eaa202f3b62c5664136e0992f007"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/inode_table.c",
+      "size": 5846,
+      "sha256": "37d2981e14ed8a40e01c7e05a3e3088c0ffa66c3057b50052289c1a3ce258493"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/integrity.c",
+      "size": 13572,
+      "sha256": "ab2a9feb9b45bd0e06b3e67d501e3d5dbb2d208daf27c31bd1e08dd1e740b84f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/iterate_dir.c",
+      "size": 7583,
+      "sha256": "87c07fc4a2543cd724280e7fcbdeff80160985205f7f78772a1aed0bceaaa1a8"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lcpit_matchfinder.c",
+      "size": 26794,
+      "sha256": "ddbd06f40834170c2f8738d39582467701fb983e7e75a9d4042fafb5d6ea8717"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzms_common.c",
+      "size": 25124,
+      "sha256": "a7ef1a6283ee570bdea595ae5ee12c975264d1a20f55c1d7184803a5dc132be1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzms_compress.c",
+      "size": 71766,
+      "sha256": "668044781073fee29874396f56851562fc409965ee261bdcc1909edf76c7dd64"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzms_decompress.c",
+      "size": 34311,
+      "sha256": "b81cfee2edffbd0bfb2c4eafe1cba07f1bf0a6293cbeaa90aae816f69bb8903f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzx_common.c",
+      "size": 10093,
+      "sha256": "b2030e7df313759b25d10095f884037fb2c65b694c4732d703f3d779a08cfe15"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzx_compress.c",
+      "size": 101477,
+      "sha256": "738534ed8b96a43c913bccf3d323ffe6ec3906a6bb913517cc4915d8a6f66f71"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/lzx_decompress.c",
+      "size": 17402,
+      "sha256": "a1c3dfacbd8741f166ef8b8cf83f3dc837f736134635ffefd268420a1e8d624d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/Makefile.am",
+      "size": 1133,
+      "sha256": "2a5333b6ce67531bd0cfceb1a96c7e033724d7655a930fdee49f6828eefbf00e"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/Makefile.in",
+      "size": 48563,
+      "sha256": "a68712a2c74cf0c5c9d8d72a1fed75a7f3264582cf4cd97badb052f22d702a09"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/metadata_resource.c",
+      "size": 7459,
+      "sha256": "4dd2fb7cbbecd62f15aaba164281bd48224b09efb8b646cd991273ba000d803d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/pathlist.c",
+      "size": 1384,
+      "sha256": "6e8077d7f2a3bbcbead6709193fdf807cf802c52742eb7fac7ccc880a43450cb"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/paths.c",
+      "size": 3636,
+      "sha256": "0ff3acf573c77b421ccbf180c06cf91e65f4a20affad03d1ef098d10d96eb166"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/pattern.c",
+      "size": 5765,
+      "sha256": "c03da57a509b94028c51b0f29d1a81789974c070a0e0ec33cfabe4d40eeea49e"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/progress.c",
+      "size": 1549,
+      "sha256": "5dc045f9425146e572c62abdc05961bed64a06bdb1a3007a4513e349164117ec"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/registry.c",
+      "size": 19851,
+      "sha256": "f81d5beda5732a034761cd287faacb9ae02796af0a76166be1a22bcb1576fda7"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/reparse.c",
+      "size": 15560,
+      "sha256": "36a5f114d4df3bab239fef85ff6267323ac61e4ff6a4c0a4d4f761af6a08b7da"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/resource.c",
+      "size": 45617,
+      "sha256": "68ae71d59292d9ed46f615cee1d0cb5880541f541782cb9b4398514e33129a1f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/scan.c",
+      "size": 13786,
+      "sha256": "14f60d740e61432cc7f6782a0fbff3700f5aa18abda563f6244bba5f2fcf7cb4"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/security.c",
+      "size": 10563,
+      "sha256": "50eb395edcf14c598f437230ee93ee19456e139d3cec069c59fde479d79c5733"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/sha1.c",
+      "size": 23026,
+      "sha256": "98be0e40d64463ba744bf9bf4c13c349133d315ec836dae2de3aa3a8627cd5f3"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/solid.c",
+      "size": 6775,
+      "sha256": "9824b09bbfd20beade7209e18503db93d449f06cec06ece4f5ae0b2030077fa0"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/split.c",
+      "size": 6860,
+      "sha256": "aa22b34ef79c004acba7d6849b3429a3c5c6066ddd03e9dfd6e17f0c3aa29137"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/tagged_items.c",
+      "size": 6369,
+      "sha256": "588b2aae1ac8ff502494be719f6ae411ad773d14bf0fd3ed4926832a86819894"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/textfile.c",
+      "size": 9896,
+      "sha256": "147e66408ca06545024fe525aca6bb8844e91fb4dce055c621a6a85d964ab3a5"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/threads.c",
+      "size": 4872,
+      "sha256": "00b19840ff828909b6d9cff55c21317fcdd592be2f74f1431efdcf40c4922a64"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/timestamp.c",
+      "size": 3860,
+      "sha256": "4dff0f0962dba0fb21d1bd66e112c293adbacd81a57591a1f3640df264ccc4b1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/update_image.c",
+      "size": 40792,
+      "sha256": "92399882088b775bc2ae996ebcd65b5ab939d5d8dfe31e2fc243fd4c95cbcf0d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/util.c",
+      "size": 6463,
+      "sha256": "fca9c07faac41cabde19fe2e5af083cbc4d10334a6981dd803c0f630b9cfe45a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wim.c",
+      "size": 30518,
+      "sha256": "90e849c63c73aaf2e3cdf42bbeea6f83684ad111d3902ff343f551ac4d2c18b1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimboot.c",
+      "size": 32967,
+      "sha256": "9d616b3b9fe792a5dcd7780b39618a70daf41b264a2a9edc84976d9de97d5c22"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/alloca.h",
+      "size": 160,
+      "sha256": "0d6b61df49b553c201724f65f1f1fb0b0922772906b21b5edda5254f0d572218"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/apply.h",
+      "size": 8898,
+      "sha256": "8570265c7df62027340dc7e754f30ed46a0ddb3a94cc11f8b0a0083ab6c1bc26"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/assert.h",
+      "size": 143,
+      "sha256": "dde53179e68236889dd13e4b8487a4acde8f21c2a31894282ec6f8ac82c1f7df"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/avl_tree.h",
+      "size": 10349,
+      "sha256": "e050116c72914e8ea0d33c98b941f3825739a475795e5dffc588e5ad4a4a1dd1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/bitops.h",
+      "size": 2684,
+      "sha256": "e33b753d51b21f3803750400509c4ffc0111d6a815b0a440a31e55bbbefe1faa"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/blob_table.h",
+      "size": 11989,
+      "sha256": "6bb599b8f7ae8c59f27782a09bc2811424de11fc75dfe374f1694ef2296b64e5"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/bt_matchfinder.h",
+      "size": 12724,
+      "sha256": "c9303cfc1bcf31018909de3effa82a80efb9cfb2fb1edb9d575790d1f966cbb6"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/case.h",
+      "size": 754,
+      "sha256": "293bf94a0e61aca4505ed9e0cb858498538c75016a6158ffb1c1f950529b4ee3"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/chunk_compressor.h",
+      "size": 2760,
+      "sha256": "b19af28b2c6876f445ab57423761399fb2a3dea49277a179eb47dc3c87b23e8e"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/compiler.h",
+      "size": 9136,
+      "sha256": "79f379e90bd3c35749c718b38d71c2f43ec29ae14ff352972a63f2fcb4a27673"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/compress_common.h",
+      "size": 452,
+      "sha256": "d70f7afb8611a23c1570d36ddf44c73793eaf1dac25b6e23fc24d1ba636f9497"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/compressor_ops.h",
+      "size": 883,
+      "sha256": "298f77b708eeeeb9eae2f9d49e590efc4f4c601c7a355b056d3f7dc6e90619ba"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/cpu_features.h",
+      "size": 955,
+      "sha256": "cc6d436201f6bdfd427719418f79bf5051735320ea0146439114dc2a53aad837"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/decompress_common.h",
+      "size": 20732,
+      "sha256": "db659dd7bdfaaa0542ba454531f9113e19a574ef54da2e70206f925e5608688e"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/decompressor_ops.h",
+      "size": 718,
+      "sha256": "d5d5df6d393b99208064d43f8f523b892f00780b434ddc42376f6ad5e059a0ac"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/dentry.h",
+      "size": 9007,
+      "sha256": "387c34a2ed5a5a237f25bec9c0c470d33a92971846e22e67aed7f2b28cf86662"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/divsufsort.h",
+      "size": 225,
+      "sha256": "5ef52181fdb511f2db013a2850c29e3ea695b048bac6db6ec63544d0ac881489"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/encoding.h",
+      "size": 3372,
+      "sha256": "6276087bcb0aac1301f156bd9e0bc0745ea2f2630585aabbfe21b71acc2d0dc6"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/endianness.h",
+      "size": 4625,
+      "sha256": "dd0f129852ca17525b453cd5cb9a99c692412b5e694bd5cec29964b6bd7cb4bd"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/error.h",
+      "size": 1376,
+      "sha256": "4c0d4c48a23cd80b2b752b8a0946477ebd0a4f94e311526a688d51d54f3df4bb"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/file_io.h",
+      "size": 2116,
+      "sha256": "ef08dcab0cbbe1a0e3ca75e4ef83d06f1d4d815329368a1288114af6dc53f5ed"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/glob.h",
+      "size": 764,
+      "sha256": "02aa04c27383ede7194dee761bfe00b004ddcfb9602723eca1bbeb05fa4f675a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/guid.h",
+      "size": 703,
+      "sha256": "fd3fb96c93bb685ec638da520ac98919a4cde2ff9fed0c0444d45eafce96bfe2"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/hc_matchfinder.h",
+      "size": 13830,
+      "sha256": "9f6e4833113f8ae3f7c1dd1c085c0a5ec8bdfa922f1e8c4b7210c9250f9db442"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/header.h",
+      "size": 6955,
+      "sha256": "7ef327b00dbfd31d3f927ee2b5b08b0c1be23a4365928403c2a10f4e6e533085"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/inode.h",
+      "size": 14298,
+      "sha256": "b3aba9fde35337f85d50233cb786ac9a4f53fa5c6b83e1ae69261d5ab9d3083a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/inode_table.h",
+      "size": 1397,
+      "sha256": "b576eafd05798bd72b9a1c17025c183c4b4c6b56d4de6636d16a0c4113dd94c5"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/integrity.h",
+      "size": 618,
+      "sha256": "fd211b4442b9957af742017b8bd196c07e8e5df497ed2257320c12e52963fb22"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/lcpit_matchfinder.h",
+      "size": 2213,
+      "sha256": "7ca570d504b7cde0c2a4afb83fd746b58a4fbf993a900abb287ddf5630cd47e6"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/list.h",
+      "size": 9471,
+      "sha256": "e499e777a8c6118041df6fd288900f984fffed7cf4cff5558b90bc91cb126dfe"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/lzms_common.h",
+      "size": 4346,
+      "sha256": "ed05a818f5272687eeba4403592997a927d27b4ccbd9c781d8b95ad73a5c45d1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/lzms_constants.h",
+      "size": 3204,
+      "sha256": "2cf96fe8040f80f75ca61c65294861aafd38cf40f18ef8082c8d6b59fdd74ed6"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/lzx_common.h",
+      "size": 547,
+      "sha256": "b9aae44b7c0d69e972c52eb71d1fa18b91faecd0847d1d396a97a35730436f95"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/lzx_constants.h",
+      "size": 4031,
+      "sha256": "b25b11d5a9005ab6f2665ebbfcb0290fb2f6823f4ec19a7afb0721ed4ebab000"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/matchfinder_common.h",
+      "size": 4003,
+      "sha256": "c0f8a3bd49b09ef2f154df1770ee9400be90aec185cca2be514c2da5a8648a5a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/metadata.h",
+      "size": 6210,
+      "sha256": "6be3c0199e3206eb898e971a1c2e2d662ba999d283f77f5c8046873870cd9571"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/ntfs_3g.h",
+      "size": 617,
+      "sha256": "2bb64946691ac60f9829c4fb57d95f28a3a02ee6cdb2332f3c0a6a990a84868c"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/object_id.h",
+      "size": 786,
+      "sha256": "49a43433b824e5cef8bd282f4622825a28863a964541e85ba444814e55ebef66"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/pathlist.h",
+      "size": 234,
+      "sha256": "147384134ed801b8b348113fd3e5941a3408589ec41827a723668b76b29ae091"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/paths.h",
+      "size": 1294,
+      "sha256": "47559a36d83a4f3b1cd98dc67afb206591fdf9457cfcf5cf0fce7e15bd5c8c61"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/pattern.h",
+      "size": 736,
+      "sha256": "2f176fa52d82063ed462398f32f8a829dde7c82592b874a600fbd6074d5671c4"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/progress.h",
+      "size": 2556,
+      "sha256": "67a1fbadd880e57eb20a1fc75982361f49b282e8016cc7c878d2edb67c178a76"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/registry.h",
+      "size": 860,
+      "sha256": "fb8e2cca6fa400ada636681fee03aa338fd82b87bb01a309bb9f527919efde3b"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/reparse.h",
+      "size": 3063,
+      "sha256": "829ed2024f0950e6989afb9dff3092507399d109f910e7f116dcf0f2bed87717"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/resource.h",
+      "size": 10075,
+      "sha256": "46e23cd14841cbb1909ad56a133d8ebde19e28c4b1aaa132e5be56cb4ed16222"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/scan.h",
+      "size": 4094,
+      "sha256": "1cc89663367d05e02e368911bd949eec8031618949809bb91467f64eb4c2b3c8"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/security.h",
+      "size": 1768,
+      "sha256": "e745f62a689babfdb83d7a47438041fe8c6bc2baf3667adf13c396ac6e9a7375"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/security_descriptor.h",
+      "size": 4530,
+      "sha256": "024a1d1b189d58b92befb85f42bdc7c9a97a390796168205e3e014983f73ccab"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/sha1.h",
+      "size": 2341,
+      "sha256": "8316b125f82ec6d1069c78805e1dcfc55e94146a910eaa7beea22f9e2ad611b6"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/solid.h",
+      "size": 169,
+      "sha256": "0e5d553b51f9efdaf200f29301c069f2d372f4581f5f119a18486af407190d2f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/tagged_items.h",
+      "size": 742,
+      "sha256": "11903ab3f797c951fd2bc93e4d89d0d5516f60502c28f9ade4fe23afe69b422d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/test_support.h",
+      "size": 998,
+      "sha256": "65165e78ffa3e8c03d73fd7d7a39771605d576b0fdd634c5e1c0c766017d228a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/textfile.h",
+      "size": 946,
+      "sha256": "949cfdae800e626c7e635910bfe97986307e08fd5d185f215b23dd4ec21a786e"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/threads.h",
+      "size": 1041,
+      "sha256": "d478bcfb12488e37d93f26543fe0e7481721aef46a3912c7f45585251057e31d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/timestamp.h",
+      "size": 834,
+      "sha256": "7c05cbef0895061a6c8d2f72a8309727153e2e346c3fbb384f450ea233ea72cc"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/types.h",
+      "size": 1366,
+      "sha256": "2704cf77d72d820616308ccfba9f52bfb560f5c0f5ba6fecb0039ecb6f5c94d3"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/unaligned.h",
+      "size": 3478,
+      "sha256": "4353c6153e021e290daaa957db7931a36b8c31aabf40e7cf242103cf07c31884"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/unix_data.h",
+      "size": 606,
+      "sha256": "766e777cd28f0037f4c290eb1bffa413f97d5d14f49e101097304b7a70388e4d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/util.h",
+      "size": 3124,
+      "sha256": "7a369271c1a9fc89948c0b8db3a31c3c8253bd8058d46a46348ecc9316cecc18"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/wim.h",
+      "size": 8044,
+      "sha256": "8f0af43c37319d2e6ed7729160498c44c2950fe573f677811472c2d81a0a649a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/wimboot.h",
+      "size": 573,
+      "sha256": "9e7cce323a6a587e99b2f8d64f6d717ddd4f14a1a01d2f11a9a3f482271bb13f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/win32.h",
+      "size": 1372,
+      "sha256": "fe2cacb9ce7486a57e7830400330ff78c116fd84e9e03c99533398d61342e56f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/win32_common.h",
+      "size": 12830,
+      "sha256": "12b0355b304cde29736e03228d0853b1216f430d1d0155332503bf58ee233846"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/win32_vss.h",
+      "size": 1106,
+      "sha256": "53c0dcfa82bcd5561f19c387534584048c67c1a5f9be952626a099ebef101ac0"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/wof.h",
+      "size": 14908,
+      "sha256": "7d8a258e26138004e5fbaf16ec2fe0447707d74a8582e24b6bf081d01eeb5f3d"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/write.h",
+      "size": 2007,
+      "sha256": "8ddde700f42d1b750528327dba5b4669298b4afaf4883024114ead8fce3fa912"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/xattr.h",
+      "size": 5588,
+      "sha256": "642fdaa36f83cd828775756f2a98b377cb6386b9087936329bd59c8ae205e47a"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/xml.h",
+      "size": 1769,
+      "sha256": "a2d43b1b55d3f1f040c0e93d48337db1d1da67551e8a57aa6eda4dd3f8da9a98"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/xml_windows.h",
+      "size": 171,
+      "sha256": "efb5102e11ad95978b4de1ab6d07acce576e52c26d605c1100535abc49295783"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/xmlproc.h",
+      "size": 2267,
+      "sha256": "40ad1fd2255489cbb1e47763f7f76aa762316a599330265bfee95f7afbf6100f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib/xpress_constants.h",
+      "size": 427,
+      "sha256": "aa16a565e96710303f244f3849a1e5a0bee3859c4339c733e29d423fc0881f04"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib.h",
+      "size": 202291,
+      "sha256": "08c49edc954dd6657917935282290f7d0da15c3390b88f7e9249f126712ededf"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/wimlib_tchar.h",
+      "size": 4774,
+      "sha256": "da29485621d689cce9f294af6bc3d991e6b96005c7de1d417160efd0e656461b"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/win32_apply.c",
+      "size": 101556,
+      "sha256": "e5b1470f44015cfa4748026009fd3852944b4f398ae0310ab3dc444a6ac2bc71"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/win32_capture.c",
+      "size": 88719,
+      "sha256": "9a2b3a6c0b2b372b37fc627a6bc1de801df1062635417523e3a0961c78b04948"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/win32_common.c",
+      "size": 10337,
+      "sha256": "623fdca11c82a1648b38926535d59c2447c9e16d6067ea4ba3ebd666503f30fb"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/win32_replacements.c",
+      "size": 18072,
+      "sha256": "6fbfbe29d652e04b50950361f1326b21c691f00bea000db385e5c263070a6cb3"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/win32_vss.c",
+      "size": 15704,
+      "sha256": "40d10a3b6fc831a17164c47c5d45d5e99acfdf6b57f34567802c3f4060220244"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/write.c",
+      "size": 107283,
+      "sha256": "e58dc2d16a16524f594bdf16732dff9ab15702c75f5b3fb8b80dbb1582a82037"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/xml.c",
+      "size": 34506,
+      "sha256": "faaa1dc77224289e3de57795e7e5ce02aa1cfa4ff38278939ad9df10e948f2af"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/xml_windows.c",
+      "size": 31451,
+      "sha256": "b0ab9b9c226b027d91f4c8452e021db90c779659db64c5cd17bca78dd098a1e1"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/xmlproc.c",
+      "size": 18949,
+      "sha256": "55c29b3c2dd5fd9bb3139f9e6bcf46ed2f3dea84614d4c9c3ba054071a48f019"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/xpress_compress.c",
+      "size": 34642,
+      "sha256": "2537c0793cebf939988f2d2e1a9df71e86cb21959f8618abf4fd9b00323a602f"
+    },
+    {
+      "path": "sources/rufus/src/wimlib/xpress_decompress.c",
+      "size": 6029,
+      "sha256": "32ff22d119c665501479a8b3af58b33e06a337308e2b63343f828e7be4eb3dd7"
+    },
+    {
+      "path": "sources/rufus/src/winio.h",
+      "size": 7188,
+      "sha256": "33d68bdcdb5dd96b3a68e1810d6fd7637bcad6c8bfa9e8078b4dd0db0c9f3ae5"
+    },
+    {
+      "path": "sources/rufus/src/wue.c",
+      "size": 70882,
+      "sha256": "de772398e1bae94c4dae7b86570c5050a8ffb43f6c06dfea9e9f77a9ac46564b"
+    },
+    {
+      "path": "sources/rufus/src/wue.h",
+      "size": 1219,
+      "sha256": "5dbfb72b3edb3938bd7edb38b13d5b7ae7845928f0a2d7e8f33b56e673836526"
+    },
+    {
+      "path": "sources/rufus/src/xml.c",
+      "size": 42459,
+      "sha256": "9ec50d02dcf39369c28504330c43e74914138201d3256ace6b0c58ce9ef1742e"
+    },
+    {
+      "path": "sources/rufus/src/xml.h",
+      "size": 7072,
+      "sha256": "c79444f8492fd2b5ccbcef021bc44625e3dab46f88b25f1b0cd34c5ba16b0c8b"
+    },
+    {
+      "path": "sources/rufus/tests/huaidj-options-test.c",
+      "size": 4204,
+      "sha256": "04f9700e58017c26c8bb480f4c21604bc4612613b3908435ad517e4c179c9d58"
+    },
+    {
+      "path": "src/cli.mjs",
+      "size": 13474,
+      "sha256": "f08c5952cf085a519f37d671ea7e48f7243421f7b86ab8dda42ef0f1339024e6"
+    },
+    {
+      "path": "src/compatibility.mjs",
+      "size": 13192,
+      "sha256": "e4099ab2b4046b4ca0c263f059d8c3604e7279e2b023f986ac0dec95cf705cda"
+    },
+    {
+      "path": "src/core.mjs",
+      "size": 15116,
+      "sha256": "5db37a561ed396c15036dd85d6cb9404ff52c3795786c94a60ef5d13db4da53c"
+    },
+    {
+      "path": "src/data/dj-compatibility.json",
+      "size": 90779,
+      "sha256": "ccae779d0db53e8ab4f4783033307c624d5f43282ccccc91a3569632887de2b1"
+    },
+    {
+      "path": "src/data/media-format-guidance.json",
+      "size": 14125,
+      "sha256": "02782852352f3eb07f57622742642872ff15c74c006bd5a708a8b8b2916b3f92"
+    },
+    {
+      "path": "src/data/platform-filesystems.json",
+      "size": 5790,
+      "sha256": "1e411563132b2a8fbcd0d6994e91483da411547e0a7bce47e910d93eaf93ba7d"
+    },
+    {
+      "path": "src/data/rekordbox-advisories.json",
+      "size": 3171,
+      "sha256": "2ce344611bc8753afc57b0cc2bd001333f3221d18c6e7b0c2a5d19467166e9a3"
+    },
+    {
+      "path": "src/disk-backend.ps1",
+      "size": 42133,
+      "sha256": "f26bee38c685bf0c1a642e86b9e756c67bee2ca5619318f3323e9e7b4386c018"
+    },
+    {
+      "path": "src/disks.mjs",
+      "size": 9454,
+      "sha256": "aed91171e11b1634f6dc43f1bc3987ce86c96fae5b30a988bb0f55d85b859a72"
+    },
+    {
+      "path": "src/export-libraries.mjs",
+      "size": 46098,
+      "sha256": "fb185249fe3e7d5572893526039033bb2c2e7a6d418c5eb27396ae2b24b7f117"
+    },
+    {
+      "path": "src/images.mjs",
+      "size": 4085,
+      "sha256": "2fc7138f52ddb224a707b77ebb5d1e5d26bb9b84da0131ab1be5411aacd55554"
+    },
+    {
+      "path": "src/locks.mjs",
+      "size": 8139,
+      "sha256": "77344a995bf34e4c45442ab23b8b7eb911a407199bfdd0cf3cb49cc0bbc5cd9f"
+    },
+    {
+      "path": "src/native-arguments.ps1",
+      "size": 1770,
+      "sha256": "d1608544b3d83293e7a8fc5240104c8459d2c94e0e840fbbd785fc66adf8f745"
+    },
+    {
+      "path": "src/native-options.mjs",
+      "size": 3240,
+      "sha256": "b9e23983e99fc98e0384ab3e722cd8a1c84830f18822eb09f70e4af61cd6bba4"
+    },
+    {
+      "path": "src/server.mjs",
+      "size": 17818,
+      "sha256": "7d074775ec6fa20896c1ab364a27c79996095e2abb52ba7ea27f524cf8846789"
+    },
+    {
+      "path": "src/setup.mjs",
+      "size": 22679,
+      "sha256": "15eec2fdd616aaf11e7a317c73c48b2d56f9d99bef5ed455a6cf181a6241454f"
+    },
+    {
+      "path": "src/smart-plan.mjs",
+      "size": 16829,
+      "sha256": "d8a291774c7c46395bfae126d7fb4f6c7ffa52386baced9f8cad8864ed30d40d"
+    },
+    {
+      "path": "src/windows-backend.ps1",
+      "size": 21073,
+      "sha256": "3912e1c76dc19c92881045bcc1c55e34552d089dee259b387eb43ace42faef2d"
+    },
+    {
+      "path": "tests/acceptance/desktop-windows-partial.json",
+      "size": 2289,
+      "sha256": "8bd931abe43dbc08aa8afe64033f4524a79d60ac7051084d875285cfe78e90a5"
+    },
+    {
+      "path": "tests/acceptance/offline-and-vhd.json",
+      "size": 2632,
+      "sha256": "a0e32ccf667ec8b3adefb180961a5ea848261cb3dcf7c0cda3102e4cfd657739"
+    },
+    {
+      "path": "tests/acceptance/zorin-usb-windows.json",
+      "size": 1065,
+      "sha256": "94ed633863edf3092db5829c5fd18e69432d798d634d0e2161339e79f529ab7a"
+    },
+    {
+      "path": "tests/backend-safety.ps1",
+      "size": 6314,
+      "sha256": "d188623b460d2e4feb392e31fa185f046aca43a74456e65291f4a070fb2f6230"
+    },
+    {
+      "path": "tests/bridge.test.mjs",
+      "size": 3542,
+      "sha256": "d78b63a98984a5dc99979491584d3ae8940a368963287d1b7f2027414c4c5cf9"
+    },
+    {
+      "path": "tests/compatibility.test.mjs",
+      "size": 4574,
+      "sha256": "430cbabd90b6b7eb116f4d73127667f8e8e95b11ebef5f2c731248030bd98bc4"
+    },
+    {
+      "path": "tests/disk-backend-fixture.ps1",
+      "size": 11826,
+      "sha256": "952dc15f7efb75449336c78d22ba4ff872d7042290db48357e08300acc4cf203"
+    },
+    {
+      "path": "tests/disk-backend-safety.ps1",
+      "size": 6411,
+      "sha256": "725363fa979bb9396305a886e6646f57eabe2307bffd3bc67505be2470378c8b"
+    },
+    {
+      "path": "tests/disk-client.test.mjs",
+      "size": 9747,
+      "sha256": "0a9aa0293574cdc50078b14bacb0fd179ca5b50561efdb69ea790b8c8791b3f2"
+    },
+    {
+      "path": "tests/export-libraries.test.mjs",
+      "size": 20360,
+      "sha256": "26ec3da28c3b0dd383a52e41195ea27e3744587d9c39ec6f47c39ed380a3746b"
+    },
+    {
+      "path": "tests/installers.test.mjs",
+      "size": 25551,
+      "sha256": "56fb77eb55fd76f8f7fd8196b89e1762fe86c8ea9124ae6b3f8ffee25c7aea57"
+    },
+    {
+      "path": "tests/locks.test.mjs",
+      "size": 6404,
+      "sha256": "80157141693bdbef8926c5e8544abea5cb92e440c4ce14a8faf59e84de359b3f"
+    },
+    {
+      "path": "tests/mcp-reference.test.mjs",
+      "size": 1804,
+      "sha256": "6f3ee7b90d5d09e813769f51dceb9efaa03af496d2a50bd64c3a00a07a5ea47a"
+    },
+    {
+      "path": "tests/mcp-smoke.mjs",
+      "size": 2345,
+      "sha256": "8977596dfd4c2a4799746e45e951c52883f9e50bf2c32771ad871924be3953b3"
+    },
+    {
+      "path": "tests/native-arguments.ps1",
+      "size": 2098,
+      "sha256": "b9f1dd934a28e065231bc727e4f580d00d57fd2a5c8537adaddbda8e850d2ddc"
+    },
+    {
+      "path": "tests/native-client.test.mjs",
+      "size": 14056,
+      "sha256": "9c04dc2e793cc67870ab369dee2072c95a60dd6a5344dec8ca8e5282a0b2b05a"
+    },
+    {
+      "path": "tests/native-options.test.mjs",
+      "size": 2869,
+      "sha256": "765b78c2404e30c5f50793f87e3bee67f77d51a4196827a62cd24070c677d72e"
+    },
+    {
+      "path": "tests/reference-data.test.mjs",
+      "size": 2829,
+      "sha256": "34e80027a3f66712b5ed1fd3f800103a3a5967239ce5e1f2dfe015b87c440b79"
+    },
+    {
+      "path": "tests/setup.test.mjs",
+      "size": 10613,
+      "sha256": "3a457cf36e47a70efc6908eea1f1b96bfe4bc73c023ba3166b79a8be4252a2b0"
+    },
+    {
+      "path": "tests/smart-plan.test.mjs",
+      "size": 4392,
+      "sha256": "285b7a51eccb6897b7cbc903d5d6bccca99df4de856fef6a67fc9466dfc8f70e"
+    },
+    {
+      "path": "tests/test_release_builder.py",
+      "size": 8515,
+      "sha256": "7cd15d0aa786cd4475f81c56573025d56052bda67529df175a70326ba31fff46"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "size": 3110,
+      "sha256": "4b4ba229cf65626a98fab7227f2265ac4db11913fa606c12f3e7078f01b8fd01"
+    }
+  ]
+}
